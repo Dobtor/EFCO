@@ -15,7 +15,7 @@
     #wrapwrap header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse {
       position: absolute;
       bottom: 0px;
-      right: 10%; } }
+      width: 100%; } }
 
 #wrapwrap > footer {
   background-color: #F2F2F2; }
