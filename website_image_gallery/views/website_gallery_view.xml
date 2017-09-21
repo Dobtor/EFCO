@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <!-- Gallery -->
+        <record id="website_gallery_form" model="ir.ui.view">
+            <field name="name">website_gallery.form</field>
+            <field name="model">website.gallery</field>
+            <field name="arch" type="xml">
+                <form string="Website Gallery">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" icon="fa-globe" name="website_publish_button" type="object">
+                                <field name="website_published" widget="website_button"/>
+                            </button>
+                        </div>
+                        <field class="oe_avatar" name="image" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}" widget="image"/>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Gallery name"/>
+                            <h1>
+                                <field name="name" placeholder="Gallery name" required="1"/>
+                            </h1>
+                            <div>
+                                <div>
+                                    <field name="active"/>
+                                    <label for="active"/>
+                                </div>
+                            </div>
+                        </div>
+                        <field invisible="1" name="company_id"/>
+                        <field invisible="1" name="user_id"/>
+                        <notebook colspan="4">
+                            <page autofocus="autofocus" string="Images">
+                                <field context="{'default_website_published': True}" mode="kanban" name="child_ids" widget="one2many_list">
+                                    <kanban>
+                                        <field name="name"/>
+                                        <field name="active"/>
+                                        <field name="image"/>
+                                        <field name="website_published"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click" style="box-shadow: 1px 1px 3px #999; margin: 0 8px 3px 0;">
+                                                    <a class="fa fa-times pull-right" t-if="!read_only_mode" type="delete"/>
+                                                    <div class="o_kanban_image">
+                                                        <img t-att-src="'data:image/png;base64,'+record.image.raw_value" t-if="record.image.raw_value"/>
+                                                        <img t-att-src="_s + &quot;/website_image_gallery/static/src/img/gallery.png&quot;" t-if="!record.image.raw_value"/>
+                                                    </div>
+                                                    <div class="oe_kanban_details">
+                                                        <b><field name="name"/></b>
+                                                        <div>Active: <i t-if="record.active.raw_value" class="fa fa-check-square-o"/><i t-if="!record.active.raw_value" class="fa fa-square-o"/></div>
+                                                        <div>Published: <i t-if="record.website_published.raw_value" class="fa fa-check-square-o"/><i t-if="!record.website_published.raw_value" class="fa fa-square-o"/></div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                    <form string="Image">
+                                        <sheet>
+                                            <div class="oe_button_box" name="button_box">
+                                                <button class="oe_stat_button" icon="fa-globe" name="website_publish_button" type="object">
+                                                    <field name="website_published" widget="website_button"/>
+                                                </button>
+                                            </div>
+                                            <field class="oe_avatar" name="image" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}" widget="image"/>
+                                            <div class="oe_title">
+                                                <label class="oe_edit_only" for="name" string="Image name"/>
+                                                <h1>
+                                                    <field name="name" default_focus="1" placeholder="Image name"/>
+                                                </h1>
+                                                <div>
+                                                    <div>
+                                                        <field name="active"/>
+                                                        <label for="active"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <field invisible="1" name="company_id"/>
+                                            <field invisible="1" name="user_id"/>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="website_gallery_tree" model="ir.ui.view">
+            <field name="name">website.gallery.tree</field>
+            <field name="model">website.gallery</field>
+            <field name="arch" type="xml">
+                <tree string="List gallery">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="qty_images"/>
+                    <field name="website_published"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_website_gallery" model="ir.actions.act_window">
+            <field name="name">Website gallery</field>
+            <field name="res_model">website.gallery</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="domain">[("parent_id", "=", False)]</field> -->
+            <field name="domain">[]</field>
+        </record>
+        <menuitem groups="base.group_website_publisher" id="menu_root_website_gallery" name="Website Gallery" sequence="218"/>
+        <menuitem action="action_website_gallery" id="menu_website_gallery" parent="menu_root_website_gallery" sequence="101"/>
+
+        <!-- Images -->
+        <record id="website_image_form" model="ir.ui.view">
+            <field name="name">website.image.form</field>
+            <field name="model">website.image</field>
+            <field name="arch" type="xml">
+                <form string="Website Images">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" icon="fa-globe" name="website_publish_button" type="object">
+                                <field name="website_published" widget="website_button"/>
+                            </button>
+                        </div>
+                        <field class="oe_avatar" name="image" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}" widget="image"/>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Image name"/>
+                            <h1>
+                                <field name="name" placeholder="Image name"/>
+                            </h1>
+                            <div>
+                                <div>
+                                    <field name="active"/>
+                                    <label for="active"/>
+                                </div>
+                            </div>
+                        </div>
+                        <field invisible="1" name="company_id"/>
+                        <field invisible="1" name="user_id"/>
+                        <notebook colspan="4">
+                            <page autofocus="autofocus" string="Galleries">
+                                <field context="{'default_website_published': True}" mode="kanban" name="gallery_ids" widget="many2many_kanban">
+                                    <kanban>
+                                        <!-- <field name="parent_id"/> -->
+                                        <field name="name"/>
+                                        <field name="active"/>
+                                        <field name="image"/>
+                                        <field name="website_published"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click" style="box-shadow: 1px 1px 3px #999; margin: 0 8px 3px 0;">
+                                                    <a class="fa fa-times pull-right" t-if="!read_only_mode" type="delete"/>
+                                                    <div class="o_kanban_image">
+                                                        <img t-att-src="'data:image/png;base64,'+record.image.raw_value" t-if="record.image.raw_value"/>
+                                                        <img t-att-src="_s + &quot;/website_image_gallery/static/src/img/gallery.png&quot;" t-if="!record.image.raw_value"/>
+                                                    </div>
+                                                    <div class="oe_kanban_details">
+                                                        <b><field name="name"/></b>
+                                                        <div>Active: <i t-if="record.active.raw_value" class="fa fa-check-square-o"/><i t-if="!record.active.raw_value" class="fa fa-square-o"/></div>
+                                                        <div>Published: <i t-if="record.website_published.raw_value" class="fa fa-check-square-o"/><i t-if="!record.website_published.raw_value" class="fa fa-square-o"/></div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                    <form string="Image">
+                                        <sheet>
+                                            <div class="oe_button_box" name="button_box">
+                                                <button class="oe_stat_button" icon="fa-globe" name="website_publish_button" type="object">
+                                                    <field name="website_published" widget="website_button"/>
+                                                </button>
+                                            </div>
+                                            <field class="oe_avatar" name="image" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}" widget="image"/>
+                                            <div class="oe_title">
+                                                <label class="oe_edit_only" for="name" string="Image name"/>
+                                                <h1>
+                                                    <field name="name" default_focus="1" placeholder="Image name"/>
+                                                </h1>
+                                                <div>
+                                                    <div>
+                                                        <field name="active"/>
+                                                        <label for="active"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <field invisible="1" name="company_id"/>
+                                            <field invisible="1" name="user_id"/>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_kanban_view_image">
+            <field name="name">Images Kanban</field>
+            <field name="model">website.image</field>
+            <field name="arch" type="xml">
+                <kanban class="o_hr_employee_kanban">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="image"/>
+                    <field name="website_published"/>
+                    <field name="gallery_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_module_vignette oe_kanban_global_click">
+                                <a class="fa fa-times pull-right" t-if="!read_only_mode" type="delete"/>
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('website.image', 'image_small', record.id.value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <b><field name="name"/></b>
+                                    <div>Active: <i t-if="record.active.raw_value" class="fa fa-check-square-o"/><i t-if="!record.active.raw_value" class="fa fa-square-o"/></div>
+                                    <div>Published: <i t-if="record.website_published.raw_value" class="fa fa-check-square-o"/><i t-if="!record.website_published.raw_value" class="fa fa-square-o"/></div>
+                                    <span title='Galleries'><i class='fa fa-image'/> <t t-esc="record.gallery_ids.raw_value.length"/></span>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="website_image_tree" model="ir.ui.view">
+            <field name="name">website.image.tree</field>
+            <field name="model">website.image</field>
+            <field name="arch" type="xml">
+                <tree string="List image">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="website_published"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_website_image" model="ir.actions.act_window">
+            <field name="name">Website image</field>
+            <field name="res_model">website.image</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[]</field>
+        </record>
+        <menuitem action="action_website_image" id="menu_website_image" parent="menu_root_website_gallery" sequence="102"/>
+    </data>
+</openerp>

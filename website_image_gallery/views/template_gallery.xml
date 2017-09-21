@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <!-- Gallery -->
+        <template id="ws_page_gallery" name="Gallery" page="True">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container text-center">
+                        <div class="mb32 mt32">
+                            <h1>Our Gallery</h1>
+                            <p>Write one sentence to convince visitor about your message.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure">
+                    <section class="container">
+                        <div class="row">
+                            <p t-if="not galleries">No result found</p>
+                            <t t-set="i" t-value="0"/>
+                            <t t-as="gallery" t-foreach="galleries">
+                                <div class="col-md-3 col-xs-6 mt8 mb8 text-center colsize">
+                                    <t t-call="website.publish_management">
+                                        <t t-set="object" t-value="gallery"/>
+                                        <t t-set="publish_edit" t-value="True"/>
+                                    </t>
+                                    <div class="thumbnail" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+                                        <a t-att-href="'/page/gallery/images/%s' % gallery.id">
+                                            <span itemprop="image" t-att-alt="gallery.name" t-field="gallery.image" t-field-options="{&quot;widget&quot;: &quot;image&quot; #{None if image else &quot;, \&quot;resize\&quot;: \&quot;300x300\&quot;&quot;}}"/>
+                                        </a>
+                                        <h5 class="text-center">
+                                            <small>
+                                                <a itemprop="name" t-att-href="'/page/gallery/images/%s' % gallery.id" t-field="gallery.name"/>
+                                            </small>
+                                            <div class="text-muted">
+                                                <small><i class="fa fa-photo"/> <span t-esc="len([i.website_published for i in gallery.child_ids if i.website_published==1])"/> (Published)</small>
+                                            </div>
+                                            <div groups="base.group_website_publisher" class="text-muted">
+                                                <small><i class="fa fa-photo"/> <span t-esc="len([i.id for i in gallery.child_ids if i.website_published==0])"/> (Not published)</small>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <!--<a class="pull-left" t-attf-href="/page/tmp/#{slug(gallery)}" t-field="gallery.image" t-field-options='{"widget": "image" #{",\"resize\": \"300x300\""}}'></a>-->
+                                </div>
+                                <t t-set="i" t-value="i+1"/>
+                                <t t-if="i == 4">
+                                    <t t-set="i" t-value="0"/>
+                                    <div class="clearfix"/>
+                                </t>
+                            </t>
+                        </div>
+                        <div class="container" groups="base.group_website_publisher">
+                            <div class="well mt32">
+                                <p>But you can create gallery it as you are administrator of this site.</p>
+                                <a class="btn btn-primary" t-attf-href="/web#action=website_image_gallery.action_website_gallery&amp;website_id=#{website.id if website else ''}">Add a gallery...</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="text-center">
+                        <div class="row" style="width: 100%;">
+                            <t t-call="website.pager"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <!-- Images -->
+        <template id="ws_page_images" name="Images">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container text-center">
+                        <div class="mb32 mt32">
+                            <h1>Our Images</h1>
+                            <p>Write one sentence to convince visitor about your message.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure">
+                    <section class="container">
+                        <div class="row">
+                            <p t-if="not images">No result found</p>
+                            <t t-if="images">
+                                <h2 class="text-center well" t-esc="gallery.name"/>
+                                <!-- <img t-attf-src="/web/image/website.gallery/#{gallery.id}/image_small" class="img-responsive img-thumbnail" t-att-alt="gallery.name"/> -->
+                            </t>
+                            <t t-set="i" t-value="0"/>
+                            <div class="media">
+                                <t t-as="img" t-foreach="images">
+                                    <div class="col-md-2 col-xs-6 mt8 mb8 text-center colsize">
+                                        <t t-call="website.publish_management">
+                                            <t t-set="object" t-value="img"/>
+                                            <t t-set="publish_edit" t-value="True"/>
+                                        </t>
+                                        <div class="thumbnail">
+                                            <a t-att-href="'/web/image/website.image/%s/image' % img.id" rel="prettyPhoto[pp_gal]" t-att-title="img.name">
+                                                <img t-attf-src="/web/image/website.image/#{img.id}/image_medium/145x145" t-att-alt="img.name"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <t t-set="i" t-value="i+1"/>
+                                    <t t-if="i == 6">
+                                        <t t-set="i" t-value="0"/>
+                                        <div class="clearfix"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="container" groups="base.group_website_publisher">
+                        <div class="well mt32">
+                            <p>But you can create image it as you are administrator of this site.</p>
+                            <a class="btn btn-primary" t-attf-href="/web#action=website_image_gallery.action_website_image&amp;website_id=#{website.id if website else ''}">Upload image...</a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="row" style="width: 100%;">
+                            <t t-call="website.pager"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</openerp>

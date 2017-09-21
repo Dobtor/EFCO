@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <!-- Demo 1 Single Image-->
+        <template id="s_prettyPhoto_single_image" name="Single Image">
+            <section class="pages_tabs_demo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 wow fadeInDown">
+                            <div class="tab-wrap">
+                                <div class="media">
+                                    <div class="parrent pull-left">
+                                        <ul class="nav nav-tabs nav-stacked">
+                                            <li class="">
+                                                <a class="analistic-01" data-toggle="tab" href="#tab1_single_image">Single Image</a>
+                                            </li>
+                                            <li class="active">
+                                                <a class="analistic-02" data-toggle="tab" href="#tab2_single_image">Demo</a>
+                                            </li>
+                                            <li class="">
+                                                <a class="tehnical" data-toggle="tab" href="#tab3_single_image">Code</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="parrent media-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade" id="tab1_single_image">
+                                                <div>
+                                                    prettyPhoto can open single images. 
+                                                    <br/>
+                                                    To do so, simply:
+                                                    <ol>
+                                                        <li value="1">Create a link (<![CDATA[&lt;a href=&quot;#&quot;&gt;]]>).</li>
+                                                        <li>Add the rel attribute “prettyPhoto” to it (rel=”prettyPhoto”).</li>
+                                                        <li>
+                                                            Change the href of your link so it points to the 
+                                                            <b>full size</b>
+                                                            image.</li>
+                                                    </ol>
+                                                    You can also add a title and a description to your picture:
+                                                    <ol>
+                                                        <li value="1">
+                                                            To have display a title, add the title into the 
+                                                            <b>ALT</b>
+                                                            attribute or your thumbnail image.</li>
+                                                        <li>To have display a description, add the description into the 
+                                                            <b>TITLE</b>
+                                                            attribute or your link.</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade active in text-center" id="tab2_single_image">
+                                                <div class="media">
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item8.jpg" rel="prettyPhoto" title="This is the description">
+                                                        <img alt="This is the title" height="100" src="/website_prettyPhoto/static/src/img/demo/item8.jpg" width="100"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3_single_image">
+                                                <div style="border:solid 1px orange; overflow:scroll; overflow-y:hidden; overflow-x:scroll;">
+                                                    <p style="width:150%"><![CDATA[&lt;a href=&quot;/website_prettyPhoto/static/src/img/demo/item8.jpg&quot; rel=&quot;prettyPhoto&quot; title=&quot;This is the description&quot;&gt;&lt;img src=&quot;/website_prettyPhoto/static/src/img/demo/item8.jpg&quot; width=&quot;100&quot; height=&quot;100&quot; alt=&quot;This is the title&quot; /&gt;&lt;/a&gt;]]></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Demo 2 Image Gallery-->
+        <template id="s_prettyPhoto_image_gallery" name="Gallery Image">
+            <section class="pages_tabs_demo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 wow fadeInDown">
+                            <div class="tab-wrap">
+                                <div class="media">
+                                    <div class="parrent pull-left">
+                                        <ul class="nav nav-tabs nav-stacked">
+                                            <li class="">
+                                                <a class="analistic-01" data-toggle="tab" href="#tab1_image_gallery">Image Gallery</a>
+                                            </li>
+                                            <li class="active">
+                                                <a class="analistic-02" data-toggle="tab" href="#tab2_image_gallery">Demo</a>
+                                            </li>
+                                            <li class="">
+                                                <a class="tehnical" data-toggle="tab" href="#tab3_image_gallery">Code</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="parrent media-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade" id="tab1_image_gallery">
+                                                <div>
+                                                    To open an image gallery simply:
+                                                    <ol>
+                                                        <li value="1">Create a link (<![CDATA[&lt;a href=&quot;#&quot;&gt;]]>).</li>
+                                                        <li>Add the rel attribute “prettyPhoto” to it and add your gallery name in square brakets (rel=”prettyPhoto“).</li>
+                                                        <li>
+                                                            Change the href of your link so it points to the 
+                                                            <b>full size</b>
+                                                            image.</li>
+                                                        <li>Pass the following settings when you initialize prettyPhoto: $(“a[rel^=’prettyPhoto’]”).prettyPhoto({theme: ‘facebook’,slideshow:5000, autoplay_slideshow:true});</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade active in text-center" id="tab2_image_gallery">
+                                                <div class="media">
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item1.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures."><img src="/website_prettyPhoto/static/src/img/demo/item1.jpg" width="100" height="100" alt="Red round shape" /></a>
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item2.jpg" rel="prettyPhoto[pp_gal]"><img src="/website_prettyPhoto/static/src/img/demo/item2.jpg" width="100" height="100" alt="Red round shape" /></a>
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item3.jpg" rel="prettyPhoto[pp_gal]"><img src="/website_prettyPhoto/static/src/img/demo/item3.jpg" width="100" height="100" alt="Red round shape" /></a>
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item4.jpg" rel="prettyPhoto[pp_gal]"><img src="/website_prettyPhoto/static/src/img/demo/item4.jpg" width="100" height="100" alt="Red round shape" /></a>
+                                                    <a href="/website_prettyPhoto/static/src/img/demo/item5.jpg" rel="prettyPhoto[pp_gal]"><img src="/website_prettyPhoto/static/src/img/demo/item5.jpg" width="100" height="100" alt="Red round shape" /></a>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3_image_gallery">
+                                                <div style="border:solid 1px orange; overflow:scroll; overflow-y:hidden; overflow-x:scroll;">
+                                                    <p style="width:190%">
+                                                        <![CDATA[&lt;a href="/website_prettyPhoto/static/src/img/demo/item1.jpg" rel="prettyPhoto[pp_gal]" title="You can add caption to pictures."&gt;&lt;img src="/website_prettyPhoto/static/src/img/demo/item1.jpg" width="100" height="100" alt="Red round shape" /&gt;&lt;/a&gt;<br/>
+                                                        &lt;a href="/website_prettyPhoto/static/src/img/demo/item2.jpg" rel="prettyPhoto[pp_gal]"&gt;
+                                                            &lt;img src="/website_prettyPhoto/static/src/img/demo/item2.jpg" width="100" height="100" alt="Red round shape" /&gt;&lt;/a&gt;<br/>
+                                                        &lt;a href="/website_prettyPhoto/static/src/img/demo/item3.jpg" rel="prettyPhoto[pp_gal]"&gt;&lt;img src="/website_prettyPhoto/static/src/img/demo/item3.jpg" width="100" height="100" alt="Red round shape" /&gt;&lt;/a&gt;<br/>
+                                                        &lt;a href="/website_prettyPhoto/static/src/img/demo/item4.jpg" rel="prettyPhoto[pp_gal]"&gt;
+                                                        &lt;img src="/website_prettyPhoto/static/src/img/demo/item4.jpg" width="100" height="100" alt="Red round shape" /&gt;&lt;/a&gt;<br/>
+                                                        &lt;a href="/website_prettyPhoto/static/src/img/demo/item5.jpg" rel="prettyPhoto[pp_gal]"&gt;
+                                                        &lt;img src="/website_prettyPhoto/static/src/img/demo/item5.jpg" width="100" height="100" alt="Red round shape" /&gt;&lt;/a&gt;]]>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Demo 3 youtube-->
+        <template id="s_prettyPhoto_youtube" name="Youtube Content">
+            <section class="pages_tabs_demo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 wow fadeInDown">
+                            <div class="tab-wrap">
+                                <div class="media">
+                                    <div class="parrent pull-left">
+                                        <ul class="nav nav-tabs nav-stacked">
+                                            <li class="">
+                                                <a class="analistic-01" data-toggle="tab" href="#tab1_youtube">Youtube Content</a>
+                                            </li>
+                                            <li class="active">
+                                                <a class="analistic-02" data-toggle="tab" href="#tab2_youtube">Demo</a>
+                                            </li>
+                                            <li class="">
+                                                <a class="tehnical" data-toggle="tab" href="#tab3_youtube">Code</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="parrent media-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade" id="tab1_youtube">
+                                                <div>
+                                                    To open YouTube content with it simply:
+                                                    <ol>
+                                                        <li value="1">Create a link (<![CDATA[&lt;a href=&quot;#&quot;&gt;]]>).</li>
+                                                        <li>Add the rel attribute “prettyPhoto” to it (rel=”prettyPhoto”).</li>
+                                                        <li>Change the href of your link so it points to the YouTube video page, the same link you would share with friends.</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade active in text-center" id="tab2_youtube">
+                                                <div class="media">
+                                                    <a href="https://www.youtube.com/watch?v=6b7IONlUzr8" rel="prettyPhoto" title=""><img src="/website_prettyPhoto/static/src/img/snippets/youtube.png" alt="YouTube" width="100" /></a>
+
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3_youtube">
+                                                <div style="border:solid 1px orange; overflow:scroll; overflow-y:hidden; overflow-x:scroll;">
+                                                    <p style="width:150%">
+                                                        <![CDATA[&lt;a href="https://www.youtube.com/watch?v=6b7IONlUzr8" rel="prettyPhoto" title=""&gt;&lt;img src="/website_prettyPhoto/static/src/img/snippets/youtube.png" alt="YouTube" width="100" /&gt;&lt;/a&gt;]]>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Demo 4 Vimeo-->
+        <template id="s_prettyPhoto_vimeo" name="Vimeo Content">
+            <section class="pages_tabs_demo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 wow fadeInDown">
+                            <div class="tab-wrap">
+                                <div class="media">
+                                    <div class="parrent pull-left">
+                                        <ul class="nav nav-tabs nav-stacked">
+                                            <li class="">
+                                                <a class="analistic-01" data-toggle="tab" href="#tab1_vimeo">Vimeo Content</a>
+                                            </li>
+                                            <li class="active">
+                                                <a class="analistic-02" data-toggle="tab" href="#tab2_vimeo">Demo</a>
+                                            </li>
+                                            <li class="">
+                                                <a class="tehnical" data-toggle="tab" href="#tab3_vimeo">Code</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="parrent media-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade" id="tab1_vimeo">
+                                                <div>
+                                                    To open Vimeo content with it simply:
+                                                    <ol>
+                                                        <li value="1">Create a link (<![CDATA[&lt;a href=&quot;#&quot;&gt;]]>).</li>
+                                                        <li>Add the rel attribute “prettyPhoto” to it (rel=”prettyPhoto”).</li>
+                                                        <li>Change the href of your link so it points to the Vimeo video page, the same link you would share with friends.</li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade active in text-center" id="tab2_vimeo">
+                                                <div class="media">
+                                                    <a href="https://vimeo.com/107597939" rel="prettyPhoto" title=""><img src="/website_prettyPhoto/static/src/img/snippets/vimeo.png" alt="Vimeo" width="100"/></a>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab3_vimeo">
+                                                <div style="border:solid 1px orange; overflow:scroll; overflow-y:hidden; overflow-x:scroll;">
+                                                    <p style="width:150%">
+                                                        <![CDATA[&lt;a href="https://vimeo.com/107597939" rel="prettyPhoto" title=""&gt;&lt;img src="/website_prettyPhoto/static/src/img/snippets/vimeo.png" alt="YouTube" width="100"/&gt;&lt;/a&gt;]]>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Add snippets prettyPhoto Demo -->
+        <template id="template_snippets_pretty_photo" inherit_id="website.snippets">
+            <xpath expr="//div[@id='snippet_content']" position="after">
+                <div class="o_panel" id="snippet_pretty_photo">
+                    <div class="o_panel_header">
+                        <i class="fa fa-diamond"/>prettyPhoto</div>
+                    <div class="o_panel_body">
+                        <t t-snippet="website_prettyPhoto.s_prettyPhoto_single_image" t-thumbnail="/website_prettyPhoto/static/src/img/snippets/single_image.png"/>
+                        <t t-snippet="website_prettyPhoto.s_prettyPhoto_image_gallery" t-thumbnail="/website_prettyPhoto/static/src/img/snippets/gallery_image.png"/>
+                        <t t-snippet="website_prettyPhoto.s_prettyPhoto_youtube" t-thumbnail="/website_prettyPhoto/static/src/img/snippets/youtube.png"/>
+                        <t t-snippet="website_prettyPhoto.s_prettyPhoto_vimeo" t-thumbnail="/website_prettyPhoto/static/src/img/snippets/vimeo.png"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</openerp>

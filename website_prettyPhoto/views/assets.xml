@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--PACK SNIPPETS-->
+        <template id="pack_snippets" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/less" href="/website_prettyPhoto/static/src/css/style.css"></link>
+                <link rel="stylesheet" type="text/less" href="/website_prettyPhoto/static/src/css/prettyPhoto.css"></link>
+                <script type="text/javascript" src="/website_prettyPhoto/static/src/js/jquery.prettyPhoto.js"></script>
+                <script type="text/javascript" src="/website_prettyPhoto/static/src/js/prettyPhoto.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

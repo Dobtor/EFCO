@@ -1,0 +1,73 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.li-mega-menu .tab-content:after {
+}
+
+.li-mega-menu .tab-content:after {
+    background-color: transparent;
+}
+
+.li-mega-menu .tab-content {
+    border: none;
+    padding: 0px !important;
+    border-top: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 0px;
+}
+
+.li-mega-menu .nav-tabs > li.active > a:after {
+    background-color: transparent;
+}
+
+.li-mega-menu .tabinnertext {
+    position: absolute !important;
+    bottom: 36px;
+    background-image: none !important;
+    background-color: rgba(34,35,59,0.8) !important;
+    color: #fff !important;
+    padding: 8px;
+    text-align: center;
+    display: inline-block;
+    position: relative !important;
+    width: 200px;
+}
+
+.li-mega-menu .dropdown-menu.mega-dropdown-menu.row {
+    padding: 0px;
+}
+
+.li-mega-menu .mega-dropdown-menu ul {
+    margin: 0px;
+}
+
+.li-mega-menu .nav-tabs > li > a {
+    border-radius: 0px;
+}
+
+.li-mega-menu .mega-center {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.li-mega-menu .menu-img {
+    width: 200px;
+    height: 130px;
+}
+
+.li-mega-menu .fak-img {
+    background-size: 200px 130px !important;
+    width: 200px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    height: 130px;
+}
+
+.li-mega-menu .col-md-3.mega-center:hover .fak-img {
+    background-size: 220px 143px !important;
+    background-position-x: center;
+    transition: all 0.35s;
+}

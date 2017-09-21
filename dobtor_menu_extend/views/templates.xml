@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="website_dobtormenu_tab" inherit_id="Advance Dobtor Menu.website_dobtormenu_submenu">
+    <xpath expr="//li[@t-if='submenu.is_dobtormenu and not submenu.include_in_dobtormenu']" position="replace">
+      <li t-if="submenu.is_dobtormenu and not submenu.include_in_dobtormenu" t-att-class="'li-mega-menu mm_icon' if submenu.dobtor_menu_icon and submenu.dobtor_menu_icon_image else 'li-mega-menu'">
+
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <t t-if="submenu.dobtor_menu_icon and submenu.dobtor_menu_icon_image">
+            <img t-att-src="website.image_url(submenu, 'dobtor_menu_icon_image', '30x30')"
+                                                class="img-responsive icon"
+                                                t-att-alt="submenu.name"/>
+          </t>
+          <t t-if="submenu.dobtor_menu_name">
+            <span t-field="submenu.name"/>
+          </t>
+          <span class="caret" t-ignore="true"></span>
+        </a>
+
+        <div class="dropdown-menu mega-dropdown-menu row" t-att-style="'padding:0px;' 'background: url(data:image/png;base64,%s); background-size: cover;' % (submenu.dobtormenu_bg_image) if submenu.dobtormenu_bg and submenu.dobtormenu_bg_img_color == 'bg_img' else '' 'background: %s;' % (submenu.dobtormenu_bg_color) if submenu.dobtormenu_bg and submenu.dobtormenu_bg_img_color == 'bg_color' else ''">
+
+          <div class="row">
+            <t t-value="website.get_website_category(submenu)" t-set="product_categories" />
+            <t t-if="not product_categories">
+              <li class="dropdown-header message" t-att-style="'color: %s' %(submenu.dobtor_main_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_main_category_color else ''">
+                Still, No category assigned to this menu.!!!
+              </li>
+            </t>
+            <t t-if="product_categories">
+              <div t-att-class="'col-md-3 col-xs-12' if submenu.dobtor_category_slider else ''"
+                   t-att-style="'float: %s' % submenu.dobtor_category_slider_position if submenu.dobtor_category_slider and submenu.dobtor_category_slider_position else 'float:left;'">
+                <t t-if="submenu.dobtor_category_slider">
+                  <li class="margin">
+                    <ul>
+                      <li class="dropdown-header slider_header" t-att-style="'color: %s' %(submenu.dobtor_main_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_main_category_color else ''">
+                        <t t-esc="submenu.dobtor_carousel_header_name"/>
+                      </li>
+                      <div t-att-id="'myCarousel-%s' % submenu.id" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                          <t t-value='0' t-set='a'/>
+                          <t t-foreach="product_categories" t-as="categ">
+                            <div t-att-class="'item active' if a == 0 else 'item'">
+                              <t t-value='a+1' t-set='a'/>
+                              <a t-att-href="categ.url">
+                                <img t-att-src="website.image_url(categ, 'image', '300x250')"
+                                     t-att-alt="categ.name"
+                                     class="img-responsive"/>
+                              </a>
+                              <h4>
+                                <small t-att-style="'color: %s' %(submenu.dobtor_sub_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_sub_category_color else ''">
+                                  <t t-esc='categ.name'/>
+                                </small>
+                              </h4>
+                            </div>
+                          </t>
+                        </div>
+                      </div>
+                      <div class="carousel-control left" t-att-data-target="'#myCarousel-%s' % submenu.id" data-slide="prev" >
+                        <i class="fa fa-chevron-left"></i>
+                      </div>
+                      <div class="carousel-control right" t-att-data-target="'#myCarousel-%s' % submenu.id" data-slide="next" >
+                        <i class="fa fa-chevron-right"></i>
+                      </div>
+                    </ul>
+                  </li>
+                </t>
+              </div>
+
+              <div t-att-class="'col-md-9  col-xs-12' if submenu.dobtor_category_slider else 'col-md-12'">
+
+                <ul class="nav nav-tabs" role="tablist" t-att-id="'prodTabs_%s' % (submenu.name)">
+                  <t t-value='0' t-set='tab_index'/>
+                  <t t-foreach="product_categories" t-as="category">
+                    <li role="presentation" t-att-class="'active' if tab_index == 0 else ''">
+                      <a t-att-href="'#div%s' %(category.name)" t-att-aria-controls="category.name" role="tab" data-toggle="tab" data-ispostback="true"
+                         t-att-style="'color: %s' %(submenu.dobtor_main_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_main_category_color else ''"
+                         t-att-data-fake-href="'%s' %(category.url)"
+                         >
+                        <t t-if="category.dobtor_menu_icon and category.dobtor_menu_icon_image">
+                          <img t-att-src="website.image_url(category, 'dobtor_menu_icon_image', '30x30')"
+                                                              t-att-alt="category.name"/>
+                        </t>
+                        <t t-if="category.dobtor_menu_name">
+                          <span t-field="category.name"/>
+                        </t>
+                      </a>
+                    </li>
+                    <t t-value='tab_index+1' t-set='tab_index'/>
+                  </t>
+                </ul>
+
+
+                <div class="tab-content" style="background: inherit;">
+                  <t t-value="0" t-set="tabcontent_index"/>
+                  <t t-foreach="product_categories" t-as="category">
+
+                    <div role="tabpanel" t-att-class="'tab-pane row active' if tabcontent_index == 0 else 'tab-pane row'" t-att-id="'div%s' % (category.name)">
+                      <t t-if="category.id">
+                        <t t-as="categ" t-foreach="website.get_website_child_category(category.id)">
+
+                          <a class="col-md-3 mega-center" t-att-href="categ.url" t-att-style="'color: %s' %(submenu.dobtor_sub_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_sub_category_color else ''">
+                            <div style="width: 100%; height: 130px;">
+                              <t t-if="categ.dobtor_menu_icon and categ.dobtor_menu_icon_image">
+                                <div class="fak-img" t-att-style="'background: url(%s);' %(website.image_url(categ, 'dobtor_menu_icon_image'))">
+                                  
+                                </div>
+                              </t>
+                              <t t-if="categ.dobtor_menu_name">
+                                <div class="tabinnertext">
+                                  <span t-field="categ.name"/>
+                                </div>
+
+                              </t>
+                            </div>
+                          </a>
+
+                        </t>
+                      </t>
+                    </div>
+                    <t t-value="tabcontent_index+1" t-set="tabcontent_index"/>
+                  </t>
+                </div>
+
+              </div>
+            </t>
+          </div>
+
+          <div class='row' t-if="submenu.dobtor_display_menu_footer" t-att-style="'color: %s' %(submenu.dobtor_sub_category_color) if submenu.dobtor_customize_menu_colors and submenu.dobtor_sub_category_color else ''">
+            <div class="footer">
+              <t t-raw='submenu.dobtor_menu_footer'/>
+            </div>
+          </div>
+        </div>
+      </li>
+    </xpath>
+  </template>
+
+</odoo>
