@@ -6,6 +6,7 @@ header .container { position: relative;}
 .dropdown-menu .divider{height:0;margin: 20px 0px; }
 .navbar .mm_icon a {position: relative; padding-left:40px;}
 .navbar .mm_icon .icon{display: inline-block; left: 8px; position: absolute; bottom: 0; top: 0; margin: auto; height: 24px;}
+.navbar .mm_icon .subicon{display: inline-block; left: 8px; bottom: 0; top: 0; margin: auto; height: 24px;}
 
 .nav .li-mega-menu  { position: static;}
 .nav .li-mega-menu img{display: inline-block;}
@@ -15,7 +16,7 @@ header .container { position: relative;}
 
 .mega-dropdown-menu ul { margin: 0 0 20px 0; padding: 0;}
 .mega-dropdown-menu ul .categories { display: inline-block; vertical-align: top; width: 100%; background:url(../img/next.png)no-repeat left center;}
-.mega-dropdown-menu ul .dropdown-header {margin: 0 0 15px 0; padding: 0 0 8px; font-size: 15px;  border-bottom: 2px solid #127A48; -webkit-transition: width 0.3s ease-out; font-weight: 600; width: 100%; display: inline-block; vertical-align: top; white-space: normal;}
+.mega-dropdown-menu ul .dropdown-header {margin: 0 0 15px 0; padding: 0 0 8px; font-size: 15px; border-bottom: 2px solid #3415C; -webkit-transition: width .3s ease-out; font-weight: 600; width: 100%; display: inline-block; vertical-align: top; white-space: normal;}
 .mega-dropdown-menu ul li a:hover{text-decoration: none;}
 
 .mega-dropdown-menu ul .slider_header {width: 100%; white-space: normal; display: inline-block; padding-right: 60px;}
