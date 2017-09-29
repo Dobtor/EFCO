@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-        <record id="website.menu_tree" model="ir.ui.view">
-            <field name="name">website.mega.menu.tree</field>
+        <record id="website.mega_menu_tree" model="ir.ui.view">
+            <field name="name">website.mega_menu.tree</field>
             <field name="model">website.menu</field>
             <field name="field_parent">child_id</field>
+            <field name="inherit_id" ref="website.menu_tree"/>
             <field name="arch" type="xml">
-                <tree string="Website mega menu">
+                <tree position="attributes">
+                    <attribute name="editable"></attribute>
+                </tree>
+                <xpath expr="//tree/field[@name='parent_id' ]" position="after">
+                <!--<tree string="Website menu">
                     <field name="sequence" widget="handle"/>
                     <field name="website_id" options="{'no_create': True}"/>
                     <field name="name"/>
-                    <field name="is_dobtormenu"/>
-                    <field name="include_in_dobtormenu"/>
-                    <field name="is_megamenu"/>
                     <field name="url"/>
                     <field name="new_window"/>
-                    <field name="parent_id"/>
-                    <field name="menu_id"/>
-                </tree>
+                    <field name="parent_id"/>-->
+                    <field name="is_megamenu"/>
+                <!--</tree>-->
+                </xpath>
             </field>
         </record>
 
 
     <!-- Product Category -->
-    <record id="view_website_menu_inherit" model="ir.ui.view">
-        <field name="name">Website Menu Form View Inherited Mega</field>
+    <record id="website_mega_menu_from_view" model="ir.ui.view">
+        <field name="name">Website Mega Menu Form View</field>
         <field name="model">website.menu</field>
         <field name="field_parent">child_id</field>
         <field name="arch" type="xml">
@@ -91,12 +94,17 @@
         <field name="name">Mega Menu</field>
         <field name="res_model">website.menu</field>
         <field name="view_mode">list,form</field>
+        <field name="view_id" ref="website.mega_menu_tree"/>
         <field name="context">{'search_default_my_websites':1}</field>
     </record>
-
+    <record id="mega" model="ir.actions.act_window.view">
+           <field name="view_mode">form</field>
+           <field name="view_id" ref="website_mega_menu_from_view"/>
+           <field name="act_window_id" ref="website.action_website_mega_menu"/>
+       </record>
     <menuitem
         name="Mega Menu"
-        id="menu_website_dobtor"
+        id="menu_website_mega"
         action="website.action_website_mega_menu"
         sequence="20"
         parent="website.menu_website_configuration"/>

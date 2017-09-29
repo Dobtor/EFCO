@@ -39,7 +39,7 @@ header .container { position: relative;}
 .mega-dropdown-menu .carousel-control:hover{opacity:1;}
 .mega-dropdown-menu .carousel-control.right { left: auto; right:15px;}
 
-.mega-dropdown-menu .message{text-align: center; font-size:20px;text-transform: capitalize;}
+.mega-dropdown-menu .message{text-align: center; font-size:20px; text-transform: capitalize;}
 
 .mega-dropdown-menu .dropdown-header a{padding-left:0;}
 /*responsive */
