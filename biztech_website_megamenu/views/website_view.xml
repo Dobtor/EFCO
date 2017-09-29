@@ -2,7 +2,7 @@
 <odoo>
 
         <record id="website.mega_menu_tree" model="ir.ui.view">
-            <field name="name">website.mega_menu.tree</field>
+            <field name="name">website.mega.menu.tree</field>
             <field name="model">website.menu</field>
             <field name="field_parent">child_id</field>
             <field name="inherit_id" ref="website.menu_tree"/>
