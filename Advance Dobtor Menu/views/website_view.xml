@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-        <record id="website.dobtor_menu_tree" model="ir.ui.view">
-            <field name="name">website.dobtor.menu.tree</field>
-            <field name="model">website.menu</field>
-            <field name="field_parent">child_id</field>
-            <field name="inherit_id" ref="website.menu_tree"/>
-            <field name="arch" type="xml">
-                <tree position="attributes">
-                    <attribute name="editable"></attribute>
-                </tree>
-                <xpath expr="//tree/field[@name='parent_id' ]" position="after">
-                <!--<tree string="Website dobtor menu">
-                    <field name="sequence" widget="handle"/>
-                    <field name="website_id" options="{'no_create': True}"/>
-                    <field name="name"/>
-                    <field name="url"/>
-                    <field name="new_window"/>
-                    <field name="parent_id"/>-->
-                    <field name="menu_id"/>
-                    <field name="is_dobtormenu"/>
-                    <field name="include_in_dobtormenu"/>
-                <!--</tree>-->
-                </xpath>
-            </field>
-        </record>
-
-
-
     <record id="website_dobtor_menu_from_view" model="ir.ui.view">
         <field name="name">Website Dobtor Menu Form View </field>
         <field name="model">website.menu</field>
@@ -103,6 +75,35 @@
             </form>
         </field>
     </record>
+    
+        <record id="website.dobtor_menu_tree" model="ir.ui.view">
+            <field name="name">website.dobtor.menu.tree</field>
+            <field name="model">website.menu</field>
+            <field name="field_parent">child_id</field>
+            <field name="inherit_id" ref="website.menu_tree"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="editable"></attribute>
+                </tree>
+                <xpath expr="//tree/field[@name='parent_id' ]" position="after">
+                <!--<tree string="Website dobtor menu">
+                    <field name="sequence" widget="handle"/>
+                    <field name="website_id" options="{'no_create': True}"/>
+                    <field name="name"/>
+                    <field name="url"/>
+                    <field name="new_window"/>
+                    <field name="parent_id"/>-->
+                    <field name="menu_id"/>
+                    <field name="is_dobtormenu"/>
+                    <field name="include_in_dobtormenu"/>
+                <!--</tree>-->
+                </xpath>
+            </field>
+        </record>
+
+
+
+
 
     <record id="website.action_website_dobtor_menu" model="ir.actions.act_window">
         <field name="name">Dobtor Menu</field>
