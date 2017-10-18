@@ -19,7 +19,7 @@ odoo.define('snippet_google_map.s_google_map_frontend', function (require) {
 
                     $('head').append($('<script/>', {
                         type: "text/javascript",
-                        src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDEsHOK_5Lu6V5RjdgFMeGXs9TczyA0tZs&v=3.exp&libraries=places&callback=odoo_snippet_google_map_redraw_all",
+                        src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC-ANnQLPf8PhRraZucY5lTUl8802QDbdQ&v=3.exp&libraries=places&callback=odoo_snippet_google_map_redraw_all",
                     }));
                 }
             } else {
