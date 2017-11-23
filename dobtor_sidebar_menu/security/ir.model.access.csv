@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dobtor_sidebar_menu_dobtor_sidebar_menu,dobtor_sidebar_menu.dobtor_sidebar_menu,model_dobtor_sidebar_menu_dobtor_sidebar_menu,,1,1,1,0
