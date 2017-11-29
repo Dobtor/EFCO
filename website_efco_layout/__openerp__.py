@@ -7,12 +7,13 @@
     'website': "https://www.dobtor.com",
     'category': 'website',
     'version': '0.1',
-    'depends': ['website'],
+    'depends': ['website', 'Advance Dobtor Menu'],
     'data': [
         # 'security/ir.model.access.csv',
         'views/assets.xml',
         'views/layout_extend.xml',
-        'views/snippets.xml'
+        'views/snippets.xml',
+        'views/template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

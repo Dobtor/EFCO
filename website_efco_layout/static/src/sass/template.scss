@@ -26,6 +26,9 @@ header .container {
 header div.navbar.navbar-default.navbar-static-top {
     background-color: $white;
     border-color: transparent;
+    li a {
+        text-transform: none;
+    }
     li.active a {
         color: green;
         background-color: $white;
@@ -56,6 +59,49 @@ header div.navbar.navbar-default.navbar-static-top {
 #wrapwrap>footer,
 footer {
     background-color: $light-gray;
+    .nav-pills>li>a {
+        border-radius: 0;
+        padding: 10px 15px;
+        border: 1px solid transparent;
+        color: black;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .nav-pills>li.active>a,
+    .nav-pills>li.active>a:hover,
+    .nav-pills>li.active>a:focus {
+        background-color: transparent;
+        color: black;
+    }
+    .nav-pills>li>a:hover,
+    .nav-pills>li>a:focus {
+        background-color: transparent;
+        color: #666666;
+    }
+    .nav {
+        li>a {
+            background-color: transparent;
+        }
+        li {
+            min-width: 150px;
+            ul {
+                list-style-type: none;
+                padding-left: 0px;
+                li a {
+                    text-decoration: none;
+                    color: #666;
+                    position: relative;
+                    display: block;
+                    padding: 1px 15px;
+                }
+            }
+        }
+    }
+    .pull-left.text-muted {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 // snippets s_banner
@@ -168,6 +214,12 @@ footer {
     top: -1px;
     left: -1px;
     content: "";
+}
+
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
+    border-color: transparent;
 }
 
 
