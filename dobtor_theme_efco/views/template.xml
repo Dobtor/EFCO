@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="dobtor_theme_cutomize_sources" name="dobtor_theme_cutomize_sources" inherit_id="website.assets_frontend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/dobtor_theme_efco/static/src/js/FixedTop.js"/>
+        </xpath>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" href="/dobtor_theme_efco/static/src/css/option.css"/>
+        </xpath>
+    </template>
+    <template id="dobtor_customize_modal" inherit_id="website.theme_customize" name="Dobtor Customize Modal" priority="1">
+        <xpath expr="div" position="replace">
+            <div id="theme_customize_modal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="loading_backdrop"></div>
+                        <div class="modal-header text-center">
+                            <button type="button" class="close">×</button>
+                            <h4 class="modal-title">Customize Theme</h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5 class="modal-h5">Navbar</h5>
+                            <table name="navbar">
+                                <tr>
+                                    <td width="50%">
+                                        <label class="checked">
+                                            <div>
+                                                <span style="font-size:11px">Static top</span>
+                                                <input name="navbarstyle" type="radio" data-xmlid="" checked="checked"/>
+                                            </div>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label id="dobtor_theme_fixedtop">
+                                            <div>
+                                                <span style="font-size:11px">Fixed top</span>
+                                                <input name="navbarstyle" type="radio" data-xmlid="dobtor_theme_efco.fixedtop"/>
+                                            </div>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h5 class="modal-h5">Font </h5>
+                            <table name="_font">
+                                <tr>
+                                    <td width="50%">
+                                        <label class="checked">
+                                            <div>
+                                                <span style="font-size:11px">Default Font</span>
+                                                <input name="_fontstyle" type="radio" data-xmlid="" checked="checked"/>
+                                            </div>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label>
+                                            <div>
+                                                <span style="font-size:11px">Apple Font</span>
+                                                <input name="_fontstyle" type="radio" data-xmlid="dobtor_theme_efco.ThefontStyle"/>
+                                            </div>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="fixedtop" name="fixedtop" inherit_id="website.assets_frontend" active="False" customize_show="False">
+        <xpath expr="." position="inside">
+            <!-- <script type="text/javascript">$(window).on('scroll', scroll_fcn);</script> -->
+        </xpath>
+    </template>
+    <template id="ThefontStyle" name="AppleFont" inherit_id="website.assets_frontend" active="False" customize_show="False">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/dobtor_theme_efco/static/src/css/applefont.css"/>
+        </xpath>
+    </template>
+</odoo>
