@@ -74,7 +74,7 @@
     </template>
     <template id="ThefontStyle" name="AppleFont" inherit_id="website.assets_frontend" active="False" customize_show="False">
         <xpath expr="." position="inside">
-            <link rel="stylesheet" href="/dobtor_theme_efco/static/src/css/applefont.css"/>
+            <link rel="stylesheet" href="/dobtor_theme_efco/static/src/css/appleFont.css"/>
         </xpath>
     </template>
 </odoo>
