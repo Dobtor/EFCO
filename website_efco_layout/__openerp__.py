@@ -14,6 +14,7 @@
         'views/layout_extend.xml',
         'views/snippets.xml',
         'views/template.xml',
+        'views/language.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

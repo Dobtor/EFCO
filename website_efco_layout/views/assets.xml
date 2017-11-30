@@ -6,6 +6,7 @@
     <xpath expr="//link[last()]" position="after">
       <link rel="stylesheet" href="/website_efco_layout/static/src/sass/template.css"/>
       <script type="text/javascript" src="/website_efco_layout/static/src/js/main_fix.js"/>
+      <script type="text/javascript" src="/website_efco_layout/static/src/js/menuTab.js"/>
     </xpath>
   </template>
 

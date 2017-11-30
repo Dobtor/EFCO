@@ -23,13 +23,14 @@ header .container {
 }
 
 #wrapwrap header div.navbar.navbar-default.navbar-static-top,
-header div.navbar.navbar-default.navbar-static-top {
+header div.navbar.navbar-default.navbar-static-top,
+header div.navbar.navbar-default.navbar-fixed-top {
     background-color: $white;
     border-color: transparent;
     li a {
         text-transform: none;
     }
-    li.active a {
+    li.active a, li.open>a {
         color: green;
         background-color: $white;
     }

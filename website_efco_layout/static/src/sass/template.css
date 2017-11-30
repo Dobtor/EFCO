@@ -8,31 +8,40 @@ header .container {
       width: 100%; } }
 
 #wrapwrap header div.navbar.navbar-default.navbar-static-top,
-header div.navbar.navbar-default.navbar-static-top {
+header div.navbar.navbar-default.navbar-static-top,
+header div.navbar.navbar-default.navbar-fixed-top {
   background-color: #ffffff;
   border-color: transparent; }
   #wrapwrap header div.navbar.navbar-default.navbar-static-top li a,
-  header div.navbar.navbar-default.navbar-static-top li a {
+  header div.navbar.navbar-default.navbar-static-top li a,
+  header div.navbar.navbar-default.navbar-fixed-top li a {
     text-transform: none; }
-  #wrapwrap header div.navbar.navbar-default.navbar-static-top li.active a,
-  header div.navbar.navbar-default.navbar-static-top li.active a {
+  #wrapwrap header div.navbar.navbar-default.navbar-static-top li.active a, #wrapwrap header div.navbar.navbar-default.navbar-static-top li.open a,
+  header div.navbar.navbar-default.navbar-static-top li.active a,
+  header div.navbar.navbar-default.navbar-static-top li.open a,
+  header div.navbar.navbar-default.navbar-fixed-top li.active a,
+  header div.navbar.navbar-default.navbar-fixed-top li.open a {
     color: green;
     background-color: #ffffff; }
   #wrapwrap header div.navbar.navbar-default.navbar-static-top a.navbar-brand,
-  header div.navbar.navbar-default.navbar-static-top a.navbar-brand {
+  header div.navbar.navbar-default.navbar-static-top a.navbar-brand,
+  header div.navbar.navbar-default.navbar-fixed-top a.navbar-brand {
     height: auto; }
     #wrapwrap header div.navbar.navbar-default.navbar-static-top a.navbar-brand img,
-    header div.navbar.navbar-default.navbar-static-top a.navbar-brand img {
+    header div.navbar.navbar-default.navbar-static-top a.navbar-brand img,
+    header div.navbar.navbar-default.navbar-fixed-top a.navbar-brand img {
       max-height: none; }
   @media screen and (min-width: 1200px) {
     #wrapwrap header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse,
-    header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse {
+    header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse,
+    header div.navbar.navbar-default.navbar-fixed-top div.container div.collapse.navbar-collapse.navbar-top-collapse {
       position: absolute;
       bottom: 0;
       width: 100%; } }
   @media screen and (min-width: 768px) and (max-width: 1199px) {
     #wrapwrap header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse,
-    header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse {
+    header div.navbar.navbar-default.navbar-static-top div.container div.collapse.navbar-collapse.navbar-top-collapse,
+    header div.navbar.navbar-default.navbar-fixed-top div.container div.collapse.navbar-collapse.navbar-top-collapse {
       position: inherit;
       bottom: 0;
       width: 100%; } }
