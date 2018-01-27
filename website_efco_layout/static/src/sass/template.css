@@ -12,15 +12,20 @@ header div.navbar.navbar-default.navbar-static-top,
 header div.navbar.navbar-default.navbar-fixed-top {
   background-color: #ffffff;
   border-color: transparent; }
+  #wrapwrap header div.navbar.navbar-default.navbar-static-top a.logo,
+  header div.navbar.navbar-default.navbar-static-top a.logo,
+  header div.navbar.navbar-default.navbar-fixed-top a.logo {
+    position: relative;
+    z-index: 999; }
   #wrapwrap header div.navbar.navbar-default.navbar-static-top li a,
   header div.navbar.navbar-default.navbar-static-top li a,
   header div.navbar.navbar-default.navbar-fixed-top li a {
     text-transform: none; }
-  #wrapwrap header div.navbar.navbar-default.navbar-static-top li.active a, #wrapwrap header div.navbar.navbar-default.navbar-static-top li.open a,
+  #wrapwrap header div.navbar.navbar-default.navbar-static-top li.active a, #wrapwrap header div.navbar.navbar-default.navbar-static-top li.open > a,
   header div.navbar.navbar-default.navbar-static-top li.active a,
-  header div.navbar.navbar-default.navbar-static-top li.open a,
+  header div.navbar.navbar-default.navbar-static-top li.open > a,
   header div.navbar.navbar-default.navbar-fixed-top li.active a,
-  header div.navbar.navbar-default.navbar-fixed-top li.open a {
+  header div.navbar.navbar-default.navbar-fixed-top li.open > a {
     color: green;
     background-color: #ffffff; }
   #wrapwrap header div.navbar.navbar-default.navbar-static-top a.navbar-brand,

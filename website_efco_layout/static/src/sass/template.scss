@@ -27,6 +27,11 @@ header div.navbar.navbar-default.navbar-static-top,
 header div.navbar.navbar-default.navbar-fixed-top {
     background-color: $white;
     border-color: transparent;
+    a.logo {
+        position: relative;
+        z-index: 999;
+    }
+
     li a {
         text-transform: none;
     }
