@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="efco_layout_footer" inherit_id="website.footer_custom">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div class="oe_structure" id="footer">
+                <section>
+                    <div class="container">
+                        <br class="visible-xs"/>
+                        <br class="visible-xs"/>
+                        <br class="visible-xs"/>
+                        <ul class="nav nav-pills hidden-xs">
+                            <t t-value="(100/len(website.menu_id.child_id))-1" t-set="headmenu" />
+                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                <li t-att-style="'min-width: %s%s' %(headmenu,'%')" t-if="not submenu.child_id and not submenu.is_megamenu and not submenu.is_dobtormenu" t-att-class="
+        'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+        ">
+                                    <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+                                        <span t-field="submenu.name"/>
+                                    </a>
+                                </li>
+                                <li t-if="submenu.child_id" t-att-style="'min-width: %s%s' %(headmenu,'%')">
+                                    <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+                                        <span t-field="submenu.name"/>
+                                    </a>
+                                    <ul role="menu">
+                                        <t t-foreach="submenu.child_id" t-as="submenu">
+                                            <li t-att-class="
+                                                'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+                                                ">
+                                                <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+                                                    <span t-field="submenu.name"/>
+                                                </a>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </li>
+                                <li t-if="submenu.is_dobtormenu and not submenu.include_in_dobtormenu" t-att-style="'min-width: %s%s' %(headmenu,'%')">
+                                    <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+                                        <span t-field="submenu.name"/>
+                                    </a>
+                                    <ul role="menu">
+                                        <t t-foreach="website.get_website_category(submenu)" t-as="category">
+                                            <li t-att-class="
+                                                'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+                                                ">
+                                                <a t-att-href="category.url" t-ignore="true" t-att-target="None">
+                                                    <t t-if="category.dobtor_menu_name">
+                                                        <span t-field="category.name"/>
+                                                    </t>
+                                                </a>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </li>
+                                <li t-if="submenu.is_megamenu" t-att-style="'min-width: %s%s' %(headmenu,'%')">
+                                    <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="None">
+                                        <span t-field="submenu.name"/>
+                                    </a>
+                                    <ul role="menu">
+                                        <t t-foreach="website.get_public_product_category(submenu)" t-as="category">
+                                            <li t-att-class="
+                                                'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+                                                ">
+                                                <a t-att-href="'/shop/category/%s' % slug(category)" t-ignore="true" t-att-target="None">
+                                                    <span t-field="category.name"/>
+                                                </a>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </li>
+                            </t>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+    <!-- <template id="footer_with_megamenu" inherit_id="website_efco_layout.efco_layout_footer">
+        <xpath expr="//ul[@class='nav nav-pills hidden-xs']/t/li[last()]" position="after">
+            <li t-if="submenu.is_megamenu" t-att-style="'min-width: %s%s' %(headmenu,'%')">
+                <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+                    <span t-field="submenu.name"/>
+                </a>
+                <ul role="menu">
+                    <t t-foreach="website.get_public_product_child_category(submenu.child_id)" t-as="category">
+                        <li t-att-class="
+                                                'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
+                                                ">
+                            <a t-att-href="'/shop/category/%s' % slug(categ)" t-ignore="true" t-att-target="None">
+                                <span t-field="category.name"/>
+                            </a>
+                        </li>
+                    </t>
+                </ul>
+            </li>
+        </xpath>
+    </template> -->
+</odoo>
