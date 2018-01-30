@@ -61,7 +61,7 @@ footer {
     border: 1px solid transparent;
     color: black;
     font-size: 13px;
-    text-transform: uppercase;
+    text-transform: none;
     font-weight: 700; }
   #wrapwrap > footer .nav-pills > li.active > a,
   #wrapwrap > footer .nav-pills > li.active > a:hover,
