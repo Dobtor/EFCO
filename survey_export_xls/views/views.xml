@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  
+<record id="survey_export_xls" model="ir.ui.view">
+  <field name="name">survey.export.xls</field>
+  <field name="model">survey.survey</field>
+  <field name="inherit_id" ref="survey.survey_form"/>
+  <field name="arch" type="xml">
+    <xpath expr="//header/button[@name='action_result_survey'][last()]" position="inside">
+      <button name="action_expoert_survey" string="Export Excel" type="object" attrs="{'invisible': [('id', '=', False)]}"/>
+    </xpath>
+  </field>
+</record>
+</odoo>

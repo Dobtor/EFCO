@@ -18,7 +18,8 @@ def referencable_models(self):
 
 class DobtorTodoListCore(models.Model):
     _name = "dobtor.todolist.core"
-    _inherit = ['ir.needaction_mixin']
+    _inherit = ["mail.thread", 'ir.needaction_mixin']
+    _description = 'Dobtor Todo List Core'
     state = fields.Selection([(k, v) for k, v in TODO_STATES.items()],
                              'Status', required=True, copy=False, default='todo')
     name = fields.Char(required=True, string="Description")
@@ -26,10 +27,29 @@ class DobtorTodoListCore(models.Model):
     user_id = fields.Many2one('res.users', 'Assigned to', required=True)
     hide_button = fields.Boolean(compute='_compute_hide_button')
     recolor = fields.Boolean(compute='_compute_recolor')
-    ref_model = fields.Reference(referencable_models, "Refer To")
+    ref_model = fields.Reference(referencable_models, "Refer To", default=None)
     ref_id = fields.Integer(string='ref_id')
-    parent_model = fields.Reference(referencable_models, "Parent")
+    ref_name = fields.Char(string='ref_name')
+    parent_model = fields.Reference(referencable_models, "Parent", default=None)
+    parent_id = fields.Integer(string='parent_id')
+    parent_name = fields.Char(string='parent_name')
     survey_id = fields.Many2one("survey.survey", "Survey")
+    partner_id = fields.Many2one('res.partner', default=lambda self: self.env.user.partner_id)
+    response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null", oldname="response")
+    date_assign = fields.Datetime('Assigning Date', select=True, default=fields.Datetime.now)
+    date_complete = fields.Datetime('Complete Date', select=True)
+    date_deadline = fields.Datetime("Deadline", select=True)
+    planned_hours = fields.Float(string='Planned Hours', default=0)
+    out_of_deadline = fields.Boolean("Out of deadline", default=False, compute="check_deadline")
+    sequence = fields.Integer()
+
+    @api.multi
+    def check_deadline(self):
+        for record in self:
+            if record.date_deadline and record.date_deadline <= fields.Datetime.now():
+                record.out_of_deadline = True
+            else:
+                record.out_of_deadline = False
 
     @api.multi
     def _compute_recolor(self):
@@ -56,28 +76,24 @@ class DobtorTodoListCore(models.Model):
 
     @api.multi
     def write(self, vals):
-        
-        if 'ref_model' in vals:
+        if 'ref_model' in vals and vals['ref_model']:
             vals['ref_id'] = vals['ref_model'].split(',')[1]
+            vals['ref_name'] = vals['ref_model'].split(',')[0]
+        if 'parent_model' in vals and vals['parent_model']:
+            vals['parent_id'] = vals['parent_model'].split(',')[1]
+            vals['parent_name'] = vals['parent_model'].split(',')[0]
         result = super(DobtorTodoListCore, self).write(vals)
-        # for r in self:
-        #     if (vals.get('state')):
-        #         r.ref_model.send_todolist_email(r.name, r.state, r.reviewer_id.id, r.user_id)
-        #         if self.env.user != r.reviewer_id and self.env.user != r.user_id:
-        #             raise UserError(_('Only users related to that subtask can change state.'))
-        #     if vals.get('name'):
-        #         r.ref_model.send_todolist_email(r.name, r.state, r.reviewer_id.id, r.user_id.id, old_name=old_names[r.id])
-        #         if self.env.user != r.reviewer_id and self.env.user != r.user_id:
-        #             raise UserError(_('Only users related to that subtask can change state.'))
-        #     if vals.get('user_id'):
-        #         r.ref_model.send_todolist_email(r.name, r.state, r.reviewer_id.id, r.user_id.id)
-            
         return result
 
     @api.model
     def create(self, vals):
-        if 'ref_model' in vals:
+        print("todo create")
+        if 'ref_model' in vals and vals['ref_model']:
             vals['ref_id'] = vals['ref_model'].split(',')[1]
+            vals['ref_name'] = vals['ref_model'].split(',')[0]
+        if 'parent_model' in vals and vals['parent_model']:
+            vals['parent_id'] = vals['parent_model'].split(',')[1]
+            vals['parent_name'] = vals['parent_model'].split(',')[0]
         result = super(DobtorTodoListCore, self).create(vals)
         vals = self._add_missing_default_values(vals)
         # task = self.env['project.task'].browse(vals.get('task_id'))
@@ -88,18 +104,45 @@ class DobtorTodoListCore(models.Model):
     def change_state_done(self):
         for record in self:
             record.state = 'done'
+            record.date_complete = fields.Datetime.now()
 
     @api.multi
     def change_state_todo(self):
         for record in self:
             record.state = 'todo'
+            record.date_complete = None
 
     @api.multi
     def change_state_cancelled(self):
         for record in self:
             record.state = 'cancelled'
+            record.date_complete = None
 
     @api.multi
     def change_state_waiting(self):
         for record in self:
             record.state = 'waiting'
+            record.date_complete = None
+
+    @api.multi
+    def open_survey(self):
+        if not self.response_id:
+            response = self.env['survey.user_input'].create({'survey_id': self.survey_id.id, 'partner_id': self.partner_id.id})
+            self.response_id = response.id
+        else:
+            response = self.response_id
+        # grab the token of the response and start surveying
+        return self.survey_id.with_context(survey_token=response.token).action_start_survey()
+
+    @api.onchange('user_id')
+    def change_user_id(self):
+        if self.user_id:
+            self.date_assign = fields.Datetime.now()
+        else:
+            self.date_assign = None
+
+    
+    
+    
+        
+        

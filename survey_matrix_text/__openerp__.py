@@ -4,9 +4,10 @@
     'version' : '1.0',
     'description' : 'Dobtor matrix text for survery',
     'author' : "Steven, www.dobtor.com",
-    'depends' : ['base','survey'],
+    'depends' : ['survey'],
     'data' : [
-        'views/survery_templates.xml',
+        'views/survey_templates.xml',
+        'views/survey_views.xml',
     ],
     'installable' : True,
 }

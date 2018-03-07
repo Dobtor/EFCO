@@ -44,12 +44,13 @@
         <field name="model">dobtor.todolist.core</field>
         <field name="inherit_id" ref="dobtor_todolist_project_task.todo_list_view"/>
         <field name="arch" type="xml">
-              <xpath expr="//field[@name='parent_model']" position='after'>
-                <button name="create_timesheet" string="Create TimeSheets" class="oe_highlight" type="object"/>
+              <xpath expr="//tree" position='inside'>
+                <button name="create_timesheet" string="TimeSheets" icon="terp-project" type="object"/>
               </xpath>
         </field>
     </record>
 
+    <!--
     <record id="dobtor_todolist_view_account_analytic_account_list" model="ir.ui.view">
             <field name="name">dobtor_todolist_view_account_analytic_account_list</field>
             <field name="model">account.analytic.account</field>
@@ -61,24 +62,26 @@
                 </tree>
             </field>
         </record>
-
-    <record id="dobtor_todolist_project_task_timesheets_wizard" model="ir.ui.view">
-        <field name="name">dobtor_todolist_project_task_timesheets_wizard</field>
+    -->
+    <record id="dobtor_todolist_project_task_timesheet_wizard" model="ir.ui.view">
+        <field name="name">dobtor_todolist_project_task_timesheet_wizard</field>
         <field name="model">account.analytic.line</field>
         <field name="arch" type="xml">
             <form>
                 <group>
                     <group string="Todo Time Sheet">
-                        <field name="todo_id"/> 
-                        <field name="user_id"/>
+                        <field name="todo_id" readonly="True" options="{'no_open': True}"/> 
+                        <field name="user_id" options="{'no_open': True}"/>
                         <field name="name"/>
                         <field name="is_timesheet" invisible="1"/>
-                        <field name="todo_ref"/>
-                        <field name="todo_ref_parent"/>
-                        <field name="account_id" options="{'no_create': True}"/>
+                        <!--
+                        <field name="todo_ref" readonly="True" options="{'no_open': True}"/>
+                        <field name="todo_ref_parent" readonly="True" options="{'no_open': True}"/>
+                        -->
+                        <field name="account_id" options="{'no_create': True,'no_open': True}"/>
                     </group>
                     <group string="Time and Date">
-                        <field name="date" string="Create Date"/>
+                        <field name="date" string="Create Date" readonly="True"/>
                         <field name="unit_amount" widget="float_time" string="Duration"/>
                     </group>
                 </group>
@@ -110,8 +113,8 @@
                     <attribute name="string">Analytic account/project</attribute>
                 </field>
                 <field name="account_id" position="after">
-                    <field name="todo_ref_parent"/>
-                    <field name="todo_ref"/>
+                    <field name="todo_ref_parent" readonly="True"/>
+                    <field name="todo_ref" readonly="True"/>
                     <field name="todo_id"/>
                 </field>
             </field>

@@ -32,6 +32,10 @@ class DobtorTodoListCore(models.Model):
     def change_unit_amount(self):
         pass
 
+    @api.onchange('ref_model')
+    def change_parent(self):
+        super(DobtorTodoListCore, self).change_parent()
+
     @api.multi
     def _get_default_analytic_account_id(self):
         res = self.env['account.analytic.account'].search([('name', '=', 'Undefined')])
@@ -64,7 +68,7 @@ class DobtorTodoListCore(models.Model):
         account_id = self.env['account.analytic.account'].search([('name', '=', 'Undefined')])
         res = {
             'type': 'ir.actions.act_window',
-            'view_id': self.env.ref('dobtor_todolist_project_task_timesheets.dobtor_todolist_project_task_timesheets_wizard').id,
+            'view_id': self.env.ref('dobtor_todolist_project_task_timesheet.dobtor_todolist_project_task_timesheet_wizard').id,
             'name': 'Todo Time Sheet',
             'target': 'new',
             'res_model': 'account.analytic.line',
@@ -77,7 +81,7 @@ class DobtorTodoListCore(models.Model):
                 'default_user_id': self.env.user.id,
                 'default_todo_id': self.id,
                 'default_is_timesheet': True,
-                'default_account_id': account_id.id and account_id[0].id or False,
+                'default_account_id': account_id and account_id[0].id or False,
                 'default_todo_ref': default_ref_model,
                 'default_todo_ref_parent': default_parent_model,
             }

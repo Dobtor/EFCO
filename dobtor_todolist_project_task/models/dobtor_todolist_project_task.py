@@ -3,6 +3,7 @@
 from openerp import models, fields, api
 from openerp.tools import html_escape as escape
 from openerp.exceptions import Warning as UserError
+from openerp.exceptions import Warning, ValidationError
 from openerp.tools.translate import _ 
 
 TODO_STATES = {'done': 'Done',
@@ -15,8 +16,14 @@ class DobtorTodoListCore(models.Model):
 
     @api.model
     def create(self, vals):
+        ref_model = vals.get('ref_model')
+        if ref_model:
+            if 'project.task' in str(ref_model):
+                task = self.env['project.task'].browse(
+                    int(vals['ref_model'].split(',')[1]))
+                if task and task.project_id:
+                    vals.update({'parent_model':'project.project,'+ str(task.project_id.id)})
         record = super(DobtorTodoListCore, self).create(vals)
-        #task = self.env['project.task'].browse(record.ref_model)
         if record.ref_model:
             task = record.ref_model
         else:
@@ -28,6 +35,13 @@ class DobtorTodoListCore(models.Model):
     @api.multi
     def write(self, vals):
         old_names = dict(zip(self.mapped('id'), self.mapped('name')))
+        ref_model = vals.get('ref_model')
+        if ref_model:
+            if 'project.task' in str(ref_model):
+                task = self.env['project.task'].browse(
+                    int(vals['ref_model'].split(',')[1]))
+                if task and task.project_id:
+                    vals.update({'parent_model':'project.project,'+ str(task.project_id.id)})
         record = super(DobtorTodoListCore, self).write(vals)
         for r in self:
             if (vals.get('state')):
@@ -57,9 +71,9 @@ class DobtorTodoListCore(models.Model):
             state = '<span style="color:#b818ce">' + state + '</span>'
 
         if ref_model:
-            subtype='Dobtor_TodoList_Project_Task.todolist_project_task_subtype'
+            subtype='dobtor_todolist_project_task.todolist_project_task_subtype'
         else:
-            subtype='Dobtor_TodoList_Core.todolist_core_subtype'
+            subtype='dobtor_todolist_core.todolist_core_subtype'
 
         body = ''
         partner_ids = []
@@ -90,10 +104,20 @@ class DobtorTodoListCore(models.Model):
                             body=body,
                             partner_ids=partner_ids)
         else:
-            self.message_post(message_type='comment',
+            self.message_post(subject='Your todo list',message_type='comment',
                         subtype=subtype,
                         body=body,
                         partner_ids=partner_ids)
+
+    @api.onchange('ref_model')
+    def change_parent(self):
+        if self.ref_model:
+            if ('project.task' in str(self.ref_model)):
+                self.parent_model = self.ref_model.project_id
+            else:
+                self.parent_model = None
+        pass
+        # self.parent_model = self.ref_model.parent_id
             
 
 class Task(models.Model):
@@ -108,6 +132,8 @@ class Task(models.Model):
     kanban_todolists = fields.Text(
         compute='_compute_kanban_todolists'
     )
+    
+    lock_stage = fields.Boolean(string="Lock Stage", default=True)
 
     @api.multi
     def _compute_default_user(self):
@@ -148,6 +174,23 @@ class Task(models.Model):
                     tmp_string2_2 = escape(u'{0}'.format(tmp_todo_name))
                     result_string2 += u'<li>TODO for <em>{0}</em>: {1}</li>'.format(tmp_string2_1, tmp_string2_2)
             record.kanban_todolists = '<ul>' + result_string1 + result_string3 + result_string2 + '</ul>'
+
+    @api.multi
+    def unlink(self):
+        if self.todolist_ids:
+            raise UserError(_('Please remove existing todolist in the task linked to the accounts you want to delete.'))
+        return super(Task, self).unlink()
+    
+    @api.constrains('stage_id')
+    def restrict(self):
+        if self.stage_id and self.lock_stage:
+            todo_list = self.env['dobtor.todolist.core'].search([('ref_name', '=', 'project.task'), ('ref_id', '=', self.id)])
+            if todo_list:
+                print("restrict")
+                for todo in todo_list:
+                    if todo.state in ('todo', 'waiting'):
+                        raise ValidationError(_("You can't move it to next stage. Some todos are not completed yet.!"))
+
 
     
             
