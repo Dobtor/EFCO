@@ -1,14 +1,23 @@
 # -*- coding: utf-8 -*-
-
-import xlwt
+import logging
 from openerp import http
 from openerp.http import request
 
+_logger = logging.getLogger(__name__)
+try:
+    import xlsxwriter
+except ImportError:
+    _logger.debug('Can not import xlsxwriter`.')
+try:
+    import cStringIO as StringIO
+except ImportError:
+    import StringIO
 
-class ExportXls(http.Controller):
+
+class ExportXlsx(http.Controller):
     """Exoirt Excel"""
 
-    @http.route('/web/<model("survey.survey"):survey>/export_xls', auth="public")
+    @http.route('/web/<model("survey.survey"):survey>/export_xlsx', auth="public")
     def index(self, survey, **post):
         """export survey answer excel
         Arguments:
@@ -17,8 +26,9 @@ class ExportXls(http.Controller):
             [application/vnd.ms-excel] -- export the .xls file
         """
         # create new workbook and worksheet
-        workbook = xlwt.Workbook()
-        worksheet = workbook.add_sheet(survey.title)
+        output = StringIO.StringIO()
+        workbook = xlsxwriter.Workbook(output)
+        worksheet = workbook.add_worksheet(survey.title)
         # initialization
         j = 0
         conut = 0
@@ -32,16 +42,19 @@ class ExportXls(http.Controller):
                         j = j + 1
                         worksheet.write(0, j, question.question +
                                         " [" + labels.value + "]")
-                        self.pull_value_to_cell(worksheet, j, survey.id, question, temp, conut, labels)
+                        self.pull_value_to_cell(
+                            worksheet, j, survey.id, question, temp, conut, labels)
                 else:
                     j = j + 1
                     worksheet.write(0, j, question.question)
-                    self.pull_value_to_cell(worksheet, j, survey.id, question, temp, conut, None)
+                    self.pull_value_to_cell(
+                        worksheet, j, survey.id, question, temp, conut, None)
         # response
-        response_headers = [('Content-Type', 'application/vnd.ms-excel'),
-                            ('Content-Disposition', 'attachment; filename=%s.xls;' % survey.title)]
-        response = request.make_response(None, headers=response_headers)
-        workbook.save(response.stream)
+        workbook.close()
+        output.seek(0)
+        response_headers = [('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
+                            ('Content-Disposition', 'attachment; filename=%s.xlsx;' % survey.title)]
+        response = request.make_response(output.read(), headers=response_headers)
         return response
 
     def pull_value_to_cell(self, worksheet, j, survey_id, question, temp, conut, labels):
@@ -68,17 +81,18 @@ class ExportXls(http.Controller):
                 # Answer
                 i = i + 1
                 if question.type in ['matrix', 'matrix_text']:
-                    user_input_line = question.user_input_line_ids.search\
-                    ([('survey_id', '=', survey_id),\
-                    ('question_id', '=', question.id),\
-                    ('user_input_id', '=', user_line.id),\
-                    ('value_suggested', '=', labels.id)], order="user_input_id")
+                    user_input_line = question.user_input_line_ids.search([('survey_id', '=', survey_id),
+                                                                           ('question_id',
+                                                                            '=', question.id),
+                                                                           ('user_input_id',
+                                                                            '=', user_line.id),
+                                                                           ('value_suggested', '=', labels.id)], order="user_input_id")
                     conut = len(user_input_line)
                     for user_input in user_input_line:
                         if not user_input.skipped:
                             martix_answer = (
-                                user_input.value_suggested_row[0].value if \
-                                question.type == 'matrix' else \
+                                user_input.value_suggested_row[0].value if
+                                question.type == 'matrix' else
                                 user_input.value_free_text) + temp
                             conut = conut - 1
                             if conut == 0:
@@ -86,9 +100,9 @@ class ExportXls(http.Controller):
                                 temp = ''
                             else:
                                 temp = ',' + \
-                                    (user_input.value_suggested_row[0].value if \
-                                    question.type == 'matrix' else \
-                                    user_input.value_free_text)
+                                    (user_input.value_suggested_row[0].value if
+                                     question.type == 'matrix' else
+                                     user_input.value_free_text)
                 else:
                     user_input_line = question.user_input_line_ids.search([('survey_id', '=', survey_id), (
                         'question_id', '=', question.id), ('user_input_id', '=', user_line.id)], order="user_input_id")
