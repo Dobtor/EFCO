@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <template id="page" inherit_id="survey.page">
             <xpath expr="//div[@class='js_errzone alert alert-danger']" position="before">
@@ -40,4 +40,4 @@
             </xpath>
         </template>
     </data>
-</openerp>
+</odoo>

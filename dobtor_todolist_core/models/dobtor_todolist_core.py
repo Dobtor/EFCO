@@ -23,7 +23,8 @@ class DobtorTodoListCore(models.Model):
     state = fields.Selection([(k, v) for k, v in TODO_STATES.items()],
                              'Status', required=True, copy=False, default='todo')
     name = fields.Char(required=True, string="Description")
-    reviewer_id = fields.Many2one('res.users', 'Reviewer', readonly=True, default=lambda self: self.env.user)
+    creater = fields.Many2one('res.users', 'Creater', readonly=True, default=lambda self: self.env.user)
+    reviewer_id = fields.Many2one('res.users', 'Reviewer', default=lambda self: self.env.user)
     user_id = fields.Many2one('res.users', 'Assigned to', required=True)
     hide_button = fields.Boolean(compute='_compute_hide_button')
     recolor = fields.Boolean(compute='_compute_recolor')
@@ -33,9 +34,7 @@ class DobtorTodoListCore(models.Model):
     parent_model = fields.Reference(referencable_models, "Parent", default=None)
     parent_id = fields.Integer(string='parent_id')
     parent_name = fields.Char(string='parent_name')
-    survey_id = fields.Many2one("survey.survey", "Survey")
     partner_id = fields.Many2one('res.partner', default=lambda self: self.env.user.partner_id)
-    response_id = fields.Many2one('survey.user_input', "Response", ondelete="set null", oldname="response")
     date_assign = fields.Datetime('Assigning Date', select=True, default=fields.Datetime.now)
     date_complete = fields.Datetime('Complete Date', select=True)
     date_deadline = fields.Datetime("Deadline", select=True)
@@ -123,16 +122,6 @@ class DobtorTodoListCore(models.Model):
         for record in self:
             record.state = 'waiting'
             record.date_complete = None
-
-    @api.multi
-    def open_survey(self):
-        if not self.response_id:
-            response = self.env['survey.user_input'].create({'survey_id': self.survey_id.id, 'partner_id': self.partner_id.id})
-            self.response_id = response.id
-        else:
-            response = self.response_id
-        # grab the token of the response and start surveying
-        return self.survey_id.with_context(survey_token=response.token).action_start_survey()
 
     @api.onchange('user_id')
     def change_user_id(self):

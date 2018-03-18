@@ -8,6 +8,11 @@ from openerp.addons.base.res import res_request
 class DobtorTodoListCore(models.Model):
     _inherit = 'dobtor.todolist.core'
 
+    @api.model
+    def _get_default_analytic_account_id(self):
+        res = self.env['account.analytic.account'].search([('name', '=', 'Undefined')])
+        return res and res[0] or False
+
     remaining_hours = fields.Float(
         compute='_hours_get', string="Remaining Hours", store=True, default=0, 
         help='Total remaining time, can be re-estimated periodically by the assignee of the todo.')
@@ -24,27 +29,17 @@ class DobtorTodoListCore(models.Model):
         compute='_hours_get', string='Delay Hours', default=0, store=True,
         help="Computed as difference between planned hours by the project manager and the total hours of the task.")
     timesheet_ids = fields.One2many('account.analytic.line', 'todo_id', 'Timesheets')
-    #analytic_account_id = fields.Many2one('account.analytic.account', compute='_get_default_analytic_account_id', store=True)
     analytic_account_id = fields.Many2one('account.analytic.account',
-                                          'Analytic Account', default='_get_default_analytic_account_id', store=True)
-
-    @api.onchange('planned_hours', 'remaining_hours', 'timesheet_ids')
-    def change_unit_amount(self):
-        pass
+                                          'Analytic Account', default=_get_default_analytic_account_id, store=True)
 
     @api.onchange('ref_model')
     def change_parent(self):
         super(DobtorTodoListCore, self).change_parent()
 
     @api.multi
-    def _get_default_analytic_account_id(self):
-        res = self.env['account.analytic.account'].search([('name', '=', 'Undefined')])
-        return res and res[0] or False
-
-    @api.multi
     def _hours_get(self):
         for record in self:
-            aa_id = self.env['account.analytic.line'].browse('todo_id', '=', self.id)
+            aa_id = self.env['account.analytic.line'].browse([('todo_id', '=', self.id)])
             if aa_id:
                 record.effective_hours = aa_id.unit_amount
                 record.remaining_hours = record.planned_hours - aa_id.unit_amount
@@ -80,7 +75,7 @@ class DobtorTodoListCore(models.Model):
             'context': {
                 'default_user_id': self.env.user.id,
                 'default_todo_id': self.id,
-                'default_is_timesheet': True,
+                'default_is_timesheet': True,                
                 'default_account_id': account_id and account_id[0].id or False,
                 'default_todo_ref': default_ref_model,
                 'default_todo_ref_parent': default_parent_model,
@@ -102,19 +97,3 @@ class account_analytic_line(models.Model):
     @api.multi
     def submit_time_sheet(self):
         pass
-        # print('submit_time_sheet - 1')
-        # print(self.analytic_account_id.id)
-        # print(self.name)
-        # print(self.self.id)
-        # print(self.user_id)
-        # print(fields.Datetime.now())
-        # print('submit_time_sheet - 2')
-        # self.env['account.analytic.line'].create({
-        #     'unit_amount': 0,
-        #     'account_id': self.analytic_account_id.id,
-        #     'name': self.name,
-        #     'is_timesheet': True,
-        #     'date': fields.Datetime.now(),
-        #     'todo_id': self.id,
-        #     'user_id': self.user_id
-        # })

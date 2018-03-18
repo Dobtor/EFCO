@@ -25,9 +25,6 @@ class SurveyQuestion(models.Model):
         ('all', 'All')
     ], default='none',)
 
-    def validate_matrix_text(self, cr, uid, question, post, answer_tag, context=None):
-        return {}
-
 class SurveyUserInputLine(models.Model):
     """extend suervey.user_input_line model"""
 
@@ -52,7 +49,7 @@ class SurveyUserInputLine(models.Model):
 
         no_answers = True
         ca = dict_keys_startswith(post, answer_tag+"_")
-        
+
         for col in question.labels_ids:
             for row in question.labels_ids_2:
                 a_tag = "%s_%s_%s" % (answer_tag, row.id, col.id)
@@ -60,7 +57,7 @@ class SurveyUserInputLine(models.Model):
                     no_answers = False
                     vals.update({'answer_type': 'matrix_text', 'value_suggested': col.id, 'value_suggested_row': row.id, 'value_free_text': post[a_tag]})
                     self.create(cr, uid, vals, context=context)
-                    
+
 
         if no_answers:
             vals.update({'answer_type': 'matrix_text', 'skipped': True})

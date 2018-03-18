@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'dobtor_todolist_project_task', 'sale_timesheet'],
+    'depends': ['base', 'dobtor_todolist_core', 'hr_timesheet_sheet'],
 
     # always loaded
     'data': [

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import urllib
 import xlwt
 from openerp import http
 from openerp.http import request
@@ -38,8 +39,13 @@ class ExportXls(http.Controller):
                     worksheet.write(0, j, question.question)
                     self.pull_value_to_cell(worksheet, j, survey.id, question, temp, conut, None)
         # response
+        filename_parm = 'Survey'
+        if isinstance(survey.title, unicode):
+            filename_parm = urllib.quote(survey.title.encode('utf-8'))
+        else:
+            filename_parm = urllib.quote(survey.title)
         response_headers = [('Content-Type', 'application/vnd.ms-excel'),
-                            ('Content-Disposition', 'attachment; filename=%s.xls;' % survey.title)]
+                            ('Content-Disposition', "attachment; filename*=UTF-8''%s.xls;" % filename_parm)]
         response = request.make_response(None, headers=response_headers)
         workbook.save(response.stream)
         return response

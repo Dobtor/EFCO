@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+
 import logging
+import urllib
 from openerp import http
 from openerp.http import request
 
@@ -52,8 +54,13 @@ class ExportXlsx(http.Controller):
         # response
         workbook.close()
         output.seek(0)
+        filename_parm = 'Survey'
+        if isinstance(survey.title,unicode):
+            filename_parm = urllib.quote(survey.title.encode('utf-8'))
+        else:
+            filename_parm = urllib.quote(survey.title)
         response_headers = [('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
-                            ('Content-Disposition', 'attachment; filename=%s.xlsx;' % survey.title)]
+                            ('Content-Disposition', "attachment; filename*=UTF-8''%s.xlsx;" % filename_parm)]
         response = request.make_response(output.read(), headers=response_headers)
         return response
 
