@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
-
-
+from openerp.addons.website.models.website import slug
 
 class SurveyHistory(models.Model):
     _name = 'dobtor.todolist.user_input.ref'
+
     @api.depends('todolist_ids')
     def _compute_response_id(self):
         for recode in self:
@@ -13,33 +13,26 @@ class SurveyHistory(models.Model):
 
     todolist_ids = fields.Many2one(
         comodel_name='dobtor.todolist.core',
-        string='ToDoList'
+        string='ToDo List Item'
     )
     user_input_ids = fields.Many2one(
         comodel_name='survey.user_input',
-        string='history survey',
+        string='Survey Create Timestamp',
     )
-    user_input_name = fields.Char(string="user input")
+    user_input_name = fields.Char(string="Form Creator")
 
-
-    reject = fields.Integer(string="reject", 
-                            compute='_compute_response_id'
-    )
-    # @api.multi
-    # def _todolist_score(self):
-    #     ret = dict()
-    #     for user_input in self.browse([]):
-    #         ret[user_input.id] = sum(
-    #             [uil.todo_mark for uil in user_input.todolist_ids] or [0.0])
-    #     return ret
-
-    # todolist_score = fields.Float(compute=_todolist_score, string="Score for the todo")
-    # todo_mark= fields.Float("Score given for this choice")
     @api.multi
-    def reject_action(self):
-        for record in self:
-            record.todolist_ids.response_id = None
-                
+    def open_history(self):
+        response = self.user_input_ids
+        # grab the token of the response and start surveying
+        return {
+            'type': 'ir.actions.act_url',
+            'name': "print Survey",
+            'target': 'self',
+            'url': '/survey/print/%s/%s' % (slug(response.survey_id), response.token)
+        }
+
+
 class SurveyUserInput(models.Model):
 
     _inherit = 'survey.user_input'

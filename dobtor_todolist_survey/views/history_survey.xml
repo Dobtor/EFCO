@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <tree string="histor survey" readonly="1" create="false">
                 <field name="todolist_ids" />
+                <field name="user_input_ids" />
                 <field name="user_input_name"/>
-                <field name="reject" invisible="1"/>
-                <button name="reject_action" type="object" icon="fa-reply" help="" attrs="{'invisible':[('reject', '=', 0)]}" string="reject"/>
+                <button name="open_history" type="object" icon="fa-send" help="" string="Open"/>
             </tree>
         </field>
     </record>

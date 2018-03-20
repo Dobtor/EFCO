@@ -13,8 +13,9 @@ TODO_STATES = {'done': 'Done',
                   'cancelled': 'Cancelled'}
 
 def referencable_models(self):
-    return res_request.referencable_models(
-        self, self.env.cr, self.env.uid, context=self.env.context)
+    models = self.env['res.request.link'].search([])
+    dic = [(model.object, model.name) for model in models]
+    return dic
 
 class DobtorTodoListCore(models.Model):
     _name = "dobtor.todolist.core"

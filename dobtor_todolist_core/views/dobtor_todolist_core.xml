@@ -9,7 +9,7 @@
                     <field name="name" string="Description"/>
                     <filter string="TODO" domain="[('state','=','todo')]" name="done_todolist"/>
                     <group expand="0" string="Group By">
-                        <filter string="Type" domain="[]" context="{'group_by':'parent_model'}" name="ggg"/>
+                        <filter string="Type" domain="[]" context="{'group_by':['parent_model', 'ref_model']}"/>
                         <filter string="Todo" domain="[]" context="{'group_by':'ref_model'}"/>
                         <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="State" domain="[]" context="{'group_by':'state'}"/>

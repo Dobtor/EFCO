@@ -21,9 +21,11 @@
             <xpath expr="//tree/button[@name='change_state_cancelled']" position="after">
                 <field name="survey_id"/>
                 <field name="response_id" invisible="True"/>
-                <button name="open_survey" type="object" icon="fa-edit" help="" attrs="{'invisible':['|','|',('survey_id','=',False),('response_id','!=',False),('hide_button', '=', True)]}" string="Open"/>
+                <field name="hide_survey" invisible="True" />
+                <button name="open_survey" type="object" icon="fa-edit" help="" attrs="{'invisible':['|','|',('survey_id','=',False),('response_id','!=',False),('hide_survey', '=', True)]}" string="Open"/>
                 <button name="open_survey" type="object" icon="fa-send" help="" attrs="{'invisible':['|','|',('survey_id','=',False),('response_id','=',False),('hide_button', '=', True)]}" string="Open"/>
-                <button name="reject_action" type="object" icon="fa-reply" help="" attrs="{'invisible':['|','|',('survey_id','=',False),('response_id','=',False),('hide_button', '=', True)]}" string="reject"/>
+                <field name="hide_reject" invisible="True" />
+                <button name="reject_action" type="object" icon="fa-reply" help="" attrs="{'invisible':['|','|',('survey_id','=',False),('response_id','=',False),('hide_reject', '=', True)]}" string="reject"/>
             </xpath>
         </field>
     </record>
@@ -43,5 +45,4 @@
             </xpath>
         </field>
     </record>
-    
 </odoo>
