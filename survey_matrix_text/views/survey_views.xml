@@ -47,9 +47,9 @@
                 <xpath expr="//field[@name='labels_ids_2']" position="attributes"> 
                     <attribute name="attrs">{'invisible': [('type', 'not in', ['matrix', 'matrix_text'])]}</attribute>
                 </xpath>
-                <xpath expr="//field[@name='matrix_subtype']" position="attributes">
+                <!-- <xpath expr="//field[@name='matrix_subtype']" position="attributes">
                     <attribute name="attrs">{'invisible':[('type','not in',['matrix', 'matrix_text'])]}</attribute>
-                </xpath>
+                </xpath> -->
                 <xpath expr="//sheet/notebook/page[2]/group[2]" position="before">
                     <group  string="Display Filter" attrs="{'invisible':[('type','not in',['matrix_text'])]}">
                         <field name="display_filter" attrs="{'invisible':[('type','not in',['matrix_text'])]}"/>

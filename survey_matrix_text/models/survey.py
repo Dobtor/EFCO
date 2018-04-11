@@ -17,7 +17,12 @@ class SurveyQuestion(models.Model):
     _inherit = 'survey.question'
 
     type = fields.Selection(selection_add=[('matrix_text', 'Matrix Text')])
-    matrix_subtype = fields.Selection(selection_add=[('matrix_text', 'Multiple text per row')])
+    # matrix_subtype = fields.Selection(selection_add=[('matrix_text', 'Multiple text per row')])
+    @api.model
+    def _get_select(self):
+        return [('simple', 'One choice per row'),
+                ('multiple', 'Multiple choices per row')]
+    matrix_subtype = fields.Selection(_get_select)
     display_filter = fields.Selection([
         ('none', 'None'),
         ('column', 'Column'),
