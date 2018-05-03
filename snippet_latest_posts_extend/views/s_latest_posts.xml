@@ -27,8 +27,8 @@
                 </h4>
             </a>
             <div name='blog_post_data' class='mb0'>
-                <span t-field="p.author_id" style="display: inline-block;" t-field-options='{"widget": "contact","fields": ["name"]}'/> &#5760;     
-                <span t-field="p.create_date" t-field-options='{"format": "MMMM yyyy"}'/>
+                <span class="media_author" t-field="p.author_id" style="display: inline-block;" t-field-options='{"widget": "contact","fields": ["name"]}'/> &#5760;     
+                <span t-field="p.create_date" t-field-options='{"format": "yyyy-MM-dd"}'/>
                 <span t-if="len(p.message_ids) &gt; 0">                                &#5760;         
                     <t t-esc="len(p.message_ids)"/>
                     <t t-if="len(p.message_ids) &lt;= 1">comment</t>

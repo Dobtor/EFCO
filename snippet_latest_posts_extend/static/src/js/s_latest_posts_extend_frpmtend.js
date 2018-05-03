@@ -111,18 +111,21 @@ odoo.define('snippet_latest_posts_extend.s_latest_posts_frontend', function (req
                             $(this).remove();
                             loaded = true;
                         });
-                    
+
                     if (content == 1)
                         $('.media_teaser').attr('style', 'display:block;');
                     else
                         $('.media_teaser').attr('style', 'display:none;');
 
-                    if (cover_img == 1)
+                    if (cover_img == 1) {
                         $('.o_blog_cover_container').attr('style', 'display:block;');
-                    else
+                        $('.media_author').attr('style', 'display:inline-flex;');
+                    }
+                    else {
                         $('.o_blog_cover_container').attr('style', 'display:none;');
-
-                    // Show the post after 5sec without wait for thumb loading
+                        $('.media_author').attr('style', 'display:none;');
+                    }
+                    // Show the post after .5sec without wait for thumb loading
                     setTimeout(function () {
                         if (loaded == false) {
                             dummyImg.remove();
