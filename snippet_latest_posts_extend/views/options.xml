@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="assets_frontend_js_extends" name="Latest Posts JS frontend assets" inherit_id="snippet_latest_posts.assets_frontend_js">
+    <xpath expr="//script[last()]" position="after">
+      <script src="/snippet_latest_posts_extend/static/src/js/s_latest_posts_extend_frpmtend.js"/>
+    </xpath>
+  </template>
+  <template id="assets_editor_extend" name="Latest Posts JS editor assets" inherit_id="website.assets_editor">
+    <xpath expr="." position="inside">
+      <script src="/snippet_latest_posts_extend/static/src/js/s_latest_posts_extend_editor.js" />
+    </xpath>
+  </template>
+  <template id="s_latest_posts_option_extend" inherit_id="snippet_latest_posts.s_latest_posts_option">
+    <xpath expr="//div[@data-js='js_get_posts_limit']" position="after">
+      <div data-js='js_get_cover_img' data-selector=".js_get_posts">
+        <li class="dropdown-submenu">
+          <a tabindex="-1" href="#">Cover image</a>
+          <ul class="dropdown-menu">
+            <li data-cover_img="1">
+              <a>Open</a>
+            </li>
+            <li data-cover_img="0">
+              <a>Close</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </xpath>
+    <xpath expr="//div[@data-js='js_get_posts_limit']" position="after">
+      <div data-js='js_get_content' data-selector=".js_get_posts">
+        <li class="dropdown-submenu">
+          <a tabindex="-1" href="#">Content</a>
+          <ul class="dropdown-menu">
+            <li data-content="1">
+              <a>Open</a>
+            </li>
+            <li data-content="0">
+              <a>Close</a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </xpath>
+  </template>
+</odoo>
