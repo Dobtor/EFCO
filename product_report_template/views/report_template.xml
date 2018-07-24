@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="assets_frontend_extend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel='stylesheet' href='/product_report_template/static/src/css/dobtor_product_style.css'/>
+        </xpath>
+    </template>
+    <template id="get_external_layout_header">
+        <t t-set="custom_external_layout_header" t-value="'report.external_layout_header'"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-if="o.report_template_id">
+                <t t-set="custom_external_layout_header" t-value="o.report_template_id.external_header_id.key"/>
+            </t>
+        </t>
+        <t t-call="{{custom_external_layout_header}}" />
+    </template>
+
+    <template id="get_external_layout_footer">
+        <t t-set="custom_external_layout_footer" t-value="'report.external_layout_footer'"/>
+        <t t-set="Is_version" t-value="False"/>
+        <t t-set="version_label" t-value="''"/>
+
+        <t t-foreach="docs" t-as="o">
+            <t t-if="o.report_template_id">
+                <t t-set="custom_external_layout_footer" t-value="o.report_template_id.external_footer_id.key"/>
+            </t>
+            <t t-set="Is_version" t-value="o.version"/>
+            <t t-set="version_label" t-value="o.version_label"/>
+        </t>
+        <t t-call="{{custom_external_layout_footer}}" />
+
+    </template>
+
+    <template id="external_layout">
+
+
+        <!-- Multicompany -->
+        <t t-if="not o and doc">
+            <t t-set="o" t-value="doc"/>
+        </t>
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"></t>
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"></t>
+        </t>
+
+        <t t-call="product_report_template.get_external_layout_header"/>
+        <t t-raw="0" />
+        <t t-call="product_report_template.get_external_layout_footer"/>
+    </template>
+    <!-- 
+    <template id="">
+    </template> -->
+
+    <template id="product_report_print">
+        <t t-call="product_report_template.external_layout">
+
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <link rel='stylesheet' href='/product_report_template/static/src/css/dobtor_product_style.css'/>
+
+                    <div class="row">
+                        <div class="col-xs-6" style="text-align: center;">
+                            <img class="" t-attf-src="/web/image/product.template/#{o.id}/image_medium" />
+                        </div>
+                        <div class="col-xs-6">
+                            <t t-raw="o.product_feature"/>
+                        </div>
+                    </div>
+                    <t t-set="product" t-value="o"/>
+
+                    <div class="row product_tabs">
+                        <t t-if="product.relational">
+                            <br/>
+                            <table class="table">
+                                <tbody>
+                                    <t t-value="0" t-set="temp_index"/>
+                                    <t t-value="0" t-set="class_index"/>
+                                    <t t-foreach="product.relational.search([('product_id','=',product.id),('isvisible','=',True)],order='FKClass,FKInfo asc')" t-as="item">
+                                        <t t-if="class_index == 0">
+                                            <tr class="class_tr">
+                                                <td t-att-colspan="2" class="item_class">
+                                                    <b>
+                                                        <span t-field="item.FKClass.name"/>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                            <t t-value="product.relational.search_count([('FKClass','=',item.FKClass.id),('product_id','=',product.id),('isvisible','=',True)])" t-set="class_index"/>
+                                        </t>
+                                        <t t-value="class_index - 1" t-set="class_index"/>
+                                        <tr t-if="item.isvisible and temp_index == 0" class="hidden-xs">
+                                            <t t-value="product.relational.search_count([('FKClass','=',item.FKClass.id),('FKInfo','=',item.FKInfo.id),('product_id','=',product.id),('isvisible','=',True)])" t-set="rowspan"/>
+                                            <td class="item_info">
+                                                <span t-field="item.FKInfo.name"/>
+                                            </td>
+                                            <t t-value="rowspan" t-set="temp_index"/>
+                                            <td class="item_content">
+                                                <ul t-foreach="product.relational.search([('FKClass','=',item.FKClass.id),('FKInfo','=',item.FKInfo.id),('product_id','=',product.id),('isvisible','=',True)])" t-as="content_item">
+                                                    <li>
+                                                        <span t-field="content_item.FKContent.name"/>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <t t-value="temp_index - 1" t-set="temp_index"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                    </div>
+                    <div style="page-break-before: always;"></div>
+                    <div class="row" t-field="product.website_Ordering_Information"></div>
+                    <div style="page-break-before: always;"></div>
+                    <div class="row" t-field="product.website_structure_diagram"></div>
+                </div>
+            </t>
+        </t>
+    </template>
+    <report id="product_report_template_layout" model="product.template" string="Product Report Template" report_type="qweb-pdf" file="product_report_template.product_report_print" name="product_report_template.product_report_print" paperformat="product_report_template.paperformat_product_report_a4" />
+</odoo>

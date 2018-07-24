@@ -1,0 +1,92 @@
+.product_info {
+  font-size: 15px; }
+
+.product_info ul {
+  padding-left: 20px; }
+  .product_info ul li {
+    list-style: circle; }
+
+.product_tabs #product_Rule tr td:first-child {
+  width: 35%; }
+
+.product_tabs #product_Rule thead tr th {
+  color: black;
+  background-color: white; }
+
+.product_tabs .tab-content {
+  border: none;
+  padding: 0px 0px 15px 0px;
+  box-shadow: none;
+  background-color: #fff;
+  margin-bottom: 0px; }
+
+.product_tabs .nav-tabs > li.active > a:after {
+  background-color: transparent; }
+
+.product_tabs .tab-content:after {
+  background-color: transparent; }
+
+.product_tabs .item_class {
+  background-color: #fafafa; }
+
+.product_tabs .class_tr {
+  border: 2px solid #fafafa; }
+
+.product_tabs .item_info {
+  background-color: #ccc;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  width: 30%; }
+
+.product_tabs .item_content {
+  border-bottom: 1px solid black;
+  width: 70%; }
+  .product_tabs .item_content ul {
+    list-style-type: none;
+    padding: 0px; }
+
+.product_tabs .table {
+  table-layout: inherit !important; }
+
+div.oe_product.oe_list.oe_product_cart section a {
+  text-transform: none; }
+
+.sale_font_under_img {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  right: 0px;
+  color: black;
+  z-index: 99; }
+
+@media (min-width: 400px) {
+  .oe_product.oe_list {
+    border: none;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+    width: 100%;
+    min-height: 100px;
+    position: relative;
+    padding-bottom: 5px;
+    padding-left: 180px; } }
+
+@media (min-width: 767px) {
+  tr.visible-xs-tabs {
+    display: none !important; } }
+
+@media (max-width: 767px) {
+  tr.visible-xs-tabs {
+    display: table-row; }
+    tr.visible-xs-tabs td {
+      padding: 0px !important;
+      border: none !important; }
+    tr.visible-xs-tabs td > ul > li {
+      list-style-type: none; }
+    tr.visible-xs-tabs td > ul > li > ul > li {
+      list-style-type: circle;
+      margin-left: 0px !important; } }
+
+@media (max-width: 480px) {
+  .nav-tabs {
+    background-color: #fff; }
+  .nav-tabs > li > a {
+    color: black; } }

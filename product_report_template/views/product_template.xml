@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="print_pdf" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='website_published_button']" position="inside">
+        <t t-if="product.is_visible_pdf">
+            <a class="btn btn-default" t-att-href="'/product_report/print/%s' % slug(product)" target="_blank">Print PDF</a>
+        </t>
+        </xpath>
+    </template>
+</odoo>
