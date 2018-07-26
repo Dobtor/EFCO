@@ -63,7 +63,7 @@
 
                     <div class="row">
                         <div class="col-xs-6" style="text-align: center;">
-                            <img class="" t-attf-src="/web/image/product.template/#{o.id}/image_medium" />
+                            <img class="img img-responsive product_detail_img" t-attf-src="/web/image/product.template/#{o.id}/image" />
                         </div>
                         <div class="col-xs-6">
                             <t t-raw="o.product_feature"/>
