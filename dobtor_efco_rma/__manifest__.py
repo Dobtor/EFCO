@@ -1,34 +1,19 @@
 # -*- coding: utf-8 -*-
 {
     'name': "dobtor_efco_rma",
-
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
+        add mrp repair freature
     """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    'description': """
+        add mrp repair freature
+    """,
+    'author': "Dobtor SI",
+    'website': "http://www.dobtor.com",
+    'category': 'mra',
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
     'depends': ['mrp_repair'],
-
-    # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/field_form.xml',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
     ],
 }
