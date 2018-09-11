@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="dobtor_efco_rma.list">
+      <field name="name">dobtor_efco_rma list</field>
+      <field name="model">dobtor_efco_rma.dobtor_efco_rma</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="dobtor_efco_rma.action_window">
+      <field name="name">dobtor_efco_rma window</field>
+      <field name="res_model">dobtor_efco_rma.dobtor_efco_rma</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="dobtor_efco_rma.action_server">
+      <field name="name">dobtor_efco_rma server</field>
+      <field name="model_id" ref="model_dobtor_efco_rma_dobtor_efco_rma"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="dobtor_efco_rma" id="dobtor_efco_rma.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="dobtor_efco_rma.menu_1" parent="dobtor_efco_rma.menu_root"/>
+    <menuitem name="Menu 2" id="dobtor_efco_rma.menu_2" parent="dobtor_efco_rma.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="dobtor_efco_rma.menu_1_list" parent="dobtor_efco_rma.menu_1"
+              action="dobtor_efco_rma.action_window"/>
+    <menuitem name="Server to list" id="dobtor_efco_rma" parent="dobtor_efco_rma.menu_2"
+              action="dobtor_efco_rma.action_server"/>
+    -->
+  </data>
+</odoo>
