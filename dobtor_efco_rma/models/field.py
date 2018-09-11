@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 from odoo import models, fields, api
+
 
 class newfield(models.Model):
     _inherit = 'mrp.repair'
