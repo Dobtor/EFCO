@@ -7,6 +7,7 @@
     'description': """
         建立 sidebar menu
     """,
+    "license": "LGPL-3",
     'author': "Dobtor SI",
     'website': "https://www.dobtor.com",
     'category': 'dobtor',

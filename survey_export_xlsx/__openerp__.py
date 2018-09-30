@@ -4,6 +4,7 @@
     'summary': """export survey answer excel""",
     'description': """export survey answer exce""",
     'author': "Dobtor SI",
+    "license": "LGPL-3",
     'website': "http://www.dobtor.com",
     'category': 'survey',
     'version': '0.1',

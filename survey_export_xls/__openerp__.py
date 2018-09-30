@@ -7,6 +7,7 @@
     'website': "http://www.dobtor.com",
     'category': 'survey',
     'version': '0.1',
+    "license": "LGPL-3",
     'depends': ['base', 'survey', 'survey_matrix_text'],
     'data': [
         'views/views.xml',

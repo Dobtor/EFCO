@@ -12,6 +12,7 @@
     'website': "http://www.dobtor.com",
     'category': 'website_blog',
     'version': '0.1',
+    "license": "LGPL-3",
     'depends': ['snippet_latest_posts'],
     'data': [
         'views/s_latest_posts.xml',

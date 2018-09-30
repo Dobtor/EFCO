@@ -11,6 +11,7 @@
     'website': "http://www.dobtor.com",
     'category': 'mra',
     'version': '0.1',
+    "license": "LGPL-3",
     'depends': ['mrp_repair'],
     'data': [
         # 'security/ir.model.access.csv',

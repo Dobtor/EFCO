@@ -2,6 +2,7 @@
 {
     'name' : "Dobtor TodoList Core",
     'version' : '1.0',
+    "license": "LGPL-3",
     'description' : 'Dobtor todo list core',
     'author' : "Steven, www.dobtor.com",
     'depends': ['base', 'mail'],

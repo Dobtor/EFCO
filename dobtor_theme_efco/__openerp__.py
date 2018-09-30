@@ -4,6 +4,7 @@
     'summary': """
         dobtor custom theme
     """,
+    "license": "LGPL-3",
     'description': """
     將模版整合為單一模組，並可以由設計師自定要套用哪一個模版
         色調的顏色控制欄位需可以填入色碼，網站內容的Block會套用同樣色調，理想位置最好是在前台Customize Theme的子介面上

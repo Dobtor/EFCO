@@ -4,6 +4,7 @@
     'summary': "EFCO 公司頁首頁尾",
     'description': "EFCO 公司頁首頁尾",
     'author': "Dobtor SI",
+    "license": "LGPL-3",
     'website': "https://www.dobtor.com",
     'category': 'website',
     'version': '0.1',

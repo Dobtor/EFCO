@@ -2,7 +2,7 @@
 {
     'name': "survey_extend",
     'summary': """
-        1. print to pdf    
+        1. print to pdf
     """,
     'description': """
         suvery extend
@@ -11,6 +11,7 @@
     'website': "http://www.dobtor.com",
     'category': 'survey',
     'version': '0.1',
+    "license": "LGPL-3",
     'depends': ['base', 'survey', 'report', 'survey_matrix_text'],
     'data': [
         'views/assets.xml',
