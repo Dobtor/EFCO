@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 
 
 class ProductReportTemplate(models.Model):
@@ -17,7 +17,7 @@ class ProductReportTemplate(models.Model):
     )
 
     external_footer_id = fields.Many2one(
-        string='External Header Template *',
+        string='External Footer Template *',
         comodel_name='ir.ui.view',
         default=lambda self: self.env.ref(
             'product_report_template.custom_product_external_layout_footer').id

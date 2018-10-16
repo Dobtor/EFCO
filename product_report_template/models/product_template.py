@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+from odoo import models, fields, api
 
 
 class ProductTemplate(models.Model):
@@ -19,6 +19,6 @@ class ProductTemplate(models.Model):
     version_label = fields.Char(string='Version Label')
     is_visible_pdf = fields.Boolean(default=True)
 
-    @api.one
+    @api.multi
     def toggle_pdf(self):
         self.is_visible_pdf = not self.is_visible_pdf

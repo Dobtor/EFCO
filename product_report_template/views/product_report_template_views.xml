@@ -5,19 +5,19 @@
         <field name="name">product.report.template.form</field>
         <field name="model">product.report.template</field>
         <field name="arch" type="xml">
-            <form string="report template">
+            <form name="report template">
                 <sheet>
                     <label for="name"/>
                     <div>
                         <field name="name" required="1"/>
                     </div>
-                    <group name="external_header" string="External Header">
+                    <group name="external_header">
                         <label for="external_header_id"/>
                         <div>
                             <field name="external_header_id" class="oe_inline" required="1" domain="[('type', '=', 'qweb')]"/>
                         </div>
                     </group>
-                    <group name="external_footer" string="External Footer">
+                    <group name="external_footer">
                         <label for="external_footer_id"/>
                         <div>
                             <field name="external_footer_id" class="oe_inline" required="1" domain="[('type', '=', 'qweb')]"/>
@@ -32,7 +32,7 @@
         <field name="name">product.report.template.tree</field>
         <field name="model">product.report.template</field>
         <field name="arch" type="xml">
-            <tree string="report template">
+            <tree name="report template">
                 <field name="name"/>
                 <field name="external_header_id"/>
                 <field name="external_footer_id"/>
@@ -46,7 +46,7 @@
         <field name="view_type">form</field>
         <field name="view_id" ref="product_report_template.product_report_template_tree"/>
     </record>
-    <menuitem action="product_report_template_action_form" id="menu_product_report_template_action_form" parent="product.prod_config_main" sequence="10"/>
+    <menuitem action="product_report_template_action_form" id="menu_product_report_template_action_form" parent="sale.prod_config_main" sequence="10"/>
 
 
 

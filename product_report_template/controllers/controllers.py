@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from openerp import http
-from openerp.http import request
+from odoo import http
+from odoo.http import request
 
 class ProductReportTemplates(http.Controller):
 
@@ -14,9 +14,13 @@ class ProductReportTemplates(http.Controller):
         Returns:
             [application/pdf] -- print pdf or http status code 404
         """
+
+        print("===========================================")
+        print(product)
+        print([product.id])
         if product:
             pdf = http.request.env['report'].sudo().with_context(
-                set_viewport_size=True).get_pdf(product, 'product_report_template.product_report_print')
+                set_viewport_size=True).get_pdf([product.id], 'product_report_template.product_report_print')
             pdfhttpheaders = [('Content-Type', 'application/pdf'),
                               ('Content-Length', len(pdf))]
             return request.make_response(pdf, headers=pdfhttpheaders)
