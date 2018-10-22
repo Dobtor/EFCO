@@ -19,5 +19,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/crm_lead_views.xml',
+        # 'views/assets.xml'
     ],
 }

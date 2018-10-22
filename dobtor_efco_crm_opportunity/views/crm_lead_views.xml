@@ -13,11 +13,12 @@
                     <group>
                         <field name="expected_income_id">
                             <tree string="expected income" editable="top">
-                                <field name="name" />
                                 <field name="year"/>
                                 <field name="quarterly" />
+                                <field name="quantity" />
                                 <field name="amount" />
                                 <field name="Total_price" />
+                                <!-- <field name="test" widget="date" options="{'format': 'YYYY', 'viewMode': 'years', 'minViewMode': 'years'}"/> -->
                             </tree>
                         </field>
                     </group>

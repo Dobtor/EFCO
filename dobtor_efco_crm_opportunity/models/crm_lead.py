@@ -7,7 +7,7 @@ class crm_lead(models.Model):
     _inherit = 'crm.lead'
 
     product_id = fields.Many2one(
-        string='Associate product',
+        string='Related Part Number',
         comodel_name='product.product',
     )
     expected_income_id = fields.One2many(
@@ -19,8 +19,6 @@ class crm_lead(models.Model):
 
 class crm_expected_income(models.Model):
     _name = 'crm.expected.income'
-
-    name = fields.Char(string='Name')
 
     @api.model
     def get_current_year(self):
@@ -40,8 +38,12 @@ class crm_expected_income(models.Model):
         string='Quarterly',
         selection=[('q1', 'Q1'), ('q2', 'Q2'), ('q3', 'Q3'), ('q4', 'Q4')]
     )
+
+    quantity = fields.Float(
+        string='Quantity',
+    )
     amount = fields.Float(
-        string='Amount',
+        string='Unit Price',
     )
     Total_price = fields.Float(
         string='Total price',
@@ -50,3 +52,9 @@ class crm_expected_income(models.Model):
         string='Associate crm opportunity',
         comodel_name='crm.lead',
     )
+  
+    test = fields.Date(
+        string='demo date',
+        # default=fields.Date.now,
+    )
+    
