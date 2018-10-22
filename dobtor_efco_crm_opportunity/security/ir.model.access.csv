@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_expected_income_all,crm_expected_income.all,dobtor_efco_crm_opportunity.model_crm_expected_income,,1,0,0,0
+access_crm_expected_income_manager,crm_expected_income.manager,dobtor_efco_crm_opportunity.model_crm_expected_income,base.group_sale_manager,1,1,1,1
+access_crm_expected_income_user,crm_expected_income.user,dobtor_efco_crm_opportunity.model_crm_expected_income,base.group_sale_salesman,1,1,1,0
+access_crm_expected_income_partner_manager,crm_expected_income.partner_manager,dobtor_efco_crm_opportunity.model_crm_expected_income,base.group_partner_manager,1,0,0,0
