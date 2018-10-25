@@ -32,6 +32,7 @@
     'data': [
         'view/fetchmail_server.xml',
         'wizard/attach_mail_manually.xml',
+        'security/fetchmail_security.xml',
         'security/ir.model.access.csv',
     ],
     'installable': True,

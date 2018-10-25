@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_model_fetchmail_server_folder,fetchmail.server.folder,model_fetchmail_server_folder,base.group_system,1,1,1,1
+access_fetchmail_sever_Employee,fetchmail.sever.Employee,fetchmail.model_fetchmail_server,base.group_user,1,1,1,1
+access_fetchmail_sever_folder_Employee,fetchmail.sever.folder.Employee,fetchmail_attach_from_folder.model_fetchmail_server_folder,base.group_user,1,1,1,1
+access_ir_cron_Employee,ir.cron.Employee,base.model_ir_cron,base.group_user,1,1,1,1

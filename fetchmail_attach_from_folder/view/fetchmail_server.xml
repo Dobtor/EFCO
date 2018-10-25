@@ -54,5 +54,14 @@
                 </data>
             </field>
         </record>
+        <menuitem name="FetchMail" id="fetchmail_attach_from_folder.menu_root"/>
+        <menuitem
+            parent="hr.menu_hr_root"
+            id="fetchmail_attach_from_folder.menu_action_fetchmail_server_tree"
+            action="fetchmail.action_email_server_tree"
+            name="Incoming Mail Servers"
+            sequence="14"
+            groups="base.group_no_one,base.group_user"
+        />
     </data>
 </odoo>
