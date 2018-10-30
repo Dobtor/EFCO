@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="web_widget_datepicker_options assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/dobtor_efco_crm_opportunity/static/src/js/datepicker.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>
