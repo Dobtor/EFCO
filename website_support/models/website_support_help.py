@@ -2,11 +2,11 @@
 import unicodedata
 import re
 
-from openerp import api, fields, models
-from openerp.http import request
-from openerp.tools import html_escape as escape, ustr, image_resize_and_sharpen, image_save_for_web
+from odoo import api, fields, models
+from odoo.http import request
+from odoo.tools import html_escape as escape, ustr, image_resize_and_sharpen, image_save_for_web
 
-from openerp.addons.website.models.website import slug
+from odoo.addons.website.models.website import slug
 
 class WebsiteSupportHelpGroups(models.Model):
 
@@ -21,7 +21,7 @@ class WebsiteSupportHelpGroups(models.Model):
     group_ids = fields.Many2many('res.groups', string="Privilege Groups")
     partner_ids = fields.Many2many('res.partner', string="Privilege Contacts")
 
-    @api.one
+    @api.multi
     @api.depends('page_ids')
     def _page_count(self):
         """Amount of help pages in a help group"""
@@ -49,17 +49,17 @@ class WebsiteSupportHelpPage(models.Model):
     feedback_average = fields.Float(string="Feedback Average Rating", compute="_compute_feedback_average")
     feedback_count = fields.Integer(string="Feedback Count", compute="_compute_feedback_count")
     
-    @api.one
+    @api.multi
     @api.depends('name')
     def _compute_url_generated(self):
         self.url_generated = "/support/help/" + slug(self.group_id) + "/" + slug(self)    
 
-    @api.one
+    @api.multi
     @api.depends('feedback_ids')
     def _compute_feedback_count(self):
         self.feedback_count = len(self.feedback_ids)    
 
-    @api.one
+    @api.multi
     @api.depends('feedback_ids')
     def _compute_feedback_average(self):
         average = 0
@@ -72,7 +72,7 @@ class WebsiteSupportHelpPage(models.Model):
         else:
            self.feedback_average = 0
 
-    @api.model
+    @api.multi
     def create(self, values):
         sequence=self.env['ir.sequence'].next_by_code('website.support.help.page')
         values['sequence']=sequence

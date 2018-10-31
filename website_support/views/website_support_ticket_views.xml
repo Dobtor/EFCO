@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>                    
     
       <record id="website_support_ticket_view_form" model="ir.ui.view">
@@ -161,4 +161,4 @@
       <menuitem id="website_support_config_parent_menu" name="Support Tickets" parent="sales_team.menu_sale_config" sequence="80"/>
  
     </data>
-</openerp>
+</odoo>

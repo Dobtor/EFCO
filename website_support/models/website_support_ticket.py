@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from openerp import api, fields, models
-from openerp import tools
+from odoo import api, fields, models
+from odoo import tools
 from HTMLParser import HTMLParser
 from random import randint
 import datetime
@@ -87,11 +87,11 @@ class WebsiteSupportTicket(models.Model):
     approve_url = fields.Char(compute="_compute_approve_url", string="Approve URL")
     disapprove_url = fields.Char(compute="_compute_disapprove_url", string="Disapprove URL")
 
-    @api.one
+    @api.multi
     def _compute_approve_url(self):
         self.approve_url = "/support/approve/" + str(self.id)
 
-    @api.one
+    @api.multi
     def _compute_disapprove_url(self):
         self.disapprove_url = "/support/disapprove/" + str(self.id)
         
@@ -159,7 +159,7 @@ class WebsiteSupportTicket(models.Model):
 
         return super(WebsiteSupportTicket, self).message_update(msg_dict, update_vals=update_vals)
 
-    @api.one
+    @api.multi
     @api.depends('ticket_number')
     def _compute_ticket_number_display(self):
         if self.ticket_number:
@@ -454,7 +454,7 @@ class WebsiteSupportTicketCompose(models.Model):
             values = self.env['mail.compose.message'].generate_email_for_composer(self.template_id.id, [self.ticket_id.id])[self.ticket_id.id]                
             self.body = values['body']
             
-    @api.one
+    @api.multi
     def send_reply(self):
         #Send email
         values = {}

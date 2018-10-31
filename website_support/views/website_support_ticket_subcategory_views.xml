@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
       <record id="website_support_ticket_subcategory_view_form" model="ir.ui.view">
           <field name="name">website.support.ticket.subcategory form view</field>
@@ -52,4 +52,4 @@
       <menuitem id="website_support_ticket_subcategory_menu" name="Sub Categories" parent="website_support_config_parent_menu" action="website_support_ticket_subcategory_action" sequence="30"/>
 
     </data>
-</openerp>
+</odoo>
