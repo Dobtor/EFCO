@@ -1,59 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="website_support_efco.list">
-      <field name="name">website_support_efco list</field>
-      <field name="model">website_support_efco.website_support_efco</field>
+    <record id="website_support_efco_view_form" model="ir.ui.view">
+      <field name="name">website.support.efco.form.view</field>
+      <field name="model">website.support.ticket</field>
+      <field name="inherit_id" ref="website_support.website_support_ticket_view_form"/>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <xpath expr="//group" position="after">
+          <group>
+          <separator string="Module" colspan="2"/>
+            <group>
+              <field name="article_description"/>
+              <field name="hardware_revision"/>
+              <field name="serial_number"/>
+              <field name="flat_panel"/>
+            </group>
+            <group>
+              <field name="part_number"/>
+              <field name="bios_revision"/>
+              <field name="operiating_system"/>
+            </group>
+          </group>
+        </xpath>
       </field>
     </record>
-    -->
-
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="website_support_efco.action_window">
-      <field name="name">website_support_efco window</field>
-      <field name="res_model">website_support_efco.website_support_efco</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="website_support_efco.action_server">
-      <field name="name">website_support_efco server</field>
-      <field name="model_id" ref="model_website_support_efco_website_support_efco"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="website_support_efco" id="website_support_efco.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="website_support_efco.menu_1" parent="website_support_efco.menu_root"/>
-    <menuitem name="Menu 2" id="website_support_efco.menu_2" parent="website_support_efco.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="website_support_efco.menu_1_list" parent="website_support_efco.menu_1"
-              action="website_support_efco.action_window"/>
-    <menuitem name="Server to list" id="website_support_efco" parent="website_support_efco.menu_2"
-              action="website_support_efco.action_server"/>
-    -->
   </data>
 </odoo>
