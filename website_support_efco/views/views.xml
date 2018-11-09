@@ -7,8 +7,14 @@
       <field name="inherit_id" ref="website_support.website_support_ticket_view_form"/>
       <field name="arch" type="xml">
         <xpath expr="//group" position="after">
+          <separator string="Module" colspan="1"/>
+          <field name="ticket_model">
+            <tree editable="bottom">
+              <field name="model_description"/>
+            </tree>
+          </field>
           <group>
-          <separator string="Module" colspan="2"/>
+            <separator string="System Description" colspan="2"/>
             <group>
               <field name="article_description"/>
               <field name="hardware_revision"/>
