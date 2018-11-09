@@ -14,35 +14,20 @@ class ResPartnerTicket(models.Model):
     @api.multi
     @api.depends('support_ticket_ids')
     def _count_support_tickets(self):
-<<<<<<< HEAD
-        """Sets the amount support tickets owned by this customer"""
-        self.support_ticket_count = self.support_ticket_ids.search_count([('partner_id','=',self.id)])
-=======
         for res in self:
             """Sets the amount support tickets owned by this customer"""
             res.support_ticket_count = res.support_ticket_ids.search_count([('partner_id','=',res.id)])
->>>>>>> dev
         
     @api.multi
     @api.depends('support_ticket_ids')
     def _count_new_support_tickets(self):
-<<<<<<< HEAD
-        """Sets the amount of new support tickets owned by this customer"""
-        opened_state = self.env['ir.model.data'].get_object('website_support', 'website_ticket_state_open')
-        self.new_support_ticket_count = self.support_ticket_ids.search_count([('partner_id','=',self.id), ('state','=',opened_state.id)])
-=======
         for res in self:
             """Sets the amount of new support tickets owned by this customer"""
             opened_state = res.env['ir.model.data'].get_object('website_support', 'website_ticket_state_open')
             res.new_support_ticket_count = res.support_ticket_ids.search_count([('partner_id','=',res.id), ('state','=',opened_state.id)])
->>>>>>> dev
         
     @api.multi
     @api.depends('support_ticket_count', 'new_support_ticket_count')
     def _compute_support_ticket_string(self):
-<<<<<<< HEAD
-        self.support_ticket_string = str(self.support_ticket_count) + " (" + str(self.new_support_ticket_count) + ")"
-=======
         for res in self:
             res.support_ticket_string = str(res.support_ticket_count) + " (" + str(res.new_support_ticket_count) + ")"
->>>>>>> dev
