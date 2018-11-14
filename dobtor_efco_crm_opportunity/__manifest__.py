@@ -19,6 +19,10 @@
     'data': [
         'security/ir.model.access.csv',
         'views/crm_lead_views.xml',
+<<<<<<< HEAD
+=======
+        'views/crm_expected_list_view.xml',
+>>>>>>> dev
         # 'views/assets.xml'
     ],
 }
