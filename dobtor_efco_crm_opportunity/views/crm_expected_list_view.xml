@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_efco_expected_income" model="ir.actions.act_window">
+            <field name="name">Exepected Income</field>
+            <field name="res_model">crm.expected.income</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{
+            'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
+        </record>
+        <!-- <record model="ir.ui.view" id="efco_expercted_income_form">
+            <field name="name">efco_expercted_income form</field>
+            <field name="model">crm.expected.income</field>
+            <field name="arch" type="xml">
+                <form string="Expected Income">
+                    <sheet>
+                        <group>
+                            <field name="crm_lead_id"/>
+                            <field name="year"/>
+                            <field name="quarterly" />
+                            <field name="quantity" />
+                            <field name="amount" />
+                            <field name="Total_price" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record> -->
+        <record model="ir.ui.view" id="efco_expercted_income_tree">
+            <field name="name">efco_expercted_income Tree</field>
+            <field name="model">crm.expected.income</field>
+            <field name="arch" type="xml">
+                <tree string="Expected Income" editable="top">
+                    <field name="crm_lead_id"/>
+                    <field name="year"/>
+                    <field name="quarterly" />
+                    <field name="quantity" />
+                    <field name="amount" />
+                    <field name="Total_price" />
+                </tree>
+            </field>
+        </record>
+        <menuitem id="efco_crm_expected_income" name="Expected Income" parent="sales_team.menu_sales" sequence="10" action="action_efco_expected_income"/>
+    </data>
+</odoo>
