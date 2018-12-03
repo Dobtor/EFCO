@@ -61,4 +61,4 @@ class crm_expected_income(models.Model):
         comodel_name='res.users',
         related='crm_lead_id.user_id',
     )
-    
+
