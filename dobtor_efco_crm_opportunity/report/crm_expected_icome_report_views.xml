@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <tree string="My Expected Income" create="false" delete="false">
                     <field name="crm_lead_id"/>
-                    <field name="saleperson" groups="crm.group_use_lead"/>
+                    <field name="saleperson" groups="sales_team.group_sale_manager"/>
                     <field name="year"/>
                     <field name="quarterly" />
                     <field name="quantity" />
@@ -23,7 +23,7 @@
             <field name="model">crm.expected.income</field>
             <field name="arch" type="xml">
                 <search string="Filter">
-                    <field name="saleperson" string="Sale Person" groups="crm.group_use_lead"/>
+                    <field name="saleperson" string="Sale Person" groups="sales_team.group_sale_manager"/>
                     <field name="crm_lead_id" string="Associate crm opportunity"/>
                 </search>
             </field>
@@ -47,6 +47,7 @@
             <field name="context">{'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
         </record>
 
-        <menuitem id="crm_expected_icome_report_menu" name="Expected Income" groups="crm.group_use_lead" parent="sales_team.menu_sale_report" action="action_crm_expected_income_pivot" sequence="24"/>
+        <menuitem id="crm_expected_icome_report_menu" name="Expected Income" groups="sales_team.group_sale_manager" parent="sales_team.menu_sale_report" action="action_crm_expected_income_pivot" sequence="24"/>
+
     </data>
 </odoo>

@@ -14,7 +14,8 @@
     'depends': [
         'base',
         'crm',
-        'product'
+        'product',
+        'sales_team'
     ],
     'data': [
         'security/ir.model.access.csv',
