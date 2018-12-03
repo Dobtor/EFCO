@@ -19,7 +19,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/crm_lead_views.xml',
-        'views/crm_expected_list_view.xml',
+        'report/crm_expected_icome_report_views.xml'
         # 'views/assets.xml'
     ],
 }
