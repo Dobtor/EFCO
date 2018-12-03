@@ -19,6 +19,7 @@ class crm_lead(models.Model):
 
 class crm_expected_income(models.Model):
     _name = 'crm.expected.income'
+    _order = 'crm_lead_id, sequence'
 
     @api.model
     def get_current_year(self):
@@ -51,5 +52,8 @@ class crm_expected_income(models.Model):
     crm_lead_id = fields.Many2one(
         string='Associate crm opportunity',
         comodel_name='crm.lead',
+    )
+    sequence = fields.Integer(
+        string='sequence',
     )
     

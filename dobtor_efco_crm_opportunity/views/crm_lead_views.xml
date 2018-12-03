@@ -13,6 +13,7 @@
                     <group>
                         <field name="expected_income_id">
                             <tree string="expected income" editable="top">
+                                <field name="sequence" widget="handle"/>
                                 <field name="year"/>
                                 <field name="quarterly" />
                                 <field name="quantity" />
