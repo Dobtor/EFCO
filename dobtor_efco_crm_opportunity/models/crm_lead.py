@@ -56,4 +56,9 @@ class crm_expected_income(models.Model):
     sequence = fields.Integer(
         string='sequence',
     )
+    saleperson = fields.Many2one(
+        string='Sale person',
+        comodel_name='res.users',
+        related='crm_lead_id.user_id',
+    )
     

@@ -32,6 +32,7 @@
             <field name="arch" type="xml">
                 <tree string="Expected Income" create="false" delete="false" editable="false">
                     <field name="crm_lead_id"/>
+                    <field name="saleperson"/>
                     <field name="year"/>
                     <field name="quarterly" />
                     <field name="quantity" />
