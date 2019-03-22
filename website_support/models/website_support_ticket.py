@@ -162,10 +162,11 @@ class WebsiteSupportTicket(models.Model):
     @api.multi
     @api.depends('ticket_number')
     def _compute_ticket_number_display(self):
-        if self.ticket_number:
-            self.ticket_number_display = str(self.id) + " / " + "{:,}".format( self.ticket_number )
-        else:
-            self.ticket_number_display = self.id
+        for item in self:
+            if item.ticket_number:
+                item.ticket_number_display = str(item.id) + " / " + "{:,}".format(item.ticket_number )
+            else:
+                item.ticket_number_display = item.id
             
     @api.depends('state')
     def _compute_unattend(self):

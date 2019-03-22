@@ -90,6 +90,7 @@ class crm_product(models.Model):
                           }
                 result.append(_name_get(mydict))
         return result
+
 class crm_expected_income(models.Model):
     _name = 'crm.expected.income'
 
@@ -131,10 +132,12 @@ class crm_expected_income(models.Model):
         comodel_name='product.product',
     )
     product_code =  fields.Char(
-        string=u'Product code',
+        string='Product code',
         related="product_id.default_code",
     )
 
+    @api.multi
     @api.depends('quantity','amount')
     def _compute_total_price(self):
-        self.Total_price = self.quantity * self.amount
+        for item in self:
+            item.Total_price = item.quantity * item.amount
