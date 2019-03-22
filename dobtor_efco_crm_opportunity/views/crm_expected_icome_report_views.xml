@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_efco_expected_income" model="ir.actions.act_window">
+            <field name="name">Exepected Income</field>
+            <field name="res_model">crm.expected.income</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{
+            'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
+        </record>
+
+        <record id="crm_expercted_income_tree" model="ir.ui.view">
+            <field name="name">crm.expercted.income.tree</field>
+            <field name="model">crm.expected.income</field>
+            <field name="arch" type="xml">
+                <tree string="My Expected Income" create="false" delete="false">
+                    <field name="crm_lead_id"/>
+                    <field name="saleperson" groups="sales_team.group_sale_manager"/>
+                    <field name="year"/>
+                    <field name="quarterly" />
+                    <field name="quantity" />
+                    <field name="amount" />
+                    <field name="Total_price" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="crm_expercted_income_seach" model="ir.ui.view">
+            <field name="name">crm.expercted.income.filter</field>
+            <field name="model">crm.expected.income</field>
+            <field name="arch" type="xml">
+                <search string="Filter">
+                    <field name="saleperson" string="Sale Person" groups="sales_team.group_sale_manager"/>
+                    <field name="crm_lead_id" string="Associate crm opportunity"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_efco_expected_income" model="ir.actions.act_window">
+            <field name="name">Exepected Income</field>
+            <field name="res_model">crm.expected.income</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('saleperson','=',uid)]</field>
+            <field name="context">{'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
+        </record>
+
+        <menuitem id="my_crm_expected_icome_menu" name="My Expected Income" parent="sales_team.menu_sales" sequence="4" action="action_crm_expected_income"/>
+
+        <record id="action_crm_expected_income_pivot" model="ir.actions.act_window">
+            <field name="name">Exepected Income</field>
+            <field name="res_model">crm.expected.income</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[]</field>
+            <field name="context">{'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
+        </record>
+
+        <menuitem id="crm_expected_icome_report_menu" name="Expected Income" groups="sales_team.group_sale_manager" parent="sales_team.menu_sale_report" action="action_crm_expected_income_pivot" sequence="24"/>
+
+    </data>
+</odoo>

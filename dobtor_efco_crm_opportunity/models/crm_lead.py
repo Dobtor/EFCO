@@ -6,10 +6,6 @@ from odoo import models, fields, api
 class crm_lead(models.Model):
     _inherit = 'crm.lead'
 
-    # product_id = fields.Many2one(
-    #     string='Related Part Number',
-    #     comodel_name='product.product',
-    # )
     expected_income_id = fields.One2many(
         string='expected income',
         comodel_name='crm.expected.income',
@@ -140,7 +136,7 @@ class crm_expected_income(models.Model):
         string='Product Name',
         comodel_name='product.product',
     )
-    product_code =  fields.Char(
+    product_code = fields.Char(
         string='Product code',
         related="product_id.default_code",
     )
