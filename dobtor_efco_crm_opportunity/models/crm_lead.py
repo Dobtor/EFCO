@@ -76,8 +76,8 @@ class crm_expected_income(models.Model):
         string='Product Name',
         comodel_name='product.product',
     )
-    product_code = fields.Char(
-        string='Product code',
+    article_number = fields.Char(
+        string='Article Number',
         related="product_id.default_code",
     )
 
