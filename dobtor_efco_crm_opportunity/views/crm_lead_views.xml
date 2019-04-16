@@ -15,6 +15,7 @@
                             <tree string="expected income" editable="top">
                                 <field name="sequence" widget="handle"/>
                                 <field name="article_number"/>
+                                <field name="new_part_code"/>
                                 <field name="product_id" context="{'only_product_name': True, 'default_only_product_name': True}"/>
                                 <!-- <field name="product_name"  readonly="1"/> -->
                                 <field name="year"/>

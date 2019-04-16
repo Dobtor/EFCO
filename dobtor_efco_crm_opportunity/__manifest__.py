@@ -15,7 +15,8 @@
         'base',
         'crm',
         'product',
-        'sales_team'
+        'sales_team',
+        'dobtor_rma_extend'
     ],
     'data': [
         'security/ir.model.access.csv',

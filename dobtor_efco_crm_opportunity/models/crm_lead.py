@@ -80,6 +80,9 @@ class crm_expected_income(models.Model):
         string='Article Number',
         related="product_id.default_code",
     )
+    new_part_code = fields.Char(
+        string="Part Number",
+        related='product_id.new_part_code',)
 
     @api.multi
     @api.depends('quantity','amount')
