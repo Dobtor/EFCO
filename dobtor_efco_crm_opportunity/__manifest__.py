@@ -16,7 +16,7 @@
         'crm',
         'product',
         'sales_team',
-        'dobtor_efco_rma',
+        'dobtor_efco_rma'
     ],
     'data': [
         'security/ir.model.access.csv',

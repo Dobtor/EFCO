@@ -76,16 +76,55 @@ class crm_expected_income(models.Model):
         string='Product Name',
         comodel_name='product.product',
     )
-    article_number = fields.Char(
+    article_number = fields.Many2one(
         string='Article Number',
-        related="product_id.default_code",
+        comodel_name="article.number"
     )
-    new_part_code = fields.Char(
+
+    new_part_code = fields.Many2one(
         string="Part Number",
-        related='product_id.new_part_code',)
+        comodel_name="part.number")
 
     @api.multi
     @api.depends('quantity','amount')
     def _compute_total_price(self):
         for item in self:
             item.Total_price = item.quantity * item.amount
+
+    @api.onchange('article_number')
+    def do_change_product(self):
+        if self.article_number:
+            article_number = self.article_number
+            product = self.env['product.product'].search([('new_part_code','=',article_number.id)],limit=1)
+            if not self.product_id and product:
+                self.product_id = product
+            if self.product_id.new_part_code!=self.article_number and product:
+                self.product_id = product
+            if self.product_id.new_part_code!=self.article_number and not product:
+                self.product_id = False
+    @api.onchange('product_id')
+    def do_change_article_number(self):
+        if self.product_id:
+            product = self.product_id
+            if not self.article_number and product.new_part_code:
+                self.article_number = product.new_part_code
+            if self.article_number and product.new_part_code and  self.article_number != product.new_part_code :
+                self.article_number = product.new_part_code
+
+            if not self.new_part_code and product.old_part_code:
+                self.new_part_code = product.old_part_code
+            if self.new_part_code and product.old_part_code and  self.new_part_code != product.old_part_code :
+                self.new_part_code = product.old_part_code
+
+
+    @api.onchange('new_part_code')
+    def do_product_by_new_part_code(self):
+        if self.new_part_code:
+            new_part_code = self.new_part_code
+            product = self.env['product.product'].search([('old_part_code','=',new_part_code.id)],limit=1)
+            if not self.product_id and product:
+                self.product_id = product
+            if self.product_id.old_part_code  !=self.new_part_code and product:
+                self.product_id = product
+            if self.product_id.old_part_code  !=self.new_part_code and not product:
+                self.product_id = False

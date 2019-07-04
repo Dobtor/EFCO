@@ -10,23 +10,20 @@
                     <field name="product_id"/>
                 </xpath> -->
                 <xpath expr="//group" position="after">
-                    <group>
+                        <label for="expected_income_id"/>
                         <field name="expected_income_id" context="{'only_product_name': True, 'default_only_product_name': True}">
                             <tree string="expected income" editable="top">
                                 <field name="sequence" widget="handle"/>
-                                <field name="article_number"/>
-                                <field name="new_part_code"/>
+                                <field name="article_number"  options="{'no_create_edit': True}"/>
+                                <field name="new_part_code" options="{'no_create_edit': True}"/>
                                 <field name="product_id" context="{'only_product_name': True, 'default_only_product_name': True}"/>
-                                <!-- <field name="product_name"  readonly="1"/> -->
                                 <field name="year"/>
                                 <field name="quarterly" />
                                 <field name="quantity" />
                                 <field name="amount" />
                                 <field name="Total_price" />
-                                <!-- <field name="test" widget="date" options="{'format': 'YYYY', 'viewMode': 'years', 'minViewMode': 'years'}"/> -->
                             </tree>
                         </field>
-                    </group>
                 </xpath>
             </field>
         </record>
