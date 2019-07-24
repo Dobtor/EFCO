@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
@@ -20,7 +19,7 @@
 ##############################################################################
 {
     'name': 'Server Mode',
-    'version': '9.0.1.1.0',
+    'version': '11.0.1.0.0',
     "author": "ADHOC SA",
     "website": "www.adhoc.com.ar",
     'license': 'AGPL-3',
@@ -29,16 +28,11 @@
     'images': [],
     'depends': [
         "web",
-    ],
-    'data': [
-        "oerp_develope_js.xml",
+        "web_environment_ribbon",
     ],
     'demo': [],
     'test': [],
     'installable': True,
     'auto_install': True,
     'application': False,
-    'qweb': [
-        'static/src/xml/mode.xml',
-    ],
 }

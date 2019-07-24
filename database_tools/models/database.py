@@ -2,11 +2,11 @@
 import os
 import shutil
 from datetime import datetime
-from openerp import fields, models, api, _, modules
-from openerp.exceptions import ValidationError
-from openerp.service import db as db_ws
+from odoo import fields, models, api, _, modules
+from odoo.exceptions import ValidationError
+from odoo.service import db as db_ws
 from dateutil.relativedelta import relativedelta
-from openerp.addons.server_mode.mode import get_mode
+from odoo.addons.server_mode.mode import get_mode
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -180,7 +180,7 @@ class db_database(models.Model):
     @api.model
     def backups_state(self, db_name, state_type):
         """Update ir parameter to enable or disable backups"""
-        registry = modules.registry.RegistryManager.get(db_name)
+        registry = modules.registry.Registry.get(db_name)
         with registry.cursor() as db_cr:
             registry['ir.config_parameter'].set_param(
                 db_cr, 1, 'database.backups.enable', str(state_type))
@@ -322,7 +322,7 @@ class db_database(models.Model):
         try:
             os.remove(directory)
             _logger.info('File %s removed succesfully' % directory)
-        except Exception, e:
+        except Exception as e:
             _logger.warning(
                 'Unable to remoove database file on %s, '
                 'this is what we get:\n'
@@ -408,7 +408,7 @@ class db_database(models.Model):
             if not db_ws.exp_db_exist(self.name):
                 error = "Database %s do not exist" % (self.name)
                 _logger.warning(error)
-        except Exception, e:
+        except Exception as e:
             error = (
                 "Could not check if database %s exists. "
                 "This is what we get:\n"
@@ -419,7 +419,7 @@ class db_database(models.Model):
             try:
                 if not os.path.isdir(self.backups_path):
                     os.makedirs(self.backups_path)
-            except Exception, e:
+            except Exception as e:
                 error = (
                     "Could not create folder %s for backups. "
                     "This is what we get:\n"
@@ -443,7 +443,7 @@ class db_database(models.Model):
                         self.name,
                         backup,
                         backup_format=backup_format)
-                except Exception, e:
+                except Exception as e:
                     error = (
                         'Unable to dump self. '
                         'If you are working in an instance with '
@@ -481,7 +481,7 @@ class db_database(models.Model):
                                 _logger.info(
                                     'Creating syncked backup folder')
                                 os.makedirs(self.syncked_backup_path)
-                        except Exception, e:
+                        except Exception as e:
                             error = (
                                 "Could not create folder %s for backups. "
                                 "This is what we get:\n"
@@ -495,7 +495,7 @@ class db_database(models.Model):
                                 self.syncked_backup_path,
                                 self.name + '.%s' % backup_format)
                             shutil.copy2(backup_path, syncked_backup)
-                        except Exception, e:
+                        except Exception as e:
                             error = (
                                 "Could not copy into syncked folder. "
                                 "This is what we get:\n"
