@@ -13,7 +13,7 @@
             <field name="name">crm.expercted.income.tree</field>
             <field name="model">crm.expected.income</field>
             <field name="arch" type="xml">
-                <tree string="My Expected Income" create="false" delete="false">
+                <tree string="Forecast" create="false" delete="false">
                     <field name="crm_lead_id"/>
                     <field name="saleperson" groups="sales_team.group_sale_manager"/>
                     <field name="year"/>
@@ -47,7 +47,7 @@
             }</field>
         </record>
 
-        <menuitem id="my_crm_expected_icome_menu" name="My Expected Income" parent="sales_team.menu_sales" sequence="4" action="action_crm_expected_income"/>
+        <menuitem id="my_crm_expected_icome_menu" name="Forecast" parent="sales_team.menu_sales" sequence="4" action="action_crm_expected_income"/>
 
         <record id="action_crm_expected_income_pivot" model="ir.actions.act_window">
             <field name="name">Exepected Income</field>

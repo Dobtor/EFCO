@@ -6,24 +6,60 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
             <field name="arch" type="xml">
-                <!-- <xpath expr="//field[@name='partner_id']" position="before">
-                    <field name="product_id"/>
-                </xpath> -->
+                <xpath expr="//h2[hasclass('o_row')]" position="replace">
+                    <div>
+                        <div class="o_row">
+                            <label for="planned_revenue" string="Project and Revenue"/>
+                            <field name="company_currency" invisible="1"/>
+                            <field name="planned_revenue" widget='monetary' options="{'currency_field': 'company_currency'}"/>
+                            <label for="project_lifetime" string="x Project lifetime"/>
+                            <field name="project_lifetime"/>
+                            <label for="compute_value" string="="/>
+                            <field name="compute_value"/>
+                            <span class="oe_grey"> at </span>
+                            <label for="probability" class="oe_edit_only"/>
+                            <div class="o_row">
+                                <field name="probability" widget="integer"/>
+                                <span>%%</span>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Revenue Customer</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="opp_id"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="end_customer"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="string">Account Manager</attribute>
+                </xpath>
                 <xpath expr="//group" position="after">
-                        <label for="expected_income_id"/>
-                        <field name="expected_income_id" context="{'only_product_name': True, 'default_only_product_name': True}">
-                            <tree string="expected income" editable="top">
-                                <field name="sequence" widget="handle"/>
-                                <field name="product_id" context="{'only_product_name': True, 'default_only_product_name': True}"/>
-                                <field name="article_number"  options="{'no_create_edit': True,'no_create':True}"/>
-                                <field name="new_part_code" options="{'no_create_edit': True,'no_create':True}"/>
-                                <field name="year"/>
-                                <field name="quarterly" />
-                                <field name="quantity" />
-                                <field name="amount" />
-                                <field name="Total_price" />
-                            </tree>
-                        </field>
+                    <label for="expected_income_id" string="Forecast"/>
+                    <field string="Forecast" name="expected_income_id" context="{'only_product_name': True, 'default_only_product_name': True}">
+                        <tree string="Forecast" editable="top">
+                            <field name="sequence" widget="handle"/>
+                            <field name="article_number" options="{'no_create_edit': True,'no_create':True}"/>
+                            <field name="new_part_code" options="{'no_create_edit': True,'no_create':True}"/>
+                            <field name="product_id" context="{'only_product_name': True, 'default_only_product_name': True}"/>
+                            <field name="amount" />
+                            <field name="year"/>
+                            <field name="q1_quantity"/>
+                            <field name="q1_total_price"/>
+                            <field name="q2_quantity"/>
+                            <field name="q2_total_price"/>
+                            <field name="q3_quantity"/>
+                            <field name="q3_total_price"/>
+                            <field name="q4_quantity"/>
+                            <field name="q4_total_price"/>
+                            <!-- <field name="quarterly" /> -->
+                            <!-- <field name="quantity" /> -->
+                            <!-- <field name="Total_price" /> -->
+                        </tree>
+                    </field>
                 </xpath>
             </field>
         </record>
