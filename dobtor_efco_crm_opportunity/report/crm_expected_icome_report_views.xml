@@ -13,7 +13,8 @@
                     <field name="crm_lead_id"/>
                     <field name="article_number"/>
                     <field name="new_part_code"/>
-                    <field name="partner_id"/>
+                    <field name="product_id"/>
+                    <field name="amount"/>
                     <field name="stage_id"/>
                     <field name="saleperson" string="Account Manager" groups="sales_team.group_sale_manager"/>
                     <field name="region"/>

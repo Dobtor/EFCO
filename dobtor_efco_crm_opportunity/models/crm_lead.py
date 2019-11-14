@@ -85,16 +85,16 @@ class crm_expected_income(models.Model):
         selection=[('q1', 'Q1'), ('q2', 'Q2'), ('q3', 'Q3'), ('q4', 'Q4')]
     )
     q1_quantity = fields.Float(
-        string='Q1 FostQTY',
+        string='Q1 FcstQTY',
     )
     q2_quantity = fields.Float(
-        string='Q2 FostQTY',
+        string='Q2 FcstQTY',
     )
     q3_quantity = fields.Float(
-        string='Q3 FostQTY',
+        string='Q3 FcstQTY',
     )
     q4_quantity = fields.Float(
-        string='Q4 FostQTY',
+        string='Q4 FcstQTY',
     )
     q1_total_price = fields.Float(
         string='Q1 Total',
@@ -135,7 +135,7 @@ class crm_expected_income(models.Model):
         related='crm_lead_id.user_id',
     )
     product_id = fields.Many2one(
-        string='Product Name',
+        string='Product',
         comodel_name='product.product',
     )
     article_number = fields.Many2one(
