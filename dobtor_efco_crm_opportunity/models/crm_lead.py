@@ -54,12 +54,6 @@ class crm_expected_income(models.Model):
     def get_current_year(self):
         return time.strftime("%Y")
 
-    @api.depends('crm_lead_id','crm_lead_id.user_id')
-    def compute_manager_region(self):
-        for item in self:
-            if item.crm_lead_id and item.crm_lead_id.user_id:
-                item.region =  item.crm_lead_id.user_id.country_id
-
     @api.multi
     @api.depends('q1_quantity', 'q2_quantity', 'q3_quantity', 'q4_quantity', 'amount')
     def _compute_total_price(self):
@@ -149,7 +143,7 @@ class crm_expected_income(models.Model):
     stage_id  = fields.Many2one(
        related="crm_lead_id.stage_id"
     )
-    region = fields.Many2one('res.country', string='Region',compute="compute_manager_region")
+    region = fields.Many2one('res.country', string='Region',related="partner_id.country_id")
     business_line = fields.Many2one(string=u'BL',related="crm_lead_id.team_id")
 
     @api.onchange('article_number')

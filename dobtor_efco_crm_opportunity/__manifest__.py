@@ -19,6 +19,7 @@
         'dobtor_efco_rma'
     ],
     'data': [
+        'security/crm_security.xml',
         'security/ir.model.access.csv',
         'views/crm_lead_views.xml',
         'report/crm_expected_icome_report_views.xml'
