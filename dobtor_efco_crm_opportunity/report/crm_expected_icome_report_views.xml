@@ -20,13 +20,13 @@
                     <field name="region"/>
                     <field name="business_line"/>
                     <field name="year"/>
-                    <field name="q1_quantity"/>
+                    <field name="q1_quantity" string="Q1 FcstQTY"/>
                     <field name="q1_total_price"/>
-                    <field name="q2_quantity"/>
+                    <field name="q2_quantity" string="Q2 FcstQTY"/>
                     <field name="q2_total_price"/>
-                    <field name="q3_quantity"/>
+                    <field name="q3_quantity" string="Q3 FcstQTY"/>
                     <field name="q3_total_price"/>
-                    <field name="q4_quantity"/>
+                    <field name="q4_quantity" string="Q4 FcstQTY"/>
                     <field name="q4_total_price"/>
                 </tree>
             </field>
