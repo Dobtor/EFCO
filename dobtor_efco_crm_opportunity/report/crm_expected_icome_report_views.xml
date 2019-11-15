@@ -47,7 +47,7 @@
             <field name="name">Forecast</field>
             <field name="res_model">crm.expected.income</field>
             <field name="view_mode">tree</field>
-            <field name="domain">[('saleperson','=',uid)]</field>
+            <!-- <field name="domain">[('saleperson','=',uid)]</field> -->
             <field name="context">{'tree_view_ref': 'dobtor_efco_crm_opportunity.efco_expercted_income_tree',}</field>
         </record>
 
