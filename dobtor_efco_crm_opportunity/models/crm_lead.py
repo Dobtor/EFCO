@@ -118,7 +118,7 @@ class crm_expected_income(models.Model):
     )
     crm_lead_id = fields.Many2one(
         string='Associate crm opportunity',
-        comodel_name='crm.lead',
+        comodel_name='crm.lead',required=True, ondelete='cascade',
     )
     sequence = fields.Integer(
         string='sequence',

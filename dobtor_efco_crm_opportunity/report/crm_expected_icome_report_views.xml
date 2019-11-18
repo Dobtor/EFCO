@@ -6,7 +6,7 @@
             <field name="name">crm.expercted.income.tree</field>
             <field name="model">crm.expected.income</field>
             <field name="arch" type="xml">
-                <tree string="Forecast" create="false" delete="false">
+                <tree string="Forecast" create="false">
                     <field name="partner_id"/>
                     <field name="opp_id"/>
                     <field name="end_customer"/>
