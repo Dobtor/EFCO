@@ -47,13 +47,13 @@
                             <field name="product_id" context="{'only_product_name': True, 'default_only_product_name': True}"/>
                             <field name="amount" />
                             <field name="year"/>
-                            <field name="q1_quantity"/>
+                            <field name="q1_quantity" string="Q1 Fcst Qty"/>
                             <field name="q1_total_price"/>
-                            <field name="q2_quantity"/>
+                            <field name="q2_quantity" string="Q2 Fcst Qty"/>
                             <field name="q2_total_price"/>
-                            <field name="q3_quantity"/>
+                            <field name="q3_quantity"  string="Q3 Fcst Qty"/>
                             <field name="q3_total_price"/>
-                            <field name="q4_quantity"/>
+                            <field name="q4_quantity"  string="Q4 Fcst Qty"/>
                             <field name="q4_total_price"/>
                             <!-- <field name="quarterly" /> -->
                             <!-- <field name="quantity" /> -->

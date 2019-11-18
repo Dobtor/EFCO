@@ -10,7 +10,7 @@
                     <field name="partner_id"/>
                     <field name="opp_id"/>
                     <field name="end_customer"/>
-                    <field name="crm_lead_id"/>
+                    <field name="crm_lead_id" string="Opportunity Name"/>
                     <field name="article_number"/>
                     <field name="new_part_code"/>
                     <field name="product_id"/>
