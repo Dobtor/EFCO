@@ -9,7 +9,7 @@
                 <xpath expr="//h2[hasclass('o_row')]" position="replace">
                     <div>
                         <div class="o_row">
-                            <label for="planned_revenue" string="Project and Revenue"/>
+                            <label for="planned_revenue" string="Project Annual Revenue"/>
                             <field name="company_currency" invisible="1"/>
                             <field name="planned_revenue" widget='monetary' options="{'currency_field': 'company_currency'}"/>
                             <label for="project_lifetime" string="x Project lifetime"/>
