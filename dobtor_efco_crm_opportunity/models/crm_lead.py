@@ -22,10 +22,15 @@ class crm_lead(models.Model):
         comodel_name='crm.expected.income',
         inverse_name='crm_lead_id',
     )
-    opp_id = fields.Char( string=u'Opp ID')
+    opp_id = fields.Char(string=u'Opp ID',readonly=True)
 
     end_customer = fields.Many2one('res.partner', string=u"End Customer",)
 
+    @api.model
+    def create(self,values):
+        values['opp_id'] = self.env['ir.sequence'].next_by_code('crm.lead.opp')
+        res = super(crm_lead, self).create(values)
+        return res
 
 class crm_product(models.Model):
     _inherit = "product.product"
@@ -58,11 +63,14 @@ class crm_expected_income(models.Model):
     @api.depends('q1_quantity', 'q2_quantity', 'q3_quantity', 'q4_quantity', 'amount')
     def _compute_total_price(self):
         for item in self:
-            item.Total_price = item.quantity * item.amount
             item.q1_total_price = item.q1_quantity * item.amount
             item.q2_total_price = item.q2_quantity * item.amount
             item.q3_total_price = item.q3_quantity * item.amount
             item.q4_total_price = item.q4_quantity * item.amount
+            item.annual_quantity = item.q1_quantity + \
+                item.q2_quantity + item.q3_quantity + item.q4_quantity
+            item.annual_amount = item.q1_total_price + item.q2_total_price + \
+                item.q3_total_price + item.q4_total_price
 
     @api.model
     def get_years(self):
@@ -106,9 +114,11 @@ class crm_expected_income(models.Model):
         string='Q4 Total',
         compute='_compute_total_price'
     )
-    quantity = fields.Float(
-        string='Quantity',
+    annual_quantity = fields.Float(
+        string='Annual Fcst Qty', compute='_compute_total_price'
     )
+    annual_amount = fields.Float(
+        string='Annual Fcst Total', compute='_compute_total_price')
     amount = fields.Float(
         string='Unit Price',
     )
@@ -118,7 +128,7 @@ class crm_expected_income(models.Model):
     )
     crm_lead_id = fields.Many2one(
         string='Associate crm opportunity',
-        comodel_name='crm.lead',required=True, ondelete='cascade',
+        comodel_name='crm.lead', required=True, ondelete='cascade',
     )
     sequence = fields.Integer(
         string='sequence',
@@ -136,15 +146,19 @@ class crm_expected_income(models.Model):
         string='Article Number',
         comodel_name="article.number"
     )
-    partner_id  = fields.Many2one(string=u'Revenue Customer',related="crm_lead_id.partner_id")
+    partner_id = fields.Many2one(
+        string=u'Revenue Customer', related="crm_lead_id.partner_id")
     opp_id = fields.Char(related="crm_lead_id.opp_id")
     end_customer = fields.Many2one(related="crm_lead_id.end_customer")
-    new_part_code = fields.Many2one(string="Part Number", comodel_name="part.number")
-    stage_id  = fields.Many2one(
-       related="crm_lead_id.stage_id"
+    new_part_code = fields.Many2one(
+        string="Part Number", comodel_name="part.number")
+    stage_id = fields.Many2one(
+        related="crm_lead_id.stage_id"
     )
-    region = fields.Many2one('res.country', string='Region',related="partner_id.country_id")
-    business_line = fields.Many2one(string=u'BL',related="crm_lead_id.team_id")
+    region = fields.Many2one(
+        'res.country', string='Region', related="partner_id.country_id")
+    business_line = fields.Many2one(
+        string=u'BL', related="crm_lead_id.team_id")
 
     @api.onchange('article_number')
     def do_change_product(self):

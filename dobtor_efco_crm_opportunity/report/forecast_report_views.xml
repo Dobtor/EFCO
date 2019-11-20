@@ -7,8 +7,8 @@
             <field name="model">crm.expected.income</field>
             <field name="arch" type="xml">
                 <tree string="Forecast" create="false">
-                    <field name="partner_id"/>
                     <field name="opp_id"/>
+                    <field name="partner_id"/>
                     <field name="end_customer"/>
                     <field name="crm_lead_id" string="Opportunity Name"/>
                     <field name="article_number"/>
@@ -28,6 +28,8 @@
                     <field name="q3_total_price"/>
                     <field name="q4_quantity" string="Q4 Fcst QTY"/>
                     <field name="q4_total_price"/>
+                    <field name="annual_quantity"/>
+                    <field name="annual_amount"/>
                 </tree>
             </field>
         </record>
