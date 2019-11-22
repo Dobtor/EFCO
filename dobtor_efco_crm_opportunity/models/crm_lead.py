@@ -160,6 +160,44 @@ class crm_expected_income(models.Model):
     business_line = fields.Many2one(
         string=u'BL', related="crm_lead_id.team_id")
 
+    # @api.onchange('article_number')
+    # def do_change_product(self):
+    #     if self.article_number:
+    #         article_number = self.article_number
+    #         product = self.env['product.product'].search([('new_part_code','=',article_number.id)],limit=1)
+    #         if not self.product_id and product:
+    #             self.product_id = product
+    #         if self.product_id.new_part_code!=self.article_number and product:
+    #             self.product_id = product
+    #         if self.product_id.new_part_code!=self.article_number and not product:
+    #             self.product_id = False
+    # @api.onchange('product_id')
+    # def do_change_article_number(self):
+    #     if self.product_id:
+    #         product = self.product_id
+    #         if not self.article_number and product.new_part_code:
+    #             self.article_number = product.new_part_code
+    #         if self.article_number and product.new_part_code and  self.article_number != product.new_part_code :
+    #             self.article_number = product.new_part_code
+
+    #         if not self.new_part_code and product.old_part_code:
+    #             self.new_part_code = product.old_part_code
+    #         if self.new_part_code and product.old_part_code and  self.new_part_code != product.old_part_code :
+    #             self.new_part_code = product.old_part_code
+
+
+    # @api.onchange('new_part_code')
+    # def do_product_by_new_part_code(self):
+    #     if self.new_part_code:
+    #         new_part_code = self.new_part_code
+    #         product = self.env['product.product'].search([('old_part_code','=',new_part_code.id)],limit=1)
+    #         if not self.product_id and product:
+    #             self.product_id = product
+    #         if self.product_id.old_part_code  !=self.new_part_code and product:
+    #             self.product_id = product
+    #         if self.product_id.old_part_code  !=self.new_part_code and not product:
+    #             self.product_id = False 
+
     @api.onchange('article_number')
     def do_change_product(self):
         for record in self:
@@ -168,10 +206,10 @@ class crm_expected_income(models.Model):
                     [('new_part_code', '=', record.article_number.id)], limit=1)
                 if not record.product_id and product:
                     record.product_id = product
-                elif record.product_id and record.product_id.new_part_code != record.article_number and product:
+                elif record.product_id and product and record.product_id != product:
                     record.product_id = product
-                elif record.product_id and record.product_id.new_part_code != record.article_number and not product:
-                    record.product_id = False
+                # elif record.product_id and record.product_id.new_part_code != record.article_number and not product:
+                #     record.product_id = False
 
                 # if not record.new_part_code and product and product.old_part_code:
                 #     record.new_part_code = product.old_part_code
@@ -182,18 +220,12 @@ class crm_expected_income(models.Model):
     def do_change_article_number(self):
         for record in self:
             if record.product_id and record.product_id.new_part_code:
-                if not record.article_number:
-                    record.article_number = record.product_id.new_part_code
-                elif record.article_number and record.article_number != record.product_id.new_part_code:
-                    record.article_number = record.product_id.new_part_code
+                record.article_number = record.product_id.new_part_code
             else:
                 record.article_number = False
 
             if record.product_id and record.product_id.old_part_code:
-                if not record.new_part_code:
-                    record.new_part_code = record.product_id.old_part_code
-                elif record.product_id.old_part_code and record.new_part_code != record.product_id.old_part_code:
-                    record.new_part_code = record.product_id.old_part_code
+                record.new_part_code = record.product_id.old_part_code
             else:
                 record.new_part_code = False
 
@@ -205,10 +237,10 @@ class crm_expected_income(models.Model):
                     [('old_part_code', '=', record.new_part_code.id)], limit=1)
                 if not record.product_id and product:
                     record.product_id = product
-                elif record.product_id and product and record.product_id.old_part_code != record.new_part_code:
+                elif record.product_id and product and record.product_id != product:
                     record.product_id = product
-                elif record.product_id and not product and record.product_id.old_part_code != record.new_part_code:
-                    record.product_id = False
+                # elif record.product_id and not product and record.product_id.old_part_code != record.new_part_code:
+                #     record.product_id = False
 
                 # if not record.article_number and product and product.new_part_code:
                 #     record.article_number = product.new_part_code
