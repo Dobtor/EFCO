@@ -102,52 +102,11 @@ class import_products(models.TransientModel):
                 internal_categ_id = product_category_obj.search([('name', '=', 'All')])
                 if not internal_categ_id:
                     internal_categ_id = product_category_obj.create({'name': 'All'})
-                
-                # Product Attributes get
-                # attribute_color_id = product_attribute.search([('name', '=', 'Color')])
-                # if not attribute_color_id:
-                #     attribute_color_id = product_attribute.create({'name': 'Color'})
-
-                # attribute_size_id = product_attribute.search([('name', '=', 'Size')])
-                # if not attribute_size_id:
-                #     attribute_size_id = product_attribute.create({'name': 'Size'})
-
-                # attribute_color_value_id_lis = []
-                # attribute_color_value_id = False
-                # if color:
-                #     for cl in color.split('/'):
-                #         attribute_color_value_id = attribute_value_obj.search([('name', '=', cl), ('attribute_id', '=', attribute_color_id.id)])
-                #         if attribute_color_value_id:
-                #             attribute_color_value_id_lis.append(attribute_color_value_id.id)
-                #         else:
-                #             attribute_color_value_id = attribute_value_obj.create({'attribute_id': attribute_color_id.id, 'name': cl})
-                #             attribute_color_value_id_lis.append(attribute_color_value_id.id)
-                            
-                # attribute_size_value_id_lis = []
-                # attribute_size_value_id = False
-                # if size:
-                #     for sz in size.split('/'):
-                #         attribute_size_value_id = attribute_value_obj.search([('name', '=', sz), ('attribute_id', '=', attribute_size_id.id)])
-                #         if attribute_size_value_id:
-                #             attribute_size_value_id_lis.append(attribute_size_value_id.id)
-                #         else:
-                #             attribute_size_value_id = attribute_value_obj.create({'attribute_id': attribute_size_id.id, 'name': sz})
-                #             attribute_size_value_id_lis.append(attribute_size_value_id.id)
-              
-                # attribute_value_list = []
-                # if attribute_color_value_id:
-                #     attribute_value_list.append([0, 0, {'attribute_id': attribute_color_id.id, 'value_ids': [(6,0, attribute_color_value_id_lis)]}])
-                # if attribute_size_value_id:
-                #     attribute_value_list.append([0, 0, {'attribute_id': attribute_size_id.id, 'value_ids': [(6,0, attribute_size_value_id_lis)]}])
 
                 exist_product_template = product_tmpl_obj.search([('name', '=', name),('new_part_code','=',article_number),('old_part_code','=',part_number)])
                 
                 product_barcode = False
-                # if barcode:
-                #     product_barcode = self.env['product.product'].search([('barcode', '=', barcode)])
-                #     if not product_barcode:
-                #         barcode_search = '0' + str(barcode)
-                #         product_barcode = self.env['product.product'].search([('barcode', '=', barcode_search)])
+
 
                 if article_number:
                     product_new_part_code =  self.env['article.number'].search([('name', '=', article_number)],limit = 1)

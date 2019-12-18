@@ -12,7 +12,7 @@ This module useful to import product with product variant.
 
                     """,    
     "version":"10.0.2",
-    "depends" : ["base","sale","sh_message","product","stock","account","sales_team"],
+    "depends" : ["base","sale","sh_message","product","stock","account","sales_team","dobtor_efco_rma"],
     "application" : True,
     "data" : ['security/import_product_var_security.xml',
 

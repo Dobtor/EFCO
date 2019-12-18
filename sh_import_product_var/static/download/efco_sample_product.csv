@@ -1,0 +1,11 @@
+Name,Product Type,Internal Reference,Part Number,Article Number,Category
+conga-QEVAL/Qseven 2.0 x86 B.5,Stockable Product,,007003-B.51,007003-B.51,All
+conga-QEVAL/Qseven 2.0 ARM B.5,,,007005-B.51,007005-B.51,All
+conga-SEVAL A.0,Stockable Product,,007010-A.01,20070-000430-A.0,All
+conga-SEVAL/xxx C.0,,,007010-C.00,007010-C.00,All
+conga-SEVAL C.0,,,007010-C.01,007010-C.01,All
+conga-SEVC/DP1 as HDMI X.0,,,007011-X.01,007011-X.01,All
+conga-SEVC/DP1 as Displayport X.0,,,007012-X.01,007012-X.01,All
+conga-LDVI/EPI B.0,,,011115-B.02,20070-A00331-B.0,All
+conga-COM Express Type6 eDP Evaladapter X.0,,,011116-X.02,011116-X.02,All
+conga-PCB1 B.0,,,011122-B.01,20070-000578-B.0,All
