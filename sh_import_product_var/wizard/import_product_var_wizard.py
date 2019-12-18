@@ -6,11 +6,15 @@ from datetime import datetime
 from odoo.exceptions import UserError, AccessError
 import csv
 import base64
-import io as StringIO
 import xlrd
 from odoo.tools import ustr
 import requests
 import codecs
+
+try:
+    from cStringIO import StringIO
+except ImportError:
+    from io import StringIO
 
 class import_product_var_wizard(models.TransientModel):
     _name="import.product.var.wizard"
@@ -62,14 +66,18 @@ class import_product_var_wizard(models.TransientModel):
                 counter = 1
                 skipped_line_no = {}
                 try:
-                    file = str(base64.decodestring(self.file).decode('utf-8'))
+                    file = str(base64.decodestring(self.file))
+                    myreader = csv.reader(file.splitlines())
+                    total_count = len(list(myreader))
                     myreader = csv.reader(file.splitlines())
                     skip_header=True
                     running_tmpl = None     
                     created_product_tmpl = False   
-                    has_variant = False                                                    
+                    has_variant = False   
+                                                         
                     for row in myreader:
                         try:
+                            print('Count: {} / {}'.format(counter,total_count))          
                             if skip_header:
                                 skip_header=False
                                 counter = counter + 1
@@ -80,9 +88,7 @@ class import_product_var_wizard(models.TransientModel):
                                 if row[0] != running_tmpl:
                                     running_tmpl = row[0]
                                     tmpl_vals = {}
-                                                                        
-                                                  
-
+     
                                     # product name  
                                     tmpl_vals.update({'name' : row[0]})
                                     tmpl_vals.update({'sale_ok' : True})        
@@ -91,7 +97,7 @@ class import_product_var_wizard(models.TransientModel):
                                     if row[1].strip() == 'Service':
                                         tmpl_vals.update({'type' : 'service'})                                          
                                     elif row[1].strip() == 'Stockable Product':
-                                        tmpl_vals.update({'type' : 'product'})                                                                            
+                                        tmpl_vals.update({'type' : 'product'})                                                                                                         
                                     else:
                                         tmpl_vals.update({'type' : 'consu'})    
                                     # internal reference
@@ -130,9 +136,11 @@ class import_product_var_wizard(models.TransientModel):
                                             skipped_line_no[str(counter)] = " - Category not found. " 
                                             counter = counter + 1
                                             continue  
-                                    created_product_tmpl = product_tmpl_obj.create(tmpl_vals)       
-
-
+                                    exist_product = product_tmpl_obj.search([('name','=',tmpl_vals['name'])])
+                                    if not exist_product:
+                                        product_tmpl_obj.create(tmpl_vals)      
+                                    else:
+                                        skipped_line_no[str(counter)] ="Exist Product {}".format(tmpl_vals['name'])
                                 counter = counter + 1                                                
                             else:
                                 skipped_line_no[str(counter)]=" - Name is empty. "  
