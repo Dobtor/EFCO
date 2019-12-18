@@ -22,7 +22,7 @@ class import_product_var_wizard(models.TransientModel):
     import_type = fields.Selection([
         ('csv','CSV File'),
         ('excel','Excel File')
-        ], default="csv", string="Import File Type", required=True)
+        ], default="csv", string="Import CSV", required=True)
     file = fields.Binary(string="File",required=True)
     
     @api.multi
