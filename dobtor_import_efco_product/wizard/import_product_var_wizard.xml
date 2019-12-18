@@ -17,7 +17,7 @@
 			
 			    <div style="float:right;">
 					<strong>Download Sample:</strong>
-					<a href = "/sh_import_product_var/static/download/efco_sample_product.csv" class="btn-primary" style="margin: 0 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;padding: 8px 10px;color: #FFFFFF;"><i class="fa fa-download"/> CSV file </a>
+					<a href = "/dobtor_import_efco_product/static/download/efco_sample_product.csv" class="btn-primary" style="margin: 0 10px;font-size: 12px;line-height: 1.5;border-radius: 3px;padding: 8px 10px;color: #FFFFFF;"><i class="fa fa-download"/> CSV file </a>
 					<!-- <a href = "/sh_import_product_var/static/download/efco_sample_product.xls" class="btn-primary" style="font-size: 12px;line-height: 1.5;border-radius: 3px;padding: 8px 10px;color: #FFFFFF;"><i class="fa fa-download"/> Excel file </a> -->
 				</div>
 			
@@ -32,7 +32,7 @@
   	<field name="name">Import Product Variants</field>
   	<field name="res_model">import.product.var.wizard</field>
   	<field name="view_type">form</field>
-  	<field name="view_id" ref="sh_import_product_var_wizard"/>
+  	<field name="view_id" ref="dobtor_import_efco_product.sh_import_product_var_wizard"/>
   	<field name="target">new</field>
   </record>
 	

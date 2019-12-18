@@ -3,11 +3,11 @@
 	
 <!-- SALE ORDER MENU -->
   <menuitem 
-  	name="Import Product Variants"
-  	action="sh_import_product_var_action" 
+  	name="Import EFCO Product"
+  	action="dobtor_import_efco_product.sh_import_product_var_action" 
   	id="sh_import_product_var_menu" 
   	parent="sales_team.menu_sales"
-  	groups="sh_import_product_var.sh_import_product_var_group" 
+  	groups="dobtor_import_efco_product.sh_import_product_var_group" 
 	sequence="13"    
   />
 

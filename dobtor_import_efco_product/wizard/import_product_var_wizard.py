@@ -29,7 +29,7 @@ class import_product_var_wizard(models.TransientModel):
     def show_success_msg(self,counter,skipped_line_no):
         
         #to close the current active wizard        
-        action = self.env.ref('sh_import_product_var.sh_import_product_var_action').read()[0]
+        action = self.env.ref('dobtor_import_efco_product.sh_import_product_var_action').read()[0]
         action = {'type': 'ir.actions.act_window_close'} 
         
         #open the new success message box    
