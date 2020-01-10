@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	
-<!-- SALE ORDER MENU -->
-  <menuitem 
-  	name="Import EFCO Product"
-  	action="dobtor_import_efco_product.sh_import_product_var_action" 
-  	id="sh_import_product_var_menu" 
-  	parent="sales_team.menu_sales"
-  	groups="dobtor_import_efco_product.sh_import_product_var_group" 
-	sequence="13"    
-  />
+
+	<!-- SALE ORDER MENU -->
+	<menuitem name="Import EFCO Product" action="sh_import_product_var_action" id="sh_import_product_var_menu" parent="sales_team.menu_sales" groups="dobtor_import_efco_product.sh_import_product_var_group" sequence="13" />
 
 
 </odoo>

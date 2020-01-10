@@ -32,7 +32,7 @@
   	<field name="name">Import Product Variants</field>
   	<field name="res_model">import.product.var.wizard</field>
   	<field name="view_type">form</field>
-  	<field name="view_id" ref="dobtor_import_efco_product.sh_import_product_var_wizard"/>
+  	<field name="view_id" ref="sh_import_product_var_wizard"/>
   	<field name="target">new</field>
   </record>
 	
