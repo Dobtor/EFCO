@@ -9,7 +9,8 @@
                         <br class="visible-xs"/>
                         <br class="visible-xs"/>
                         <ul class="nav nav-pills hidden-xs">
-                            <t t-value="(100/len(website.menu_id.child_id))-1" t-set="headmenu" />
+                            <t t-value="len(website.menu_id.child_id)" t-set="menu_child" />
+                            <t t-value="99 if menu_child == 0 else (100/menu_child)-1" t-set="headmenu" />
                             <t t-foreach="website.menu_id.child_id" t-as="submenu">
                                 <li t-att-style="'min-width: %s%s' %(headmenu,'%')" t-if="not submenu.child_id and not submenu.is_megamenu and not submenu.is_dobtormenu" t-att-class="
         'active' if submenu.url and submenu.url != '/' and request.httprequest.path == submenu.url.replace('/page/website.', '/page/') else None
