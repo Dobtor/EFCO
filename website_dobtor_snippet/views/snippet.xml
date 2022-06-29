@@ -1,0 +1,1406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- banner style 2 -->
+  <template id="s_banner_style_2" name="Banner style 2">
+    <div id="myCarousel" class="carousel slide s_banner_style_2 oe_custom_bg" data-interval="10000" style="height: 320px;">
+      <!-- Indicators -->
+      <ol class="carousel-indicators hidden">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item oe_img_bg oe_custom_bg active" style="background-image: url('/website/static/src/img/banner/color_splash.jpg')">
+          <div class="container">
+            <div class="row content">
+              <div class="col-md-6 mt64">
+                <h2>Your Banner Title</h2>
+                <h3>Click to customize this text</h3>
+                <p>
+                  <a href="/page/website.contactus" class="btn btn-success btn-large">Contact us</a>
+                </p>
+              </div>
+              <div class="carousel-img col-md-6 hidden-sm hidden-xs">
+                <img class="img-responsive" src="/website/static/src/img/banner/banner_picture.png" alt="Banner Odoo Image"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-control left hidden" data-target="#myCarousel" data-slide="prev" style="width: 10%">
+        <i class="fa fa-chevron-left"></i>
+      </div>
+      <div class="carousel-control right hidden" data-target="#myCarousel" data-slide="next" style="width: 10%">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </div>
+  </template>
+  <!-- banner style 3 -->
+  <template id="s_banner_style_3" name="Banner style 3">
+    <div id="myCarousel" class="carousel slide s_banner_style_3 oe_custom_bg" data-interval="10000" style="height: 320px;">
+      <!-- Indicators -->
+      <ol class="carousel-indicators hidden">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item oe_img_bg oe_custom_bg active" style="background-image: url('/website/static/src/img/banner/color_splash.jpg')">
+          <div class="container">
+            <div class="row content">
+              <div class="col-md-6 mt64">
+                <h2>Your Banner Title</h2>
+                <h3>Click to customize this text</h3>
+                <p>
+                  <a href="/page/website.contactus" class="btn btn-success btn-large">Contact us</a>
+                </p>
+              </div>
+              <div class="carousel-img col-md-6">
+                <img class="img-responsive" src="/website/static/src/img/banner/banner_picture.png" alt="Banner Odoo Image"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-control left hidden" data-target="#myCarousel" data-slide="prev" style="width: 10%">
+        <i class="fa fa-chevron-left"></i>
+      </div>
+      <div class="carousel-control right hidden" data-target="#myCarousel" data-slide="next" style="width: 10%">
+        <i class="fa fa-chevron-right"></i>
+      </div>
+    </div>
+  </template>
+  <!-- Home Slider snippet -->
+  <template id="s_dobtor_banner" name="Home Slider">
+    <div id="myCarousel" class="carousel slide theme-home-slider s_dobtor_banner" data-interval="10000" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-slide-to="0" data-target="#myCarousel" class="active" />
+        <li data-slide-to="1" data-target="#myCarousel"/>
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item item1 active">
+          <div class="container">
+            <div class="row content">
+              <blockquote class="col-md-6 col-sm-6 col-xs-6">
+                <p>New Collection</p>
+                <h2>Men Blazers</h2>
+                <h5>Save                                                                                                                                                                                                                                         
+                                                                        <span>20%</span>
+                </h5>
+                <div class="btn-box">
+                  <a href="#">Shop now                                                                                                                                                                                                                                                                   
+                                                                                <i class="fa fa-angle-right"/>
+                  </a>
+                </div>
+              </blockquote>
+              <div class="col-md-6 col-sm-6 col-xs-6">
+                <img src="/website_dobtor_snippet/static/src/images/men-blazer.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item item2">
+          <div class="container">
+            <div class="row content">
+              <blockquote class="pull-right col-md-5 col-sm-6 col-xs-6">
+                <p>Western Wear</p>
+                <h2>Women Tops</h2>
+                <h5>Save                                                                                                                                                                                                                                         
+                                                                        <span>20%</span>
+                </h5>
+                <div class="btn-box">
+                  <a href="#">Shop now                                                                                                                                                                                                                                                                   
+                                                                                <i class="fa fa-angle-right"/>
+                  </a>
+                </div>
+              </blockquote>
+              <div class="col-md-7 col-sm-6 col-xs-6">
+                <img src="/website_dobtor_snippet/static/src/images/women-top.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Controls -->
+      <a class="left carousel-control" data-target="#myCarousel" data-slide="prev" role="button">
+        <span aria-hidden="true" class="previous-icon">
+          <img src="/website_dobtor_snippet/static/src/images/prev-slide.png"/>
+        </span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" data-slide="next" data-target="#myCarousel" role="button">
+        <span aria-hidden="true" class="next-icon">
+          <img src="/website_dobtor_snippet/static/src/images/next-slide.png"/>
+        </span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </template>
+  <!-- Big picture text -->
+  <template id="s_dobtor_picture_text" name="Dobtor picture text">
+    <section class="oe_snippet_body">
+      <div class="full-width-section">
+        <div class="full-image-container">
+          <img class="center-block" src="/website_dobtor_snippet/static/src/images/divers/section-image-8.jpg" alt=""/>
+        </div>
+        <div class="full-text-container">
+          <h1>Wellcome to the Future</h1>
+          <div class="separator-2"></div>
+          <p class="lead">Lorem ipsum dolor sit amet. Maiores, odio ut deleniti doloremque ad at praesentium laudantium.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi veniam, veritatis sint consequuntur! Natus, culpa, explicabo! Non quo laboriosam nobis quia, amet excepturi optio dolor impedit. Perferendis libero unde, nulla deserunt sequi. Voluptatum, officia suscipit porro reprehenderit vitae quo rem reiciendis, a vero quae. Vero beatae voluptatum.</p>
+          <a href="/page/website.contactus" class="btn btn-success btn-large o_default_snippet_text">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </template>
+  <!-- 1 Column-->
+  <template id="s_dobtor_1_column_text" name="1 Column">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="main col-md-12">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <!-- 2 Column -->
+  <template id="s_dobtor_2_column_text" name="2 Columns">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_3_column_text" name="3 Columns">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_4_column_text" name="4 Columns">
+    <section class="oe_snippet_body louma">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h2 class="page-title">Custom Pages</h2>
+            <div class="separator-2"></div>
+            <p>
+              Our #1 priority is you, the user. We believe in our product and hold ourselves to the highest standards. We truly care about your site as much as you do, which is why we offer amazing support at our dedicated support center. In addition, we offer free updates with new features requested by our users. You can count on us.
+                                                                                                                                                                        
+                                                        <br/>
+This theme gives you limitless potential to build amazing pages. Easily create unique page layouts using the tools we provide. In addition, we have you covered with dozens of beautiful pre-designed pages you can quickly choose from.
+                                                                                                                                                            
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_big_icon" name="Big Icon">
+    <section class="oe_snippet_body louma container">
+      <div class="stats row">
+        <div class="big-icon-col-louma col-md-3 col-sm-6 box-style-1">
+          <div>
+            <h2 class="title">Projects</h2>
+            <i class="fa fa-briefcase fa-5x"></i>
+            <span class="stat-num counting" data-to="1525" data-speed="3000">1525</span>
+          </div>
+        </div>
+        <div class="big-icon-col-louma col-md-3 col-sm-6 box-style-1">
+          <div>
+            <h2 class="title">Clients</h2>
+            <i class="fa fa-users fa-5x"></i>
+            <span class="stat-num counting" data-to="1125" data-speed="3000">1125</span>
+          </div>
+        </div>
+        <div class="big-icon-col-louma col-md-3 col-sm-6 box-style-1">
+          <div>
+            <h2 class="title">Downloads</h2>
+            <i class="fa fa-cloud-download fa-5x"></i>
+            <span class="stat-num counting" data-to="1836" data-speed="3000">1836</span>
+          </div>
+        </div>
+        <div class="big-icon-col-louma col-md-3 col-sm-6 box-style-1">
+          <div>
+            <h2 class="title">Likes</h2>
+            <i class="fa fa-thumbs-o-up fa-5x"></i>
+            <span class="stat-num counting" data-to="2687" data-speed="3000">2687</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_big_image" name="Big Image">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Why Choose Louma</h1>
+            <div class="separator"></div>
+            <p class="lead text-center">
+              Lorem ipsum dolor sit amet. Maiores, odio ut deleniti doloremque ad at praesentium
+                                                                                                                                                                        
+                                                        <br></br> laudantium molestias similique. Quisquam incidunt ut laboriosam.
+                                                                                                                                                            
+            
+            
+            
+            </p>
+            <center>
+              <img src="/website_dobtor_snippet/static/src/images/divers/section-image-3.png" />
+            </center>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_text_big_picture" name="Text big picture">
+    <section class="oe_snippet_body louma">
+      <div class="full-width-section">
+        <div class="full-text-container">
+          <h1>Wellcome to the Future</h1>
+          <div class="separator-2"></div>
+          <p class="lead">Lorem ipsum dolor sit amet. Maiores, odio ut deleniti doloremque ad at praesentium laudantium.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi veniam, veritatis sint consequuntur! Natus, culpa, explicabo! Non quo laboriosam nobis quia, amet excepturi optio dolor impedit. Perferendis libero unde, nulla deserunt sequi. Voluptatum, officia suscipit porro reprehenderit vitae quo rem reiciendis, a vero quae. Vero beatae voluptatum.</p>
+        </div>
+        <div class="full-image-container">
+          <img class="center-block" src="/website_dobtor_snippet/static/src/images/divers/section-image-8.jpg" alt=""/>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_button_text" name="Button and text">
+    <section class="oe_snippet_body louma">
+      <div class="container">
+        <div class="oe_share">
+          <a href="/page/website.contactus" class="btn btn-success btn-lg mt8">
+            <i class="fa fa-arrow-right"></i>
+            Contact Us Now
+                                                                                                                                  
+          
+          
+          
+          </a>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_features" name="Features">
+    <section class="main-container gray-bg" style="margin-top: 0px;">
+      <div class="main">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="text-center title">Features</h1>
+              <div class="separator"></div>
+              <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="box-style-1 white-bg object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="0">
+                    <i class="fa fa-paint-brush"></i>
+                    <h2>Beautiful Design</h2>
+                    <p>Voluptatem ad provident non repudiandae veritatis beatae cupiditate amet reiciendis.</p>
+                    <a href="#" class="btn-default btn">Read More</a>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="box-style-1 white-bg object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+                    <i class="fa fa-mobile"></i>
+                    <h2>100 % Responsive</h2>
+                    <p>Voluptatem ad provident non repudiandae veritatis beatae cupiditate amet reiciendis.</p>
+                    <a href="" class="btn-default btn">Read More</a>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="box-style-1 white-bg object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="400">
+                    <i class="fa fa-shopping-cart"></i>
+                    <h2>Great E-Commerce</h2>
+                    <p>Voluptatem ad provident non repudiandae veritatis beatae cupiditate amet reiciendis.</p>
+                    <a href="" class="btn-default btn">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_icon_box" name="Icon Box">
+    <section class="oe_snippet_body louma">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row grid-space-10">
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="0">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-leaf"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Clean Design and Code</h2>
+                    <p>Voluptatem ad provident non veritatis beatae cupiditate amet reiciendis.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="200">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-laptop"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Very Flexible</h2>
+                    <p>Iure sequi unde hic. Sapiente quaerat labore inventore veritatis cumque.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="400">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-sitemap"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Latest Technologies</h2>
+                    <p>Inventore dolores aut laboriosam cum consequuntur delectus sequi! Eum est.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row grid-space-10">
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="600">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-bold"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Bootstrap Based</h2>
+                    <p>Voluptatem ad provident non veritatis beatae cupiditate amet reiciendis.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="800">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-check"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Unlimited Options</h2>
+                    <p>Iure sequi unde hic. Sapiente quaerat labore inventore veritatis cumque.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box-style-2 object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall" data-effect-delay="1000">
+                  <div class="icon-container white-bg">
+                    <i class="fa fa-bicycle"></i>
+                  </div>
+                  <div class="body">
+                    <h2>Easy to Use</h2>
+                    <p>Inventore dolores aut laboriosam cum consequuntur delectus sequi! Eum est.</p>
+                    <a href="page-services.html" class="link">
+                      <span>Read More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_lead_bar" name="Lead Bar">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="call-to-action">
+          <div class="row">
+            <div class="col-md-8">
+              <h1 class="title text-center">Responsive Odoo Theme</h1>
+              <p class="text-center">CLEAN was made with easy customization in mind.</p>
+            </div>
+            <div class="col-md-4">
+              <div class="text-center">
+                <a href="#" class="btn btn-default btn-lg">Theme Features</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_page_header" name="Page header 2">
+    <section class="oe_snippet_body fixed-image section dark-translucent-bg oe_img_bg" style="background-image:url('/website_dobtor_snippet/static/src/images/divers/section-image-9.jpg');">
+      <div class="banner" style="background-color: transparent;border: none;">
+        <div class="">
+          <div class="container">
+            <div class="space-top"></div>
+            <h1>Welcome to Louma</h1>
+            <div class="separator-2"></div>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae sit excepturi,                                                                                                                                                                         
+                                                        <br class="hidden-xs hidden-sm"></br> hic officiis illo dolore sunt assumenda saepe id commodi sint praesentium                                                                                                                                                                         
+                                                        <br class="hidden-xs hidden-sm"></br> natus laborum quas cumque facilis, suscipit aliquam dolorum.
+                                                                                                                                                            
+            
+            
+            
+            </p>
+          </div>
+        </div>
+        <!-- <div class="page-intro"><div class="container"><div class="row"><div class="col-md-12"><ol class="breadcrumb"><li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li><li class="active">About Us</li></ol></div></div></div></div> -->
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_discount" name="Pricing Table">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="pricing-tables gray object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall">
+            <div class="row grid-space-0">
+              <!-- pricing table start -->
+              <div class="col-sm-3 plan">
+                <div class="header">
+                  <h3>Basic</h3>
+                  <div class="price">
+                    <span>Free</span>
+                  </div>
+                </div>
+                <ul>
+                  <li>1 User</li>
+                  <li>
+                    <a href="#" class="pt-popover" data-toggle="popover" data-placement="right" data-content="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="" data-original-title="15GB Storage" data-trigger="hover">1GB Storage</a>
+                  </li>
+                  <li>
+                    <a href="#" class="pt-popover" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="" data-original-title="15 Email Acounts">1 Email Acounts</a>
+                  </li>
+                  <li>Subdomains</li>
+                  <li>Security</li>
+                  <li>Bandwidth</li>
+                  <li>Databases</li>
+                  <li>
+                    <a class="btn btn-gray">Subscribe</a>
+                  </li>
+                </ul>
+              </div>
+              <!-- pricing table end -->
+              <!-- pricing table start -->
+              <div class="col-sm-3 plan">
+                <div class="header">
+                  <h3>Premium</h3>
+                  <div class="price">
+                    <span>$19.99</span>/m.
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </div>
+                </div>
+                <ul>
+                  <li>80 Users</li>
+                  <li>Unlimited Disk Space</li>
+                  <li>
+                    <a href="#" class="pt-popover" data-toggle="popover" data-placement="right" data-content="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="" data-original-title="Unlimited Subdomains">Unlimited Email Acounts</a>
+                  </li>
+                  <li>Subdomains</li>
+                  <li>Security</li>
+                  <li>500 Visitors per month</li>
+                  <li>1 Database</li>
+                  <li>
+                    <a class="btn btn-gray">
+                      <i class="fa fa-shopping-cart pr-10"></i>Add to cart
+                                                                                                                                                                                                                                                                    
+                    
+                    
+                    
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- pricing table end -->
+              <!-- pricing table start -->
+              <div class="col-sm-3 plan best-value">
+                <div class="header">
+                  <h3>Pro</h3>
+                  <div class="price">
+                    <span>$24.99</span>/m.
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </div>
+                </div>
+                <ul>
+                  <li>Unlimited Users</li>
+                  <li>Unlimited Disk Space</li>
+                  <li>Unlimited Email Acounts</li>
+                  <li>Unlimited Subdomains</li>
+                  <li>
+                    <a href="#" class="pt-popover" data-toggle="popover" data-placement="right" data-content="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="" data-original-title="Enchaned Security">Enchaned Security</a>
+                  </li>
+                  <li>Unlimited Bandwidth</li>
+                  <li>Unlimited Databases</li>
+                  <li>
+                    <a class="btn btn-gray">
+                      <i class="fa fa-shopping-cart pr-10"></i>Add to cart
+                                                                                                                                                                                                                                                                    
+                    
+                    
+                    
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- pricing table end -->
+              <!-- pricing table start -->
+              <div class="col-sm-3 plan">
+                <div class="header">
+                  <h3>Ultimate</h3>
+                  <div class="price">
+                    <span>$45.99</span>/m.
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </div>
+                </div>
+                <ul>
+                  <li>Unlimited Users</li>
+                  <li>Unlimited Disk Space</li>
+                  <li>Unlimited Email Acounts</li>
+                  <li>Unlimited Subdomains</li>
+                  <li>
+                    <a href="#" class="pt-popover" data-toggle="popover" data-placement="right" data-content="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." title="" data-original-title="Enchaned Security">Enchaned Security</a>
+                  </li>
+                  <li>Unlimited Bandwidth</li>
+                  <li>Unlimited Databases</li>
+                  <li>
+                    <a class="btn btn-gray">
+                      <i class="fa fa-shopping-cart pr-10"></i>Add to cart
+                                                                                                                                                                                                                                                                    
+                    
+                    
+                    
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- pricing table end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_separator_block" name="Separator">
+    <section class="oe_snippet_body">
+      <div class="separator" style="width: 80%;"></div>
+    </section>
+  </template>
+  <template id="s_dobtor_sidebar_menu" name="Sidebar menu">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="sidebar">
+              <div class="block clearfix">
+                <h3 class="title">Sidebar menu</h3>
+                <div class="separator"></div>
+                <nav>
+                  <ul class="nav nav-pills nav-stacked">
+                    <li>
+                      <a href="#">Home</a>
+                    </li>
+                    <li>
+                      <a href="#">Blog</a>
+                    </li>
+                    <li>
+                      <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                      <a href="#">About</a>
+                    </li>
+                    <li>
+                      <a href="#">Contact</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_team_profiles" name="Team Profiles 1">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <h2>Our Team</h2>
+        <div class="separator-2"></div>
+        <p class="lead">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus.</p>
+        <div class="row grid-space-20">
+          <div class="col-md-3 col-sm-6">
+            <div class="box-style-1 gray-bg team-member panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-1.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links light clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <h3>Jane Doe</h3>
+              CEO                                                                                                                                         
+            
+            
+            
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="box-style-1 gray-bg team-member panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-2.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links light clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <h3>John Doe</h3>
+              CTO                                                                                                                                           
+            
+            
+            
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="box-style-1 gray-bg team-member panel-default">
+              <div class="overlay-container ">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-3.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links light clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <h3>Anne Smith</h3>
+              Project Manager
+                                                                                                                                                            
+            
+            
+            
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="box-style-1 gray-bg team-member panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-4.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links light clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <h3>Margaret Manson</h3>
+              Developer
+                                                                                                                                                            
+            
+            
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_team_profiles_2" name="Team Profiles 2">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <h2>Our Team</h2>
+        <div class="separator-2"></div>
+        <p class="lead">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus.</p>
+        <div class="row grid-space-20">
+          <div class="col-lg-6 col-md-12">
+            <div class="image-box team-member option-3 panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-1.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links colored clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <div class="image-box-body">
+                <h3 class="title">Jane Doe</h3>
+                <small>CEO</small>
+                <div class="separator-2"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, optio voluptate sapiente hic.</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fa fa-phone pr-10"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-mobile pr-10 pl-5"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope pr-10"></i>
+                    <a href="">example@louma.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="image-box team-member option-3 panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-2.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links colored clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <div class="image-box-body">
+                <h3 class="title">John Doe</h3>
+                <small>CTO</small>
+                <div class="separator-2"></div>
+                <p>Dolorum deserunt inventore iste expedita vel odio doloremque corporis officia atque enetur quam quae.</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fa fa-phone pr-10"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-mobile pr-10 pl-5"></i> +12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope pr-10"></i>
+                    <a href="mailto:example@Louma.com">example@louma.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="image-box team-member option-3 panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-3.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links colored clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <div class="image-box-body">
+                <h3 class="title">Anne Smith</h3>
+                <small>project Manager</small>
+                <div class="separator-2"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, optio voluptate sapiente hic.</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fa fa-phone pr-10"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-mobile pr-10 pl-5"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope pr-10"></i>
+                    <a href="mailto:example@louma.com">example@louma.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="image-box team-member option-3 panel-default">
+              <div class="overlay-container">
+                <div class="grid figure effect-apollo">
+                  <a href="javascript:void(0);">
+                    <img src="/website_dobtor_snippet/static/src/images/divers/team-member-4.jpg" alt=""/>
+                  </a>
+                </div>
+                <!-- <div class="overlay"><ul class="social-links colored clearfix"><li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li><li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li><li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li></ul></div> -->
+              </div>
+              <div class="image-box-body">
+                <h3 class="title">Margaret Manson</h3>
+                <small>Developer</small>
+                <div class="separator-2"></div>
+                <p>Dolorum deserunt inventore iste expedita vel odio doloremque corporis officia atque enetur quam quae.</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fa fa-phone pr-10"></i>+12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-mobile pr-10 pl-5"></i> +12 123 456 7912
+                                                                                                                                                                                                                                          
+                  
+                  
+                  
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope pr-10"></i>
+                    <a href="mailto:example@louma.com">example@louma.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_title" name="Title">
+    <section class="oe_snippet_body">
+      <div class="container">
+        <div class="oe_share">
+          <h1 class="text-center">Category</h1>
+          <div class="separator"></div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_testimonials" name="Testimonials">
+    <section class="oe_snippet_body">
+      <div class="testimonial-col-louma col-md-8 text-muted clearfix pr-20 pl-20">
+        <div class="testimonial clearfix">
+          <div class="testimonial-image">
+            <img src="/website_dobtor_snippet/static/src/images/divers/testimonial-3.jpg" alt="Jane Doe" title="Jane Doe" class="img-circle"/>
+          </div>
+          <div class="testimonial-body">
+            <h2 class="title">Thanks!</h2>
+            <p>Laboriosam eius, delectus reiciendis fugit totam, doloremque ut ipsa vel id tempora quaerat facere, quo fugiat perferendis incidunt iusto ea doloribus! Quaerat, minus.</p>
+            <div class="testimonial-info-1">- Jane Doe</div>
+            <div class="testimonial-info-2">By Company</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_gallery32" name="gallery 3*2">
+    <section class="s_dobtor_gallery oe_snippet_body">
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="container">
+          <div>
+            <h3>OUR PROJECTS</h3>
+          </div>
+          <div class="row" style="margin-bottom:26px;">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom:26px;">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_gallery" name="gallery">
+    <section class="s_dobtor_gallery oe_snippet_body">
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="container">
+          <div>
+            <h3>OUR PROJECTS</h3>
+          </div>
+          <div class="row" style="margin-bottom:26px;">
+            <div class="col-md-3 col-sm-3">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="gallery-grid">
+                    <div class="grid figure effect-apollo">
+                      <img src="/website_dobtor_snippet/static/src/images/divers/gallery-7.jpg" alt=""/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+              <div class="row" style="margin-bottom:26px;">
+                <div class="col-md-4 col-sm-4">
+                  <div class="gallery-grid">
+                    <div class="grid figure effect-apollo">
+                      <img src="/website_dobtor_snippet/static/src/images/divers/gallery-8.jpg" alt=""/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <div class="gallery-grid">
+                    <div class="grid figure effect-apollo">
+                      <img src="/website_dobtor_snippet/static/src/images/divers/gallery-1.jpg" alt=""/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-sm-8">
+                  <div class="gallery-grid">
+                    <div class="grid figure effect-apollo">
+                      <img src="/website_dobtor_snippet/static/src/images/divers/gallery-6.jpg" alt=""/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                  <div class="gallery-grid">
+                    <div class="grid figure effect-apollo">
+                      <img src="/website_dobtor_snippet/static/src/images/divers/gallery-2.jpg" alt=""/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom:26px;">
+            <div class="col-md-6 col-sm-6">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-1.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="gallery-grid">
+                <div class="grid figure effect-apollo">
+                  <img src="/website_dobtor_snippet/static/src/images/divers/gallery-6.jpg" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <!-- Tabs -->
+  <template id="s_dobtor_snippet_tabs" name="Tabs">
+    <section class="oe_snippet_body cst mt16 mb16">
+      <div class="container">
+        <div class="row emba_tabs">
+          <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">
+                  <img src="/website_dobtor_snippet/static/src/images/emba/admissions01.png" class="img-rounded shadow"/>
+                  Key your Title
+                                                                                                                                                                                                
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">
+                  <img src="/website_dobtor_snippet/static/src/images/emba/admissions02.png" class="img-rounded shadow"/>
+                   Key your Title
+                                                                                                                                                                                                
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">
+                  <img src="/website_dobtor_snippet/static/src/images/emba/admissions03.png" class="img-rounded shadow"/>
+                  Key your Title
+                                                                                                                                                                                                
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">
+                  <img src="/website_dobtor_snippet/static/src/images/emba/admissions04.png" class="img-rounded shadow"/>
+                  Key your Title                                                                                                                                                                                                        
+                </a>
+              </li>
+              <li role="presentation">
+                <a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">
+                  <img src="/website_dobtor_snippet/static/src/images/emba/admissions05.png" class="img-rounded shadow"/>
+                  Key your Title                                                                                                                                                                                                                       
+                </a>
+              </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="oe_structure oe_empty tab-pane active" id="tab1">
+                <section class="mb16">
+                  <!-- Text Block snippet -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12 text-center mt16 mb32">
+                        <h2>A Great Headline</h2>
+                        <h3 class="text-muted">A good subtitle</h3>
+                      </div>
+                      <div class="col-md-12 mb16 mt16">
+                        <p>A great way to catch your reader's attention is to tell a
+                                                                story. Everything you consider writing can be told as a
+                                                                story.</p>
+                        <p>
+                          <b>Great stories have personality.</b> Consider telling a
+                                                                great story that provides personality. Writing a story with
+                                                                personality for potential clients will asist with making a
+                                                                relationship connection. This shows up in small quirks like
+                                                                word choices or phrases. Write from your point of view, not
+                                                                from someone else's experience.
+                                                                                                                                                                                                                                                                                                
+                        
+                        
+                        
+                        </p>
+                        <p>
+                          <b>Great stories are for everyone even when only written for
+                                                                just one person.</b> If you try to write with a wide general
+                                                                audience in mind, your story will ring false and be bland. No
+                                                                one will be interested. Write for one person. If it’s genuine
+                                                                for the one, it’s genuine for the rest.
+                                                                                                                                                                                                                                                                                                
+                        
+                        
+                        
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab2">
+                <section class="mt16 mb16">
+                  <!-- Text-Image snippet -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6 mt16">
+                        <h3>A Section Subtitle</h3>
+                        <p>Write one or two paragraphs describing your product or
+                                                                services. To be successful your content needs to be useful to
+                                                                your readers.</p>
+                        <p>Start with the customer – find out what they want and give
+                                                                it to them.</p>
+                      </div>
+                      <div class="col-md-6 mt16">
+                        <img alt="Odoo text and image block" class="img img-responsive shadow mb16" src=
+                                                            "/website/static/src/img/text_image.png"/>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab3">
+                <!-- Image-Text snippet -->
+                <section class="mt16 mb16">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6 mt16">
+                        <img alt="Odoo image and text block" class="img img-responsive shadow mb16" src=
+                                                            "/website/static/src/img/image_text.jpg"/>
+                      </div>
+                      <div class="col-md-6 mt16">
+                        <h3>A Section Subtitle</h3>
+                        <p>Write one or two paragraphs describing your product,
+                                                                services or a specific feature. To be successful your content
+                                                                needs to be useful to your readers.</p>
+                        <p>Start with the customer – find out what they want and give
+                                                                it to them.</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab4">
+                <section class="mb16">
+                  <!-- Text Block snippet -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12 text-center mt16 mb32">
+                        <h2>Change your title</h2>
+                        <h3 class="text-muted">A good subtitle</h3>
+                      </div>
+                      <div class="col-md-12 mb16 mt16">
+                        <p>A great way to catch your reader's attention is to tell a
+                                                                              story. Everything you consider writing can be told as a
+                                                                              story.</p>
+                        <p>
+                          <b>Great stories have personality.</b> Consider telling a
+                                                                              great story that provides personality. Writing a story with
+                                                                              personality for potential clients will asist with making a
+                                                                              relationship connection. This shows up in small quirks like
+                                                                              word choices or phrases. Write from your point of view, not
+                                                                              from someone else's experience.
+                                                                                                                                                                                                                                                                                                                                      
+                        
+                        
+                        
+                        </p>
+                        <p>
+                          <b>Great stories are for everyone even when only written for
+                                                                              just one person.</b> If you try to write with a wide general
+                                                                              audience in mind, your story will ring false and be bland. No
+                                                                              one will be interested. Write for one person. If it’s genuine
+                                                                              for the one, it’s genuine for the rest.
+                                                                                                                                                                                                                                                                                                                                      
+                        
+                        
+                        
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div role="tabpanel" class="oe_structure oe_empty tab-pane" id="tab5">
+                <section class="mb16">
+                  <!-- Text Block snippet -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12 text-center mt16 mb32">
+                        <h2>Key your title</h2>
+                        <h3 class="text-muted">A great subtitle</h3>
+                      </div>
+                      <div class="col-md-12 mb16 mt16">
+                        <p>A great way to catch your reader's attention is to tell a
+                                                                              story. Everything you consider writing can be told as a
+                                                                              story.</p>
+                        <p>
+                          <b>Great stories have personality.</b> Consider telling a
+                                                                              great story that provides personality. Writing a story with
+                                                                              personality for potential clients will asist with making a
+                                                                              relationship connection. This shows up in small quirks like
+                                                                              word choices or phrases. Write from your point of view, not
+                                                                              from someone else's experience.
+                                                                                                                                                                                                                                                                                                                                      
+                        
+                        
+                        
+                        </p>
+                        <p>
+                          <b>Great stories are for everyone even when only written for
+                                                                              just one person.</b> If you try to write with a wide general
+                                                                              audience in mind, your story will ring false and be bland. No
+                                                                              one will be interested. Write for one person. If it’s genuine
+                                                                              for the one, it’s genuine for the rest.
+                                                                                                                                                                                                                                                                                                                                      
+                        
+                        
+                        
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <template id="s_dobtor_snippet_tabs_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+      <div data-js="snippet_testimonial_options" data-snippet-option-id="s_dobtor_snippet_tabs" data-selector=".cst">
+        <li class="divider"></li>
+        <!-- <li><a href="#" class="js_add" data-_add_new_tab="true">Add New Tab</a></li><li><a href="#" class="js_remove" data-_remove_current_tab="true">Remove Current Tab</a></li> -->
+      </div>
+    </xpath>
+  </template>
+  <template id="dobtor_snippet_blocks" inherit_id="website.snippets">
+    <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="inside">
+      <t t-snippet="website_dobtor_snippet.s_banner_style_2" t-thumbnail="/website/static/src/img/blocks/block_banner.png"/>
+      <t t-snippet="website_dobtor_snippet.s_banner_style_3" t-thumbnail="/website/static/src/img/blocks/block_banner.png"/>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_banner" t-thumbnail="/website/static/src/img/blocks/block_banner.png"/>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_1_column_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/one_column.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_2_column_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/tow_column.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_3_column_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/three_column.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_4_column_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/four_column.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_big_icon" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/big_icon.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_big_image" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/big_image.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_picture_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/big_picture_texte.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_button_text" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/button.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_text_big_picture" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/texte_big_picture.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_features" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/features.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_icon_box" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/icon_box.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_lead_bar" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/lead_bar.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_page_header" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/page_header_2.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_discount" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/pricing_tables.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_separator_block" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/separator.png"></t>
+      <!-- <t t-snippet="website_dobtor_snippet.s_dobtor_sidebar_menu" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/sidebar_menu.png"></t> -->
+      <t t-snippet="website_dobtor_snippet.s_dobtor_team_profiles" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/team_profiles_1.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_team_profiles_2" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/team_profiles_2.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_title" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/title.png"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_gallery" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/gallery_thumb.jpg"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_gallery32" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/gallery_thumb.jpg"></t>
+      <t t-snippet="website_dobtor_snippet.s_dobtor_snippet_tabs" t-thumbnail="/website_dobtor_snippet/static/src/images/blocks/thumbnail.png"></t>
+    </xpath>
+  </template>
+</odoo>
+
+

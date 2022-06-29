@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- layout assets -->
+  <template id="assets_frontend_extend" inherit_id="website.assets_frontend">
+    <xpath expr="." position="inside">
+      <link href="/website_dobtor_snippet/static/src/less/web.less" rel="stylesheet" type="text/less"/>
+      <script type="text/javascript" src="/website_dobtor_snippet/static/src/js/tab_event.js" />
+    </xpath>
+    <xpath expr="link[1]" position="before">
+      <!-- <link rel="stylesheet" href="/website_dobtor_snippet/static/src/css/styles.css"/> -->
+      <link rel="stylesheet" href="/website_dobtor_snippet/static/src/css/dobtor_snippet.css"/>
+      <link rel="stylesheet" href="/website_dobtor_snippet/static/src/css/gallery_style.css"/>
+      <link rel="stylesheet" href="/website_dobtor_snippet/static/src/css/custom_tabs.css"/>
+    </xpath>
+  </template>
+
+    
+  <template id="assets_editor" inherit_id="website.assets_editor">
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/website_dobtor_snippet/static/src/js/snippet.editor.js" />
+    </xpath>
+  </template>
+</odoo>
